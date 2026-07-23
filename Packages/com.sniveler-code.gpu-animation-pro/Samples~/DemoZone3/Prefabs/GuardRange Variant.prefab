@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3968989575177147751
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285699464365674159, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129343687990497845, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: Slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129343687990497845, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: Slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60e5f452ae19b46409764a1edf3cc9e2,
+        type: 2}
+    - target: {fileID: 5062099209275498821, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      propertyPath: m_Name
+      value: GuardRange Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5062099209275498821, guid: 6f4aa30cc5353684887653bd02bf962f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4649004241311885309}
+  m_SourcePrefab: {fileID: 100100000, guid: 6f4aa30cc5353684887653bd02bf962f, type: 3}
+--- !u!1 &8166326384215421986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5062099209275498821, guid: 6f4aa30cc5353684887653bd02bf962f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3968989575177147751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4649004241311885309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166326384215421986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e117951fad4b3da6f4f57850f69c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  radius: 0.4
+  paramSpeedIndex: 0
+  animationHitIndex: 4
+  animationDeathIndex: 5
+  attacks:
+  - AnimationName: Range
+    AnimationIndex: 6
+    DamageFrame: 4
+    Range: 30
+    Damage: 20
+    Cooldown: 1.5
+    Type: 1
+    ProjectilePrefab: {fileID: 3809986279463903593, guid: c8a1dcde4256b864aa7831027f018b8f,
+      type: 3}
+    Weight: 1

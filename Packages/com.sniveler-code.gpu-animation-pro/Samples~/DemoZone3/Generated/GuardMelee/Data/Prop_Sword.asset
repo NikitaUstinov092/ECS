@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d734bcd8e24564b8a241d93e4f3a2c, type: 3}
+  m_Name: Prop_Sword
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1077450658586650895, guid: cffee91353aeae2499372990e96103cb, type: 3}
+  defaultBoneOffset:
+    Index: 0
+    Offset:
+      e00: -0.36697933
+      e01: 0.93022907
+      e02: 0.00000037804287
+      e03: -1.3481635
+      e10: -0.93022877
+      e11: -0.3669795
+      e12: -0.0000000047610405
+      e13: 0.69221866
+      e20: 0.000000075944044
+      e21: -0.0000005314378
+      e22: 0.99999994
+      e23: 0.021425778
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  events: []

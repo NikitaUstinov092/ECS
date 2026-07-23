@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; flex-direction: row; justify-content: flex-end;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; width: 200px; height: auto; background-color: rgba(0, 0, 0, 0.38); border-radius: 5px; margin: 10px; padding: 10px; border-width: 1px; border-color: rgba(255, 255, 255, 0.17);">
+            <ui:Button text="Idle" enable-rich-text="false" name="idle" class="my-custom-button" />
+            <ui:Button text="Walk" enable-rich-text="false" name="walk" class="my-custom-button" />
+            <ui:Button text="Run" enable-rich-text="false" name="run" class="my-custom-button" />
+            <ui:Button text="Attack" enable-rich-text="false" name="attack" class="my-custom-button" />
+            <ui:Button text="Hit" enable-rich-text="false" name="hit" class="my-custom-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

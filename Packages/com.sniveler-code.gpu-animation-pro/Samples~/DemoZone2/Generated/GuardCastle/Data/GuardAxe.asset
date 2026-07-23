@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d734bcd8e24564b8a241d93e4f3a2c, type: 3}
+  m_Name: GuardAxe
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6896251354519778389, guid: b68b6356b91a718478f489d6b96b59e4, type: 3}
+  defaultBoneOffset:
+    Index: 0
+    Offset:
+      e00: -0.97070557
+      e01: -0.09344707
+      e02: -0.22135629
+      e03: -0.037375484
+      e10: 0.13056152
+      e11: -0.9785341
+      e12: -0.1594519
+      e13: 0.46612605
+      e20: -0.20170432
+      e21: -0.18368144
+      e22: 0.96206886
+      e23: -0.19748372
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  events:
+  - AnimationIndex: 3
+    TriggerFrame: 51
+    BoneOffset:
+      Index: 2
+      Offset:
+        e00: 0.26322964
+        e01: -0.95804316
+        e02: -0.1134156
+        e03: -0.02447015
+        e10: 0.8007609
+        e11: 0.28254005
+        e12: -0.5281597
+        e13: 0.24102004
+        e20: 0.53804445
+        e21: 0.048208605
+        e22: 0.8415368
+        e23: 0.12482732
+        e30: 0
+        e31: 0
+        e32: 0
+        e33: 1
+  - AnimationIndex: 4
+    TriggerFrame: 51
+    BoneOffset:
+      Index: 0
+      Offset:
+        e00: -0.97070557
+        e01: -0.09344707
+        e02: -0.22135629
+        e03: -0.037375484
+        e10: 0.13056152
+        e11: -0.9785341
+        e12: -0.1594519
+        e13: 0.46612605
+        e20: -0.20170432
+        e21: -0.18368144
+        e22: 0.96206886
+        e23: -0.19748372
+        e30: 0
+        e31: 0
+        e32: 0
+        e33: 1

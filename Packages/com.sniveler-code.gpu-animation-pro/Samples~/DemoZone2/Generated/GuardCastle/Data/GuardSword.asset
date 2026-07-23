@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d734bcd8e24564b8a241d93e4f3a2c, type: 3}
+  m_Name: GuardSword
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1077450658586650895, guid: b9edde21198860541b4be4f3c70537c3, type: 3}
+  defaultBoneOffset:
+    Index: 0
+    Offset:
+      e00: 0.9817897
+      e01: 0.1879244
+      e02: -0.027811106
+      e03: -0.21007943
+      e10: -0.1891801
+      e11: 0.95382196
+      e12: -0.23331232
+      e13: -0.86690736
+      e20: -0.017318176
+      e21: 0.23432493
+      e22: 0.97200406
+      e23: -0.54088855
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  events:
+  - AnimationIndex: 3
+    TriggerFrame: 51
+    BoneOffset:
+      Index: 2
+      Offset:
+        e00: -0.34655607
+        e01: 0.9142377
+        e02: -0.20992498
+        e03: -1.3169967
+        e10: -0.6255585
+        e11: -0.3920135
+        e12: -0.6745384
+        e13: 0.74058354
+        e20: -0.6989818
+        e21: -0.10244503
+        e22: 0.70776385
+        e23: 0.19794415
+        e30: 0
+        e31: 0
+        e32: 0
+        e33: 1
+  - AnimationIndex: 4
+    TriggerFrame: 51
+    BoneOffset:
+      Index: 0
+      Offset:
+        e00: 0.97687626
+        e01: 0.21347865
+        e02: -0.011838198
+        e03: -0.25050992
+        e10: -0.21053414
+        e11: 0.950798
+        e12: -0.22728695
+        e13: -0.86532617
+        e20: -0.037265025
+        e21: 0.22452356
+        e22: 0.973756
+        e23: -0.52511877
+        e30: 0
+        e31: 0
+        e32: 0
+        e33: 1

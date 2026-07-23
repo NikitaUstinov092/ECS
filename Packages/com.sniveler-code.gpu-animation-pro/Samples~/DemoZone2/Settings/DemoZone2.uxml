@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.sniveler-code.gpu-animation-pro/Samples/DemoZone2/Settings/DemoZone2.uss?fileID=7433441132597879392&amp;guid=92e6333379f88a5499307f7623b06ca3&amp;type=3#DemoZone2" />
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0.38); border-radius: 5px; margin: 10px; padding: 10px; border-width: 1px; border-color: rgba(255, 255, 255, 0.17); justify-content: flex-start;">
+            <ui:Label tabindex="-1" text="ARMORY" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; color: rgb(199, 199, 199);" />
+            <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                <ui:Button enable-rich-text="false" name="axe" class="my-custom-button" style="background-image: url(&quot;project://database/Packages/com.sniveler-code.gpu-animation-pro/Samples/DemoZone2/Textures/Particles/_battle_axe.png?fileID=2800000&amp;guid=a1b114a5f75227442989fe7917069a70&amp;type=3#_battle_axe&quot;); flex-grow: 0; -unity-background-scale-mode: stretch-to-fill;" />
+                <ui:Button enable-rich-text="false" name="sword" class="my-custom-button" style="background-image: url(&quot;project://database/Packages/com.sniveler-code.gpu-animation-pro/Samples/DemoZone2/Textures/Particles/_runic_sword.png?fileID=2800000&amp;guid=f4aeb6a2d7fe3c14c91f5332bac2e9af&amp;type=3#_runic_sword&quot;); flex-grow: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

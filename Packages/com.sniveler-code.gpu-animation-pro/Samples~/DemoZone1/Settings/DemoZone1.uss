@@ -1,0 +1,20 @@
+.unity-button.my-custom-button {
+    background-color: rgba(22, 22, 22, 0.56);
+    border-left-color: rgba(255, 255, 255, 0.17);
+    border-right-color: rgba(255, 255, 255, 0.17);
+    border-top-color: rgba(255, 255, 255, 0.17);
+    border-bottom-color: rgba(255, 255, 255, 0.17);
+    border-radius: 5px;
+    color: rgba(238, 238, 238, 0.86);
+    transition-duration: 0.1s;
+    -unity-text-align: upper-center;
+}
+
+.unity-button.my-custom-button:hover {
+    background-color: rgba(55, 55, 55, 0.6);
+}
+
+.unity-button.my-custom-button:active {
+    background-color: rgba(100, 100, 100, 0.8);
+    color: rgb(255, 255, 255);
+}

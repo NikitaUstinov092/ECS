@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3115013179994625427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 448146969593213952, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: Parameters.Array.data[0].Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807451935584077121, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522118942424978669, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      propertyPath: m_Name
+      value: GuardMelee Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4522118942424978669, guid: 8a548c7b6fe63e641b40f093fedec89b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7381904052124048538}
+  m_SourcePrefab: {fileID: 100100000, guid: 8a548c7b6fe63e641b40f093fedec89b, type: 3}
+--- !u!1 &1583988077963182462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4522118942424978669, guid: 8a548c7b6fe63e641b40f093fedec89b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3115013179994625427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7381904052124048538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583988077963182462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e117951fad4b3da6f4f57850f69c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.5
+  paramSpeedIndex: 0
+  animationHitIndex: 5
+  animationDeathIndex: 4
+  attacks:
+  - AnimationName: Melee1
+    AnimationIndex: 6
+    DamageFrame: 20
+    Range: 2.2
+    Damage: 45
+    Cooldown: 1.5
+    Type: 0
+    ProjectilePrefab: {fileID: 0}
+    Weight: 0.5
+  - AnimationName: Melee2
+    AnimationIndex: 7
+    DamageFrame: 28
+    Range: 2.2
+    Damage: 50
+    Cooldown: 1.5
+    Type: 0
+    ProjectilePrefab: {fileID: 0}
+    Weight: 0.5
