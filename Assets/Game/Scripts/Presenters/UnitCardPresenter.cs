@@ -16,18 +16,20 @@ namespace Game.Scripts.Presenters
 
         private EntityManager _entityManager;
         private EntityQuery _manaQuery;
-
+       
+        private ButtonChainActivator _buttonChainActivator;
 
         private void Awake()
         {
+            _buttonChainActivator = new ButtonChainActivator(transform.gameObject);
+            
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             _manaQuery = _entityManager.CreateEntityQuery(
                 ComponentType.ReadOnly<Mana>(),
                 ComponentType.ReadOnly<PlayerComponent.Player>());
         }
-
-
+        
         private void LateUpdate()
         {
             if (_manaQuery.IsEmpty)
@@ -39,15 +41,17 @@ namespace Game.Scripts.Presenters
 
             UpdateView(mana.Current);
         }
-
-
+        
         private void UpdateView(int currentMana)
         {
             int price = _price.PriceValue;
 
-            if(currentMana>price)
+            if (currentMana > price)
+            {
+                _buttonChainActivator.SetActive(true);
                 return;
-            
+            }
+            _buttonChainActivator.SetActive(false);
             _view.SetProgressCaption($"{currentMana}/{price}");
             var percent = (float)currentMana / (float)price;
             _view.SetProgress(percent);

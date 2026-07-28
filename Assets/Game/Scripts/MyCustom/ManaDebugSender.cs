@@ -16,8 +16,7 @@ namespace Game.Scripts.MyCustom
         {
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         }
-
-
+        
         [Button("Spend Mana")]
         public void SpendMana()
         {

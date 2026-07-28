@@ -15,7 +15,6 @@ namespace Game.Scripts.MyCustom
         [SerializeField]
         private UnitCardsCatalog _unitCardsCatalog;
 
-
         private void Start()
         {
             var factory = new UnitCardFactory(
