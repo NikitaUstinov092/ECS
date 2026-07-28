@@ -12,12 +12,11 @@ namespace Game.Scripts.MySystems
         public void OnUpdate(ref SystemState state)
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
-
-           
+            
             foreach (var mana in SystemAPI.Query<RefRW<Mana>>())
             {
                 ref Mana manaData = ref mana.ValueRW;
-                Debug.Log($"Mana {manaData.Current}");
+                
                 manaData.RegenTimer += deltaTime;
 
                 while (manaData.RegenTimer >= 1f)

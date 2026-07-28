@@ -537,6 +537,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3620062264570538200}
   - component: {fileID: 6172936870883116238}
+  - component: {fileID: 7393294131337396425}
+  - component: {fileID: 5314977749429323422}
   - component: {fileID: 3187767415685585874}
   m_Layer: 5
   m_Name: UnitCard
@@ -586,6 +588,32 @@ MonoBehaviour:
   _progress: {fileID: 9051964555971390951}
   _progressBar: {fileID: 6682982606028936814}
   _button: {fileID: 1004058209433697478}
+--- !u!114 &7393294131337396425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993229125741468533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b35afd0360787044b31e271bb7e0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Price
+--- !u!114 &5314977749429323422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993229125741468533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7590edc7528248b8bcdc36316b0b822d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Presenters.UnitCardPresenter
+  _view: {fileID: 6172936870883116238}
+  _price: {fileID: 7393294131337396425}
 --- !u!114 &3187767415685585874
 MonoBehaviour:
   m_ObjectHideFlags: 0
