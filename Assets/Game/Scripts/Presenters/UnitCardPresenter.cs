@@ -3,6 +3,7 @@ using Game.Scripts.MyCustom;
 using SampleGame;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Presenters
 {
@@ -11,8 +12,8 @@ namespace Game.Scripts.Presenters
         [SerializeField]
         private UnitCardView _view;
 
-        [SerializeField]
-        private Price _price;
+        [FormerlySerializedAs("_price")] [SerializeField]
+        private UnitCardData unitCardData;
 
         private EntityManager _entityManager;
         private EntityQuery _manaQuery;
@@ -44,7 +45,7 @@ namespace Game.Scripts.Presenters
         
         private void UpdateView(int currentMana)
         {
-            int price = _price.PriceValue;
+            int price = unitCardData.Price;
 
             if (currentMana > price)
             {

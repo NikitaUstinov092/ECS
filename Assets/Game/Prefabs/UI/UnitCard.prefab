@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1004058209433697478}
   - component: {fileID: 4169132942762085436}
   - component: {fileID: 3347215499923613401}
+  - component: {fileID: 5805615533490605536}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -233,6 +234,19 @@ MonoBehaviour:
   _transform: {fileID: 3620062264570538200}
   _duration: 0.1
   _ease: 5
+--- !u!114 &5805615533490605536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740764034811606553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95c67f22e9e6784ba7fc8f908173432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyCustom.ButtonSpawnRequest
+  _unitCardData: {fileID: 7393294131337396425}
 --- !u!1 &3117810934627658954
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Presenters.UnitCardPresenter
   _view: {fileID: 6172936870883116238}
-  _price: {fileID: 7393294131337396425}
+  unitCardData: {fileID: 7393294131337396425}
 --- !u!114 &3187767415685585874
 MonoBehaviour:
   m_ObjectHideFlags: 0

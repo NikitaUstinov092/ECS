@@ -34,7 +34,9 @@ namespace Game.Scripts.MyCustom
         {
             view.SetIcon(config.Icon);
             view.SetName(config.Name);
-            view.gameObject.GetComponent<Price>().InstallPrice(config.Price);
+            var unitCardData = view.gameObject.GetComponent<UnitCardData>();
+            unitCardData.InstallPrice(config.Price);
+            unitCardData.InstallName(config.Name);
         }
     }
 }
