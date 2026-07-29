@@ -5,10 +5,16 @@ using UnityEngine;
 
 namespace Game.Scripts.MyCustom
 {
-    public class ManaDebugSender: MonoBehaviour
+    public class DebugSender: MonoBehaviour
     {
         [SerializeField]
         private int _amount = 10;
+        
+        [SerializeField]
+        private string _unitName = "Swordman";
+
+        [SerializeField]
+        private int _team;
 
         private EntityManager _entityManager;
 
@@ -26,6 +32,20 @@ namespace Game.Scripts.MyCustom
             {
                 Amount = _amount
             });
+        }
+        
+        [Button("Spawn Unit")]
+        public void SpawnUnit()
+        {
+            Entity request = _entityManager.CreateEntity();
+
+            _entityManager.AddComponentData(request, new SpawnUnitRequest
+            {
+                UnitName = _unitName,
+                Team = _team
+            });
+
+            _entityManager.SetComponentEnabled<SpawnUnitRequest>(request, true);
         }
     }
 }
