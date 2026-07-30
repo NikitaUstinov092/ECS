@@ -68,7 +68,9 @@ namespace Game.Scripts.MySystems
 
                     UnitSpawnUseCase.SpawnUnit(
                         ref ecb,
-                        selectedUnit.Prefab);
+                        selectedUnit.Prefab, 
+                        request.ValueRO.Team, 
+                        request.ValueRO.Position);
 
                     break;
                 }
