@@ -2,7 +2,6 @@
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Game.Scripts.MySystems
 {
@@ -57,7 +56,6 @@ namespace Game.Scripts.MySystems
                     {
                         Team = purchase.Team,
                         UnitName = purchase.UnitName,
-                        // Position = purchase.SpawnPosition
                     });
                 }
                 
