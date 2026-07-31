@@ -1,34 +1,48 @@
 ﻿using Game.Scripts.MyComponents;
 using Game.Scripts.Views;
+using SampleGame;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Presenters
 {
-    public class ManaPresenter: MonoBehaviour
+    public class ManaPresenter : MonoBehaviour
     {
-        [SerializeField] private ManaView _view;
+        [SerializeField] 
+        private ManaView _view;
+        
+        [SerializeField] 
+        private TeamType _teamType;
 
-         private EntityManager _entityManager;
-         private EntityQuery _manaQuery;
+        private EntityManager _entityManager;
+        private EntityQuery _manaQuery;
 
-         private void Awake()
-         {
-             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+        private void Awake()
+        {
+            _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
-             _manaQuery = _entityManager.CreateEntityQuery(
-                 ComponentType.ReadOnly<Mana>(),
-                 ComponentType.ReadOnly<PlayerComponent.Player>());
-         }
+            _manaQuery = _entityManager.CreateEntityQuery(
+                ComponentType.ReadOnly<Mana>(),
+                ComponentType.ReadOnly<Team>());
+        }
 
-         private void LateUpdate()
-         {
-             if (_manaQuery.IsEmpty)
-                 return;
+        private void LateUpdate()
+        {
+            if (_manaQuery.IsEmpty)
+                return;
 
-             Entity playerEntity = _manaQuery.GetSingletonEntity();
-             Mana mana = _entityManager.GetComponentData<Mana>(playerEntity);
-             _view.ManaCountTextValue = mana.Current.ToString();
-         }
+            using var entities = _manaQuery.ToEntityArray(Allocator.Temp);
+
+            foreach (var entity in entities)
+            {
+                if (_entityManager.GetComponentData<Team>(entity).value != _teamType)
+                    continue;
+
+                Mana mana = _entityManager.GetComponentData<Mana>(entity);
+                _view.ManaCountTextValue = mana.Current.ToString();
+                break;
+            }
+        }
     }
 }

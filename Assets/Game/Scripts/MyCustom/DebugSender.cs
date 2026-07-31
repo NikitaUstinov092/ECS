@@ -23,16 +23,16 @@ namespace Game.Scripts.MyCustom
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         }
         
-        [Button("Spend Mana")]
-        public void SpendMana()
-        {
-            Entity request = _entityManager.CreateEntity();
-
-            _entityManager.AddComponentData(request, new SpendManaRequest
-            {
-                Amount = _amount
-            });
-        }
+        // [Button("Spend Mana")]
+        // public void SpendMana()
+        // {
+        //     Entity request = _entityManager.CreateEntity();
+        //
+        //     _entityManager.AddComponentData(request, new SpendManaRequest
+        //     {
+        //         Amount = _amount
+        //     });
+        // }
         
         // [Button("Spawn Unit")]
         // public void SpawnUnit()

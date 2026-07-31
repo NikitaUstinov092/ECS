@@ -3,59 +3,80 @@ using Game.Scripts.MyCustom;
 using SampleGame;
 using Unity.Entities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Scripts.Presenters
 {
-    public class UnitCardPresenter: MonoBehaviour
+    [RequireComponent(typeof(UnitCardData))]
+    [RequireComponent(typeof(UnitCardView))]
+    public class UnitCardPresenter : MonoBehaviour
     {
         [SerializeField]
+        private TeamType _teamType;
+        
         private UnitCardView _view;
-
-        [FormerlySerializedAs("_price")] [SerializeField]
-        private UnitCardData unitCardData;
-
+        private UnitCardData _unitCardData;
+        
         private EntityManager _entityManager;
         private EntityQuery _manaQuery;
-       
+
         private ButtonChainActivator _buttonChainActivator;
 
         private void Awake()
         {
-            _buttonChainActivator = new ButtonChainActivator(transform.gameObject);
+            _view = GetComponent<UnitCardView>();
+            _unitCardData = GetComponent<UnitCardData>();
             
+            _buttonChainActivator = new ButtonChainActivator(gameObject);
+
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             _manaQuery = _entityManager.CreateEntityQuery(
                 ComponentType.ReadOnly<Mana>(),
-                ComponentType.ReadOnly<PlayerComponent.Player>());
+                ComponentType.ReadOnly<Team>());
         }
-        
+
         private void LateUpdate()
         {
             if (_manaQuery.IsEmpty)
                 return;
 
-            Entity playerEntity = _manaQuery.GetSingletonEntity();
+            var entities = _manaQuery.ToEntityArray(Unity.Collections.Allocator.Temp);
 
-            Mana mana = _entityManager.GetComponentData<Mana>(playerEntity);
+            foreach (var entity in entities)
+            {
+                Team team = _entityManager.GetComponentData<Team>(entity);
 
-            UpdateView(mana.Current);
+                if (team.value != _teamType)
+                    continue;
+
+                Mana mana = _entityManager.GetComponentData<Mana>(entity);
+                UpdateView(mana.Current);
+                break;
+            }
         }
-        
+
         private void UpdateView(int currentMana)
         {
-            int price = unitCardData.Price;
-
-            if (currentMana > price)
+            int price = _unitCardData.Price;
+            
+            if (currentMana >= price)
             {
+                if (currentMana == price)
+                    UpdateProgressView(currentMana, price);
+                
                 _buttonChainActivator.SetActive(true);
                 return;
             }
+
             _buttonChainActivator.SetActive(false);
+            
+            UpdateProgressView(currentMana, price);
+        }
+
+        private void UpdateProgressView(int currentMana, int price)
+        {
             _view.SetProgressCaption($"{currentMana}/{price}");
-            var percent = (float)currentMana / (float)price;
-            _view.SetProgress(percent);
+            _view.SetProgress((float)currentMana / price);
         }
     }
 }

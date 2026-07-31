@@ -1,7 +1,7 @@
 using Game.Scripts.MyComponents;
+using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Game.Scripts.MySystems
 {
@@ -13,7 +13,7 @@ namespace Game.Scripts.MySystems
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
             
-            foreach (var mana in SystemAPI.Query<RefRW<Mana>>())
+            foreach (var (mana, _) in SystemAPI.Query<RefRW<Mana>, RefRO<Team>>())
             {
                 ref Mana manaData = ref mana.ValueRW;
                 

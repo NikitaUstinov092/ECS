@@ -24,7 +24,6 @@ namespace Game.Scripts.MyAuthorings
                     buffer.Add(new UnitElement
                     {
                         Prefab = GetEntity(card.Prefab, TransformUsageFlags.Dynamic),
-                        Price = card.Price,
                         Name = card.Name
                     });
                 }

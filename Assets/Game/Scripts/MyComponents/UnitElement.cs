@@ -7,6 +7,5 @@ namespace Game.Scripts.MyComponents
     {
         public FixedString32Bytes Name;
         public Entity Prefab;
-        public int Price;
     }
 }

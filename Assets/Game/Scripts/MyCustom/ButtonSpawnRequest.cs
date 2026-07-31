@@ -31,7 +31,7 @@ namespace Game.Scripts.MyCustom
         private void OnButtonClick()
         {
             UnitSpawnRequestFactory.Instance.CreateUnitRequest(0,
-                _unitCardData.Name,
+                _unitCardData.Name, _unitCardData.Price,
                 SpawnPointService.Instance.GetBlueRandomSpawnPoint());
         }
     }

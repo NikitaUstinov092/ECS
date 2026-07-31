@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 1718740973}
   - component: {fileID: 1718740974}
   - component: {fileID: 1718740975}
+  - component: {fileID: 1718740976}
   m_Layer: 0
   m_Name: Units
   m_TagString: Untagged
@@ -208,6 +209,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277169804436d9d4ea9963dad79432fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnRequestAuthoring
+--- !u!114 &1718740976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718740972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpendManaRequestAuthoring
 --- !u!1 &1729509278
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +232,7 @@ GameObject:
   - component: {fileID: 1729509279}
   - component: {fileID: 1729509280}
   - component: {fileID: 1729509281}
+  - component: {fileID: 1729509282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -267,6 +281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fc46a0c0b344368bb0c72b1606d386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.PlayerAuthoring
+--- !u!114 &1729509282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6738c402912748b7bce58f486c72a2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
+  _teamType: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
