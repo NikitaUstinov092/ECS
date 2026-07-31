@@ -8,6 +8,6 @@ namespace Game.Scripts.MyComponents
     {
         public TeamType Team;
         public FixedString32Bytes UnitName;
-        public float3 SpawnPosition;
+        // public float3 SpawnPosition;
     }
 }

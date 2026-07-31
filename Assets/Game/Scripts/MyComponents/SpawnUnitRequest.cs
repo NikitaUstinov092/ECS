@@ -9,6 +9,6 @@ namespace Game.Scripts.MyComponents
     {
         public FixedString32Bytes UnitName;
         public TeamType Team;
-        public float3 Position;
+      //  public float3 Position;
     }
 }

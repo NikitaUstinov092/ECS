@@ -57,7 +57,7 @@ namespace Game.Scripts.MySystems
                     {
                         Team = purchase.Team,
                         UnitName = purchase.UnitName,
-                        Position = purchase.SpawnPosition
+                        // Position = purchase.SpawnPosition
                     });
                 }
                 

@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.MyComponents;
+using SampleGame;
 using Sirenix.OdinInspector;
 using Unity.Entities;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Game.Scripts.MyCustom
         private string _unitName = "Swordman";
 
         [SerializeField]
-        private int _team;
+        private TeamType _team;
 
         private EntityManager _entityManager;
 
@@ -34,18 +35,10 @@ namespace Game.Scripts.MyCustom
         //     });
         // }
         
-        // [Button("Spawn Unit")]
-        // public void SpawnUnit()
-        // {
-        //     Entity request = _entityManager.CreateEntity();
-        //
-        //     _entityManager.AddComponentData(request, new SpawnUnitRequest
-        //     {
-        //         UnitName = _unitName,
-        //         Team = _team
-        //     });
-        //
-        //     _entityManager.SetComponentEnabled<SpawnUnitRequest>(request, true);
-        // }
+        [Button("Spawn Unit")]
+        public void SpawnUnit()
+        {
+            UnitSpawnRequestFactory.Instance.CreateUnitRequest(_team, _unitName, _amount);
+        }
     }
 }

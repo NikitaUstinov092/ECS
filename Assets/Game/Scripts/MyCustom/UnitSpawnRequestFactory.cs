@@ -28,7 +28,7 @@ namespace Game.Scripts.MyCustom
                 .Build(_entityManager);
         }
         
-        public void CreateUnitRequest(TeamType team, string unitName, int price, Transform spawnPoint)
+        public void CreateUnitRequest(TeamType team, string unitName, int price)
         {
             if (_requestQuery.IsEmpty)
                 return;
@@ -38,13 +38,11 @@ namespace Game.Scripts.MyCustom
             _entityManager.SetComponentData(entity, new SpendManaRequest()
             {
                Amount = price,
-              
-               /// TO DO переделать позиции на сущности
+               
                PurchaseDetails = new PurchaseDetails()
                {
                    UnitName = unitName,
-                   Team = team,
-                   SpawnPosition = spawnPoint.position
+                   Team = team
                }
                
             });
