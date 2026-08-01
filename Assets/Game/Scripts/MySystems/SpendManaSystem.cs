@@ -20,10 +20,6 @@ namespace Game.Scripts.MySystems
         {
             _spawnUnitRequestLookup.Update(ref state);
             
-            // EntityCommandBuffer ecb =
-            //     SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
-            //         .CreateCommandBuffer(state.WorldUnmanaged);
-            
             foreach ((EnabledRefRW<SpendManaRequest> requestEnabled,
                          RefRO<SpendManaRequest> request, Entity entity)
                      in SystemAPI.Query<
@@ -52,27 +48,17 @@ namespace Game.Scripts.MySystems
                     break;
                 }
                 
-                // Event
-             
+                if (!canBuy) 
+                    continue;
                 
-                if (canBuy)
+                // Request
+                _spawnUnitRequestLookup[entity] = new SpawnUnitRequest
                 {
-                    _spawnUnitRequestLookup[entity] = new SpawnUnitRequest
-                    {
-                        Team = purchase.Team,
-                        UnitName = purchase.UnitName,
-                    };
-                    _spawnUnitRequestLookup.SetComponentEnabled(entity, true);
-                    
-                    // Entity spawnRequest = ecb.CreateEntity();
-                    //
-                    // ecb.AddComponent(spawnRequest, new SpawnUnitRequest
-                    // {
-                    //     Team = purchase.Team,
-                    //     UnitName = purchase.UnitName,
-                    // });
-                }
-                
+                    Team = purchase.Team,
+                    UnitName = purchase.UnitName,
+                };
+                _spawnUnitRequestLookup.SetComponentEnabled(entity, true);
+
             }
         }
     }

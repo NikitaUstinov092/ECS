@@ -2,7 +2,8 @@
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
-using Unity.Mathematics;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace Game.Scripts.MySystems
 {  
@@ -12,7 +13,7 @@ namespace Game.Scripts.MySystems
     {
         private Random _random;
 
-       [BurstCompile]
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<UnitPriceElementBuffer>();
@@ -22,7 +23,6 @@ namespace Game.Scripts.MySystems
        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            return;
             Entity catalogEntity = SystemAPI.GetSingletonEntity<UnitPriceElementBuffer>();
 
             DynamicBuffer<UnitPriceElementBuffer> cards =
@@ -31,14 +31,11 @@ namespace Game.Scripts.MySystems
             if (cards.Length == 0)
                 return;
 
-            foreach ((RefRO<Team> team, RefRW<RandomUnitRequest> request, EnabledRefRW<UnitSpawnedEvent> spawnedEvent)in SystemAPI.Query<
-                         RefRO<Team>,
+            foreach ((RefRW<RandomUnitRequest> request, EnabledRefRW<UnitSpawnedEvent> spawnedEvent)in SystemAPI.Query<
                          RefRW<RandomUnitRequest>,
                          EnabledRefRW<UnitSpawnedEvent>>())
             {
-                if (team.ValueRO.value != TeamType.Red)
-                    continue;
-
+                Debugger();
                 if (!spawnedEvent.ValueRO)
                     continue;
 
@@ -49,5 +46,8 @@ namespace Game.Scripts.MySystems
                 request.ValueRW.RandomUnitData = card.Data;
             }
         }
+        
+        [BurstDiscard]
+        public void Debugger()=> Debug.Log("RandomUnitRequestSystem");
     }
 }
