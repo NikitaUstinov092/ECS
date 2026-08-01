@@ -34,14 +34,10 @@ namespace Game.Scripts.MySystems
             if (cards.Length == 0)
                 return;
 
-            foreach ((RefRW<RandomUnitRequest> request, EnabledRefRW<UnitSpawnedEvent> spawnedEvent)in SystemAPI.Query<
+            foreach ((RefRW<RandomUnitRequest> request, _)in SystemAPI.Query<
                          RefRW<RandomUnitRequest>,
                          EnabledRefRW<UnitSpawnedEvent>>())
             {
-                Debugger();
-                if (!spawnedEvent.ValueRO)
-                    continue;
-
                 int index = _random.NextInt(cards.Length);
                
                 UnitPriceElementBuffer card = cards[index];
@@ -50,7 +46,5 @@ namespace Game.Scripts.MySystems
             }
         }
         
-        [BurstDiscard]
-        public void Debugger()=> Debug.Log("RandomUnitRequestSystem");
     }
 }
