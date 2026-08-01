@@ -1,7 +1,7 @@
 ﻿using Unity.Collections;
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents
+namespace Game.Scripts.MyComponents.Components
 {
     public struct UnitPriceElementBuffer : IBufferElementData
     {

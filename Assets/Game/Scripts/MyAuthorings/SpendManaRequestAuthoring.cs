@@ -1,4 +1,5 @@
 using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Requests;
 using Unity.Entities;
 using UnityEngine;
 

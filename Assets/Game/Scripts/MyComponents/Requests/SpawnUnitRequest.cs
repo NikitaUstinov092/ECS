@@ -2,7 +2,7 @@
 using Unity.Collections;
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents
+namespace Game.Scripts.MyComponents.Requests
 {
     public struct SpawnUnitRequest : IComponentData, IEnableableComponent
     {

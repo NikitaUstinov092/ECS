@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Events;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;

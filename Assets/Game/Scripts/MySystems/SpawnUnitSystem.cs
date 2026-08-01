@@ -1,4 +1,7 @@
 ﻿using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Components;
+using Game.Scripts.MyComponents.Events;
+using Game.Scripts.MyComponents.Requests;
 using Game.Scripts.MyCustom;
 using SampleGame;
 using Unity.Burst;
@@ -32,12 +35,17 @@ namespace Game.Scripts.MySystems
             DynamicBuffer<UnitPrefabElementBuffer> units =
                 state.EntityManager.GetBuffer<UnitPrefabElementBuffer>(catalogEntity);
 
-            foreach ((EnabledRefRW<SpawnUnitRequest> requestEnabled,
+            foreach ((
+                         EnabledRefRW<SpawnUnitRequest> requestEnabled,
                          RefRO<SpawnUnitRequest> request,
+                         DynamicBuffer<SpawnPoint> spawnPoints,
                          EnabledRefRW<UnitSpawnedEvent> spawnEventEnabled)
-                     in SystemAPI.Query<EnabledRefRW<SpawnUnitRequest>,
+                     in SystemAPI.Query<
+                             EnabledRefRW<SpawnUnitRequest>,
                              RefRO<SpawnUnitRequest>,
-                             EnabledRefRW<UnitSpawnedEvent>>().WithPresent<UnitSpawnedEvent>())
+                             DynamicBuffer<SpawnPoint>,
+                             EnabledRefRW<UnitSpawnedEvent>>()
+                         .WithPresent<UnitSpawnedEvent>())
             {
               
                 requestEnabled.ValueRW = false;
@@ -57,9 +65,12 @@ namespace Game.Scripts.MySystems
 
                 if (!found)
                     continue;
-
-                if (!TryGetRandomSpawnPoint(ref state, request.ValueRO.Team, out float3 spawnPosition))
-                    continue;
+              
+                int index = _random.NextInt(0, spawnPoints.Length);
+                float3 spawnPosition = spawnPoints[index].Value;
+                
+                // if (!TryGetRandomSpawnPoint(ref state, request.ValueRO.Team, out float3 spawnPosition))
+                //     continue;
 
                 UnitSpawnUseCase.SpawnUnit(
                     ref ecb,

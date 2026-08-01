@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Components;
+using Game.Scripts.MyComponents.Requests;
 using SampleGame;
 using Unity.Entities;
 using UnityEngine;

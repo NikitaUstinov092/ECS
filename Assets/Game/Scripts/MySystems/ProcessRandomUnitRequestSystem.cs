@@ -1,4 +1,6 @@
 ﻿using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Components;
+using Game.Scripts.MyComponents.Requests;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
@@ -10,7 +12,6 @@ namespace Game.Scripts.MySystems
     [UpdateAfter(typeof(RandomUnitRequestSystem))]
     public partial struct ProcessRandomUnitRequestSystem : ISystem
     {
-
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {

@@ -1,7 +1,7 @@
 ﻿using SampleGame;
 using Unity.Collections;
 
-namespace Game.Scripts.MyComponents
+namespace Game.Scripts.MyComponents.Components
 {
     public struct PurchaseDetails
     {

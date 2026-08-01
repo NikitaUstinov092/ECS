@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Components;
 using Game.Scripts.Views;
 using SampleGame;
 using Unity.Collections;

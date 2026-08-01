@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.MyComponents;
+using Game.Scripts.MyComponents.Components;
 using Game.Scripts.MyCustom;
 using SampleGame;
 using Unity.Entities;
