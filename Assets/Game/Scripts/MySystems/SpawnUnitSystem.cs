@@ -4,6 +4,8 @@ using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace Game.Scripts.MySystems
 {
@@ -15,7 +17,7 @@ namespace Game.Scripts.MySystems
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
-            state.RequireForUpdate<UnitElement>();
+            state.RequireForUpdate<UnitPrefabElementBuffer>();
             _random = new Random((uint)System.Environment.TickCount);
         }
 
@@ -26,27 +28,29 @@ namespace Game.Scripts.MySystems
                 SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
                     .CreateCommandBuffer(state.WorldUnmanaged);
 
-            Entity catalogEntity = SystemAPI.GetSingletonEntity<UnitElement>();
+            Entity catalogEntity = SystemAPI.GetSingletonEntity<UnitPrefabElementBuffer>();
 
-            DynamicBuffer<UnitElement> units =
-                state.EntityManager.GetBuffer<UnitElement>(catalogEntity);
+            DynamicBuffer<UnitPrefabElementBuffer> units =
+                state.EntityManager.GetBuffer<UnitPrefabElementBuffer>(catalogEntity);
 
             foreach ((EnabledRefRW<SpawnUnitRequest> requestEnabled,
-                         RefRO<SpawnUnitRequest> request)
-                     in SystemAPI.Query<
-                         EnabledRefRW<SpawnUnitRequest>,
-                         RefRO<SpawnUnitRequest>>())
+                         RefRO<SpawnUnitRequest> request,
+                         EnabledRefRW<UnitSpawnedEvent> spawnEventEnabled)
+                     in SystemAPI.Query<EnabledRefRW<SpawnUnitRequest>,
+                             RefRO<SpawnUnitRequest>,
+                             EnabledRefRW<UnitSpawnedEvent>>().WithPresent<UnitSpawnedEvent>())
             {
+              
                 requestEnabled.ValueRW = false;
 
-                UnitElement selectedUnit = default;
+                UnitPrefabElementBuffer selectedUnitPrefab = default;
                 bool found = false;
 
-                foreach (UnitElement unit in units)
+                foreach (UnitPrefabElementBuffer unit in units)
                 {
                     if (unit.Name == request.ValueRO.UnitName)
                     {
-                        selectedUnit = unit;
+                        selectedUnitPrefab = unit;
                         found = true;
                         break;
                     }
@@ -60,9 +64,12 @@ namespace Game.Scripts.MySystems
 
                 UnitSpawnUseCase.SpawnUnit(
                     ref ecb,
-                    selectedUnit.Prefab,
+                    selectedUnitPrefab.Prefab,
                     request.ValueRO.Team,
                     spawnPosition);
+                
+                //Event
+                spawnEventEnabled.ValueRW = true;
             }
         }
 
@@ -86,4 +93,5 @@ namespace Game.Scripts.MySystems
             return false;
         }
     }
+   
 }

@@ -6,12 +6,11 @@ using UnityEngine;
 
 namespace Game.Scripts.MyCustom
 {
-    public class UnitSpawnRequestFactory: MonoBehaviour
+    public class UnitSpawnRequestFactory : MonoBehaviour
     {
         public static UnitSpawnRequestFactory Instance { get; private set; }
         
         private EntityManager _entityManager;
-        private EntityQuery _requestQuery;
         
         private void Awake()
         {
@@ -21,35 +20,40 @@ namespace Game.Scripts.MyCustom
         private void Start()
         {
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        
-            _requestQuery = new EntityQueryBuilder(Allocator.Temp)
-                .WithAll<SpendManaRequest>()
-                .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)
-                .Build(_entityManager);
         }
         
         public void CreateUnitRequest(TeamType team, string unitName, int price)
         {
-            if (_requestQuery.IsEmpty)
+            // Ищем Entity с SpendManaRequest для конкретной команды
+            EntityQuery query = new EntityQueryBuilder(Allocator.Temp)
+                .WithAll<SpendManaRequest, Team>()
+                .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)
+                .Build(_entityManager);
+            
+            if (query.IsEmpty)
                 return;
 
-            Entity entity = _requestQuery.GetSingletonEntity();
-
-            _entityManager.SetComponentData(entity, new SpendManaRequest()
+            // Фильтруем по команде
+            foreach (var entity in query.ToEntityArray(Allocator.Temp))
             {
-               Amount = price,
-               
-               PurchaseDetails = new PurchaseDetails()
-               {
-                   UnitName = unitName,
-                   Team = team
-               }
-               
-            });
+                Team teamComponent = _entityManager.GetComponentData<Team>(entity);
+                
+                if (teamComponent.value == team)
+                {
+                    _entityManager.SetComponentData(entity, new SpendManaRequest
+                    {
+                        Amount = price,
+                        PurchaseDetails = new PurchaseDetails
+                        {
+                            UnitName = unitName,
+                            Team = team
+                        }
+                    });
 
-            _entityManager.SetComponentEnabled<SpendManaRequest>(
-                entity,
-                true);
+                    _entityManager.SetComponentEnabled<SpendManaRequest>(entity, true);
+                }
+            }
+            
         }
     }
 }

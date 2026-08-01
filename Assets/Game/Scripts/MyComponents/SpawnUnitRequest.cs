@@ -1,7 +1,6 @@
 ﻿using SampleGame;
 using Unity.Collections;
 using Unity.Entities;
-using Unity.Mathematics;
 
 namespace Game.Scripts.MyComponents
 {
@@ -9,6 +8,5 @@ namespace Game.Scripts.MyComponents
     {
         public FixedString32Bytes UnitName;
         public TeamType Team;
-      //  public float3 Position;
     }
 }

@@ -192,6 +192,10 @@ GameObject:
   - component: {fileID: 763321617}
   - component: {fileID: 763321619}
   - component: {fileID: 763321618}
+  - component: {fileID: 763321623}
+  - component: {fileID: 763321622}
+  - component: {fileID: 763321620}
+  - component: {fileID: 763321621}
   m_Layer: 0
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -241,6 +245,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
   StartMana: 0
   RegenPerSecond: 1
+--- !u!114 &763321620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448324a18ed145d8b3dd35beb15e9738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnEventAuthoring
+--- !u!114 &763321621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da38f527441b4610837cbe03fcb19ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.RandomUnitRequestAuthoring
+  _unitCatalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
+--- !u!114 &763321622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277169804436d9d4ea9963dad79432fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnRequestAuthoring
+--- !u!114 &763321623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpendManaRequestAuthoring
 --- !u!1 &945504108
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,8 +428,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1718740973}
   - component: {fileID: 1718740974}
-  - component: {fileID: 1718740975}
-  - component: {fileID: 1718740976}
   m_Layer: 0
   m_Name: Units
   m_TagString: Untagged
@@ -412,30 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.UnitCardsCatalogAuthoring
   _catalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
---- !u!114 &1718740975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718740972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277169804436d9d4ea9963dad79432fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnRequestAuthoring
---- !u!114 &1718740976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718740972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpendManaRequestAuthoring
 --- !u!1 &1729509278
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +474,9 @@ GameObject:
   - component: {fileID: 1729509279}
   - component: {fileID: 1729509280}
   - component: {fileID: 1729509282}
+  - component: {fileID: 1729509285}
+  - component: {fileID: 1729509284}
+  - component: {fileID: 1729509283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -496,6 +526,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
   _teamType: 0
+--- !u!114 &1729509283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448324a18ed145d8b3dd35beb15e9738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnEventAuthoring
+--- !u!114 &1729509284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277169804436d9d4ea9963dad79432fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnRequestAuthoring
+--- !u!114 &1729509285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpendManaRequestAuthoring
 --- !u!1 &1953945048
 GameObject:
   m_ObjectHideFlags: 0

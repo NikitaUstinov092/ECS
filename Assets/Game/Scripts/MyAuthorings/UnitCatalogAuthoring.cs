@@ -16,15 +16,27 @@ namespace Game.Scripts.MyAuthorings
             {
                 Entity entity = GetEntity(TransformUsageFlags.None);
 
-                DynamicBuffer<UnitElement> buffer =
-                    AddBuffer<UnitElement>(entity);
+                DynamicBuffer<UnitPrefabElementBuffer> prefabBuffer =
+                    AddBuffer<UnitPrefabElementBuffer>(entity);
+                
+                DynamicBuffer<UnitPriceElementBuffer> priceBuffer =
+                    AddBuffer<UnitPriceElementBuffer>(entity);
 
                 foreach (UnitCardConfig card in authoring._catalog.Cards)
                 {
-                    buffer.Add(new UnitElement
+                    prefabBuffer.Add(new UnitPrefabElementBuffer
                     {
                         Prefab = GetEntity(card.Prefab, TransformUsageFlags.Dynamic),
                         Name = card.Name
+                    });
+                    
+                    priceBuffer.Add(new UnitPriceElementBuffer
+                    {
+                        Data = new UnitPriceData()
+                        {
+                            Name = card.Name,
+                            Price = card.Price
+                        }
                     });
                 }
             }

@@ -8,23 +8,27 @@ namespace Game.Scripts.MySystems
     [BurstCompile]
     public partial struct SpendManaSystem : ISystem
     {
+        private ComponentLookup<SpawnUnitRequest> _spawnUnitRequestLookup;
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            _spawnUnitRequestLookup = SystemAPI.GetComponentLookup<SpawnUnitRequest>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            EntityCommandBuffer ecb =
-                SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
-                    .CreateCommandBuffer(state.WorldUnmanaged);
+            _spawnUnitRequestLookup.Update(ref state);
+            
+            // EntityCommandBuffer ecb =
+            //     SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
+            //         .CreateCommandBuffer(state.WorldUnmanaged);
             
             foreach ((EnabledRefRW<SpendManaRequest> requestEnabled,
-                         RefRO<SpendManaRequest> request)
+                         RefRO<SpendManaRequest> request, Entity entity)
                      in SystemAPI.Query<
                          EnabledRefRW<SpendManaRequest>,
-                         RefRO<SpendManaRequest>>())
+                         RefRO<SpendManaRequest>>() .WithEntityAccess())
             { 
                 
                 requestEnabled.ValueRW = false;
@@ -48,15 +52,25 @@ namespace Game.Scripts.MySystems
                     break;
                 }
                 
+                // Event
+             
+                
                 if (canBuy)
                 {
-                    Entity spawnRequest = ecb.CreateEntity();
-
-                    ecb.AddComponent(spawnRequest, new SpawnUnitRequest
+                    _spawnUnitRequestLookup[entity] = new SpawnUnitRequest
                     {
                         Team = purchase.Team,
                         UnitName = purchase.UnitName,
-                    });
+                    };
+                    _spawnUnitRequestLookup.SetComponentEnabled(entity, true);
+                    
+                    // Entity spawnRequest = ecb.CreateEntity();
+                    //
+                    // ecb.AddComponent(spawnRequest, new SpawnUnitRequest
+                    // {
+                    //     Team = purchase.Team,
+                    //     UnitName = purchase.UnitName,
+                    // });
                 }
                 
             }
