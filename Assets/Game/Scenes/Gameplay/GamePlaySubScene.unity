@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 763321622}
   - component: {fileID: 763321620}
   - component: {fileID: 763321621}
+  - component: {fileID: 763321624}
   m_Layer: 0
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -294,6 +295,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpendManaRequestAuthoring
+--- !u!114 &763321624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16f2e5472a644f2a5d78f5d79c435bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnPointsAuthoring
+  _spawnPoints:
+  - {fileID: 1589448941}
+  - {fileID: 168809603}
+  - {fileID: 945504109}
 --- !u!1 &945504108
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +494,7 @@ GameObject:
   - component: {fileID: 1729509285}
   - component: {fileID: 1729509284}
   - component: {fileID: 1729509283}
+  - component: {fileID: 1729509286}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -562,6 +580,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4175249c44e42364c84491c3731a886e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpendManaRequestAuthoring
+--- !u!114 &1729509286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16f2e5472a644f2a5d78f5d79c435bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnPointsAuthoring
+  _spawnPoints:
+  - {fileID: 1021957154}
+  - {fileID: 1660021328}
+  - {fileID: 327402696}
 --- !u!1 &1953945048
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +605,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953945049}
-  - component: {fileID: 1953945051}
-  - component: {fileID: 1953945050}
   m_Layer: 0
   m_Name: <BlueSpawnPoints>
   m_TagString: Untagged
@@ -598,35 +630,6 @@ Transform:
   - {fileID: 327402696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1953945050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953945048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16f2e5472a644f2a5d78f5d79c435bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnPointsAuthoring
-  _spawnPoints:
-  - {fileID: 1021957154}
-  - {fileID: 1660021328}
-  - {fileID: 327402696}
---- !u!114 &1953945051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953945048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6738c402912748b7bce58f486c72a2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
-  _teamType: 0
 --- !u!1 &1960890904
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +639,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960890905}
-  - component: {fileID: 1960890907}
-  - component: {fileID: 1960890906}
   m_Layer: 0
   m_Name: <RedSpawnPoints>
   m_TagString: Untagged
@@ -663,35 +664,6 @@ Transform:
   - {fileID: 945504109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1960890906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960890904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16f2e5472a644f2a5d78f5d79c435bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnPointsAuthoring
-  _spawnPoints:
-  - {fileID: 1589448941}
-  - {fileID: 168809603}
-  - {fileID: 945504109}
---- !u!114 &1960890907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960890904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6738c402912748b7bce58f486c72a2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
-  _teamType: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
