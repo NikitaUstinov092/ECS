@@ -1,6 +1,5 @@
-using Game.Scripts.MyComponents;
 using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.MyComponents.Events;
 using Unity.Burst;
 using Unity.Entities;
 
@@ -14,7 +13,7 @@ namespace Game.Scripts.MySystems
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
             
-            foreach (var (mana, _) in SystemAPI.Query<RefRW<Mana>, RefRO<Team>>())
+            foreach (var mana in SystemAPI.Query<RefRW<Mana>>().WithDisabled<GameOver>())
             {
                 ref Mana manaData = ref mana.ValueRW;
                 

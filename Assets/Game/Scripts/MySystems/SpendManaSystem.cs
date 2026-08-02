@@ -1,5 +1,6 @@
 ﻿using Game.Scripts.MyComponents;
 using Game.Scripts.MyComponents.Components;
+using Game.Scripts.MyComponents.Events;
 using Game.Scripts.MyComponents.Requests;
 using SampleGame;
 using Unity.Burst;
@@ -10,23 +11,29 @@ namespace Game.Scripts.MySystems
     [BurstCompile]
     public partial struct SpendManaSystem : ISystem
     {
-        private ComponentLookup<SpawnUnitRequest> _spawnUnitRequestLookup;
+      //  private ComponentLookup<SpawnUnitRequest> _spawnUnitRequestLookup;
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
-            _spawnUnitRequestLookup = SystemAPI.GetComponentLookup<SpawnUnitRequest>(isReadOnly: false);
+    //        _spawnUnitRequestLookup = SystemAPI.GetComponentLookup<SpawnUnitRequest>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            _spawnUnitRequestLookup.Update(ref state);
+    //        _spawnUnitRequestLookup.Update(ref state);
             
             foreach ((EnabledRefRW<SpendManaRequest> requestEnabled,
-                         RefRO<SpendManaRequest> request, Entity entity)
+                         RefRO<SpendManaRequest> request, 
+                         RefRW<SpawnUnitRequest> spawnUnitRequest,
+                         EnabledRefRW<SpawnUnitRequest> spawnUnitRequestEnabled)
                      in SystemAPI.Query<
                          EnabledRefRW<SpendManaRequest>,
-                         RefRO<SpendManaRequest>>() .WithEntityAccess())
+                         RefRO<SpendManaRequest>, 
+                         RefRW<SpawnUnitRequest>,
+                         EnabledRefRW<SpawnUnitRequest>>()
+                         .WithDisabled<GameOver>()
+                         .WithDisabled<SpawnUnitRequest>())
             { 
                 
                 requestEnabled.ValueRW = false;
@@ -54,12 +61,13 @@ namespace Game.Scripts.MySystems
                     continue;
                 
                 // Request
-                _spawnUnitRequestLookup[entity] = new SpawnUnitRequest
+                spawnUnitRequest.ValueRW = new SpawnUnitRequest
                 {
                     Team = purchase.Team,
                     UnitName = purchase.UnitName,
                 };
-                _spawnUnitRequestLookup.SetComponentEnabled(entity, true);
+
+                spawnUnitRequestEnabled.ValueRW = true;
 
             }
         }
