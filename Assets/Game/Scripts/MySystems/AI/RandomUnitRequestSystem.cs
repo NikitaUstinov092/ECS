@@ -1,11 +1,9 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.MyComponents.Components;
 using Game.Scripts.MyComponents.Events;
 using Game.Scripts.MyComponents.Requests;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
 namespace Game.Scripts.MySystems
@@ -33,16 +31,27 @@ namespace Game.Scripts.MySystems
 
             if (cards.Length == 0)
                 return;
-
-            foreach ((RefRW<RandomUnitRequest> request, _)in SystemAPI.Query<
+            
+            foreach ((RefRW<RandomUnitRequest> request,
+                         RefRO<Team> requestTeam)
+                     in SystemAPI.Query<
                          RefRW<RandomUnitRequest>,
-                         EnabledRefRW<UnitSpawnedEvent>>())
+                         RefRO<Team>>())
             {
-                int index = _random.NextInt(cards.Length);
-               
-                UnitPriceElementBuffer card = cards[index];
 
-                request.ValueRW.RandomUnitData = card.Data;
+                foreach ((RefRO<Team> team,
+                             EnabledRefRO<UnitSpawnedEvent> _)
+                         in SystemAPI.Query<
+                             RefRO<Team>,
+                             EnabledRefRO<UnitSpawnedEvent>>())
+                {
+                    if (team.ValueRO.value != requestTeam.ValueRO.value)
+                        continue;
+                   
+                    int index = _random.NextInt(cards.Length);
+                    request.ValueRW.RandomUnitData = cards[index].Data;
+                }
+                
             }
         }
         

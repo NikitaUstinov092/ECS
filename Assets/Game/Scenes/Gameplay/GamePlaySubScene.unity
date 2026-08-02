@@ -195,10 +195,10 @@ GameObject:
   - component: {fileID: 763321623}
   - component: {fileID: 763321622}
   - component: {fileID: 763321620}
-  - component: {fileID: 763321621}
   - component: {fileID: 763321624}
+  - component: {fileID: 763321625}
   m_Layer: 0
-  m_Name: EnemyAI
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,19 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448324a18ed145d8b3dd35beb15e9738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.SpawnEventAuthoring
---- !u!114 &763321621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763321616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da38f527441b4610837cbe03fcb19ef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.RandomUnitRequestAuthoring
-  _unitCatalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
 --- !u!114 &763321622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +298,19 @@ MonoBehaviour:
   - {fileID: 1589448941}
   - {fileID: 168809603}
   - {fileID: 945504109}
+--- !u!114 &763321625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1013206c9512ce4d93e52a11b9c914c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.UnitCardsCatalogAuthoring
+  _catalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
 --- !u!1 &945504108
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +373,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1953945049}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1246787648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246787649}
+  - component: {fileID: 1246787650}
+  - component: {fileID: 1246787652}
+  m_Layer: 0
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1246787649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246787648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 247.11264, y: 167.66434, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246787650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246787648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da38f527441b4610837cbe03fcb19ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.RandomUnitRequestAuthoring
+  _unitCatalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
+--- !u!114 &1246787652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246787648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6738c402912748b7bce58f486c72a2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
+  _teamType: 1
 --- !u!1 &1589448940
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,51 +494,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1953945049}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1718740972
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718740973}
-  - component: {fileID: 1718740974}
-  m_Layer: 0
-  m_Name: Units
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1718740973
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718740972}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1718740974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718740972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1013206c9512ce4d93e52a11b9c914c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.UnitCardsCatalogAuthoring
-  _catalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
 --- !u!1 &1729509278
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +509,7 @@ GameObject:
   - component: {fileID: 1729509284}
   - component: {fileID: 1729509283}
   - component: {fileID: 1729509286}
+  - component: {fileID: 1729509287}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -596,6 +611,19 @@ MonoBehaviour:
   - {fileID: 1021957154}
   - {fileID: 1660021328}
   - {fileID: 327402696}
+--- !u!114 &1729509287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1013206c9512ce4d93e52a11b9c914c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.UnitCardsCatalogAuthoring
+  _catalog: {fileID: 11400000, guid: e7061a0801beab04db9870077ec9a250, type: 2}
 --- !u!1 &1953945048
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +698,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1729509279}
   - {fileID: 763321617}
-  - {fileID: 1718740973}
+  - {fileID: 1246787649}
   - {fileID: 1953945049}
   - {fileID: 1960890905}

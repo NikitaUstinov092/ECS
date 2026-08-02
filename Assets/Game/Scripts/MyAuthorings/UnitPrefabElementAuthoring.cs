@@ -1,4 +1,3 @@
-using Game.Scripts.MyComponents;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
 using Unity.Entities;
@@ -6,23 +5,20 @@ using UnityEngine;
 
 namespace Game.Scripts.MyAuthorings
 {
-    public sealed class UnitCardsCatalogAuthoring : MonoBehaviour
+    public sealed class UnitPrefabElementAuthoring : MonoBehaviour
     {
         [SerializeField]
         private UnitCardsCatalog _catalog;
 
-        private sealed class Baker : Baker<UnitCardsCatalogAuthoring>
+        private sealed class Baker : Baker<UnitPrefabElementAuthoring>
         {
-            public override void Bake(UnitCardsCatalogAuthoring authoring)
+            public override void Bake(UnitPrefabElementAuthoring authoring)
             {
                 Entity entity = GetEntity(TransformUsageFlags.None);
 
                 DynamicBuffer<UnitPrefabElementBuffer> prefabBuffer =
                     AddBuffer<UnitPrefabElementBuffer>(entity);
                 
-                DynamicBuffer<UnitPriceElementBuffer> priceBuffer =
-                    AddBuffer<UnitPriceElementBuffer>(entity);
-
                 foreach (UnitCardConfig card in authoring._catalog.Cards)
                 {
                     prefabBuffer.Add(new UnitPrefabElementBuffer
@@ -31,14 +27,6 @@ namespace Game.Scripts.MyAuthorings
                         Name = card.Name
                     });
                     
-                    priceBuffer.Add(new UnitPriceElementBuffer
-                    {
-                        Data = new UnitPriceData()
-                        {
-                            Name = card.Name,
-                            Price = card.Price
-                        }
-                    });
                 }
             }
         }

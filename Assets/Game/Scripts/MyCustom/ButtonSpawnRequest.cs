@@ -1,3 +1,4 @@
+using SampleGame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,9 @@ namespace Game.Scripts.MyCustom
     [RequireComponent(typeof(Button))]
     public class ButtonSpawnRequest : MonoBehaviour
     {
+        [SerializeField]
+        private TeamType _teamType = TeamType.Blue;
+        
         private UnitCardData _unitCardData;
         private Button _button;
         
@@ -24,13 +28,10 @@ namespace Game.Scripts.MyCustom
         {
             _button.onClick.RemoveListener(OnButtonClick);
         }
-
-        /// <summary>
-        /// TO DO Переделать на сервис локатор
-        /// </summary>
+        
         private void OnButtonClick()
         {
-            UnitSpawnRequestFactory.Instance.CreateUnitRequest(0,
+            UnitSpawnRequestFactory.Instance.CreateUnitRequest(_teamType,
                 _unitCardData.Name, _unitCardData.Price);
         }
     }
