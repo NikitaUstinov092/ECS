@@ -536,39 +536,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 375908430}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &463166443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 463166444}
-  m_Layer: 0
-  m_Name: <Buildings>
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &463166444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463166443}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7657002863243684348}
-  - {fileID: 254118205}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509817705
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +619,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e89e8ccd8eb9c4189a7db225833064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerAuthoring
+--- !u!114 &544914278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544914274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f400e0e20a24898ad416b04f99318cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.UnitAuthoring
 --- !u!1001 &667480259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2076,7 +2055,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 463166444}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 386028501302417268, guid: a82794b5cab41ef46a2ba26c65e32fc1,
         type: 3}
@@ -2225,6 +2204,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7657002863243684351}
+    - targetCorrespondingSourceObject: {fileID: 7078650420259860604, guid: a82794b5cab41ef46a2ba26c65e32fc1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7657002863243684352}
   m_SourcePrefab: {fileID: 100100000, guid: a82794b5cab41ef46a2ba26c65e32fc1, type: 3}
 --- !u!1001 &6075334459726365621
 PrefabInstance:
@@ -2232,7 +2215,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 463166444}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 815369288960148935, guid: 09a84d2719aac2546a75f1c2d3fd70ee,
         type: 3}
@@ -2386,6 +2369,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 544914277}
+    - targetCorrespondingSourceObject: {fileID: 6480648308455456160, guid: 09a84d2719aac2546a75f1c2d3fd70ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 544914278}
   m_SourcePrefab: {fileID: 100100000, guid: 09a84d2719aac2546a75f1c2d3fd70ee, type: 3}
 --- !u!4 &7657002863243684348 stripped
 Transform:
@@ -2432,6 +2419,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e89e8ccd8eb9c4189a7db225833064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerAuthoring
+--- !u!114 &7657002863243684352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596353829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f400e0e20a24898ad416b04f99318cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.UnitAuthoring
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2439,6 +2438,7 @@ SceneRoots:
   - {fileID: 1729509279}
   - {fileID: 763321617}
   - {fileID: 1246787649}
-  - {fileID: 463166444}
+  - {fileID: 423135267784322734}
+  - {fileID: 6075334459726365621}
   - {fileID: 1953945049}
   - {fileID: 1960890905}

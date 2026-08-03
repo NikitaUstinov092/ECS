@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8692576747330127514}
   - component: {fileID: 1154389564668718348}
+  - component: {fileID: -451465818417816771}
+  - component: {fileID: -5606653891241556014}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -47,6 +49,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TeamAuthoring
   _teamType: 2
+--- !u!114 &-451465818417816771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcf6ac7d3b742c3972c63a5fe75a92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.HealthAuthoring
+  _current: 10
+  _max: 10
+--- !u!114 &-5606653891241556014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f400e0e20a24898ad416b04f99318cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.UnitAuthoring
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

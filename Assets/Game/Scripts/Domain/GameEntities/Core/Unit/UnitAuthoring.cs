@@ -9,7 +9,7 @@ namespace SampleGame
         {
             public override void Bake(UnitAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
+                Entity entity = this.GetEntity(TransformUsageFlags.Dynamic);
                 this.AddComponent<Unit>(entity);
             }
         }
