@@ -3,6 +3,7 @@ using Game.Scripts.MyComponents.Events;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
+using UnityEngine;
 
 namespace Game.Scripts.MySystems
 {
@@ -13,11 +14,15 @@ namespace Game.Scripts.MySystems
         {
             bool towerDestroyed = false;
 
-            foreach (var (tower, team, health)
+            foreach (var (_, team, health)
                      in SystemAPI.Query<RefRO<Tower>, RefRO<Team>, RefRO<Health>>())
             {
                 if (health.ValueRO.value <= 0)
                 {
+                    ShowMessage(team.ValueRO.value == TeamType.Blue
+                        ? "Game Over"
+                        : "Victory");
+                    
                     towerDestroyed = true;
                     break;
                 }
@@ -30,6 +35,13 @@ namespace Game.Scripts.MySystems
                      in SystemAPI.Query<EnabledRefRW<GameOver>>().WithDisabled<GameOver>())
             {
                 gameOverEnabled.ValueRW = true;
+            }
+           
+            state.Enabled = false;
+            [BurstDiscard]
+            void ShowMessage(string message)
+            {
+                Debug.Log(message);
             }
         }
     }
