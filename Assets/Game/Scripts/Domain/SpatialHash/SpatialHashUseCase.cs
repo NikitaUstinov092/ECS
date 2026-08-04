@@ -2,7 +2,6 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace SampleGame
 {
@@ -62,7 +61,6 @@ namespace SampleGame
                     }
                 } while (spatialHash.map->TryGetNextValue(out candidate, ref iterator));
             }
-            Debug.Log($"Finding closest entity in radius {closest}");
             return closest;
         }
     }

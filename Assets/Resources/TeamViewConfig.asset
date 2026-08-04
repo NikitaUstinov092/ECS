@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teams:
   - type: 0
-    material: {fileID: 2100000, guid: dccf8e44ede71db42b49378af93c5fb7, type: 2}
+    material: {fileID: 2100000, guid: 46dde46a39f148d4d9ab5f23cc77587f, type: 2}
   - type: 1
-    material: {fileID: 2100000, guid: 311922920d51f8544ba4dfb6e890d2df, type: 2}
+    material: {fileID: 2100000, guid: 51c7932812c08254885137133aad9ad4, type: 2}
