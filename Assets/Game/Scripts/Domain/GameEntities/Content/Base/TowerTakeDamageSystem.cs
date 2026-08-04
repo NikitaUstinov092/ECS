@@ -1,0 +1,44 @@
+using Game.Scripts.MyComponents.Components;
+using SampleGame;
+using Unity.Burst;
+using Unity.Entities;
+using Unity.Mathematics;
+
+namespace Game.Scripts.Domain.GameEntities.Content.Base
+{
+    public partial struct TowerTakeDamageSystem:  ISystem
+    {
+        [BurstCompile]
+        public void OnUpdate(ref SystemState state)
+        {
+            foreach ((
+                         RefRW<Health> health,
+                         DynamicBuffer<TakeDamageRequest> requests,
+                         DynamicBuffer<TakeDamageEvent> events
+                     ) in SystemAPI
+                         .Query<
+                             RefRW<Health>,
+                             DynamicBuffer<TakeDamageRequest>,
+                             DynamicBuffer<TakeDamageEvent>>()
+                         .WithPresent<Tower>())
+            {
+                for (int i = 0; i < requests.Length && health.ValueRW.IsAlive(); i++)
+                {
+                    TakeDamageRequest request = requests[i];
+                    
+                    int damage = (int) math.round(request.damage );
+
+                    health.ValueRW.Reduce(damage);
+
+                    events.Add(new TakeDamageEvent
+                    {
+                        damage = damage,
+                        instigator = request.instigator
+                    });
+                }
+
+                requests.Clear();
+            }
+        }
+    }
+}

@@ -27,7 +27,6 @@ namespace SampleGame
                 TeamViewConfig.TeamInfo info = _catalog.GetTeam(team.ValueRO.value);
                 Color color = info.Material.color;
                 baseColor.ValueRW.Value = new float4(color.r, color.g, color.b, color.a);
-                
             }
         }
     }
