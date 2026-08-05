@@ -7,7 +7,7 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
-    public partial struct DetectTargetSystem : ISystem
+    public partial struct DetectEnemySystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;
