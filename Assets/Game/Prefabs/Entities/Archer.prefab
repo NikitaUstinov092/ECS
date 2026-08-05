@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 7956343753596857964}
   - component: {fileID: 361073121924922002}
   - component: {fileID: 146628451383640083}
-  - component: {fileID: 165282229768973579}
   - component: {fileID: 3551230611592073330}
   - component: {fileID: 4236278540492876870}
   - component: {fileID: 6610339437757069537}
@@ -188,19 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AttackDistanceAuthoring
   _value: 20
---- !u!114 &165282229768973579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692576747330127513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fff6df20d742de9fff2e3a82aa3007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DamageAuthoring
-  _damage: 1
 --- !u!114 &3551230611592073330
 MonoBehaviour:
   m_ObjectHideFlags: 0

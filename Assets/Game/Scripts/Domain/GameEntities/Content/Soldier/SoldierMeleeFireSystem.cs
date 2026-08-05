@@ -7,7 +7,6 @@ using UnityEngine;
 namespace SampleGame
 {
     [BurstCompile]
-    [DisableAutoCreation]
     public partial struct SoldierMeleeFireSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup; // Random access
@@ -49,6 +48,7 @@ namespace SampleGame
                          .WithEntityAccess()
                     )
             {
+                
                 // Request
                 requestEnabled.ValueRW = false;
 
@@ -80,8 +80,7 @@ namespace SampleGame
                     damage = damage.ValueRO.value,
                     instigator = entity
                 });
-
-                Debug.Log($"Melee attack target {target}");
+                
                 cooldown.ValueRW.ResetTime();
             }
         }

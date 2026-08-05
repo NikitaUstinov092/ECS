@@ -44,6 +44,8 @@ namespace SampleGame
                          .WithPresent<Unit>()
                          .WithEntityAccess())
             {
+
+              
                 // Target
                 Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
@@ -65,8 +67,11 @@ namespace SampleGame
                 {
                     fireRequestValue.ValueRW.target = target;
                     fireRequestEnabled.ValueRW = true;
+                    Debugger("ATTack");
                 }
             }
+           [BurstDiscard]
+            void Debugger(string message)=>  UnityEngine.Debug.Log(message);
         }
     }
 }
