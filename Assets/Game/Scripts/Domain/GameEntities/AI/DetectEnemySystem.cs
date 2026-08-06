@@ -1,3 +1,5 @@
+using Game.Scripts.Domain.GameEntities.AI;
+using Game.Scripts.MyComponents.Components;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
@@ -6,6 +8,7 @@ using Unity.Transforms;
 
 namespace SampleGame
 {
+    
     [BurstCompile]
     public partial struct DetectEnemySystem : ISystem
     {
@@ -40,6 +43,7 @@ namespace SampleGame
         }
 
         [BurstCompile]
+        [WithAll(typeof(EnemyDetect))]
         public partial struct DetectJob : IJobEntity
         {
             [NativeDisableUnsafePtrRestriction]
@@ -79,4 +83,6 @@ namespace SampleGame
             
         }
     }
+
+   
 }

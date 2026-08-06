@@ -38,24 +38,24 @@ namespace SampleGame
                 .CreateCommandBuffer(state.WorldUnmanaged);
 
             foreach ((
-                         EnabledRefRW<FireRequest> requestEnabled,
-                         RefRW<FireRequest> requestValue,
-                         RefRW<FireCooldown> cooldown,
+                         EnabledRefRW<ActionRequest> requestEnabled,
+                         RefRW<ActionRequest> requestValue,
+                         RefRW<ActionCooldown> cooldown,
                          RefRW<Ammo> ammo,
                          RefRO<Team> team,
                          RefRO<Health> health,
-                         RefRO<AttackDistance> attackDistance,
+                         RefRO<ActionDistance> attackDistance,
                          Entity entity
                      ) in SystemAPI.Query<
-                             EnabledRefRW<FireRequest>,
-                             RefRW<FireRequest>,
-                             RefRW<FireCooldown>,
+                             EnabledRefRW<ActionRequest>,
+                             RefRW<ActionRequest>,
+                             RefRW<ActionCooldown>,
                              RefRW<Ammo>,
                              RefRO<Team>,
                              RefRO<Health>,
-                             RefRO<AttackDistance>
-                         >().WithPresent<Soldier>()
-                         .WithEntityAccess())
+                             RefRO<ActionDistance>
+                         >().WithPresent<Soldier>().WithPresent<ProjectilePrefab>()
+                         .WithEntityAccess()) //TO DO Переписать на джобу ProjectilePrefab уже перебор тегов
             {
                 // Request
                 requestEnabled.ValueRW = false;

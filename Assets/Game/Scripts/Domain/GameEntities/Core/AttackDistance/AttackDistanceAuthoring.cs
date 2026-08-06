@@ -13,7 +13,7 @@ namespace SampleGame
             public override void Bake(AttackDistanceAuthoring authoring)
             {
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent(entity, new AttackDistance
+                this.AddComponent(entity, new ActionDistance
                 {
                     value = authoring._value
                 });

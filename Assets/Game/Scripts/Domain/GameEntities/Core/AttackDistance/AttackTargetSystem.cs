@@ -25,27 +25,27 @@ namespace SampleGame
 
             foreach ((
                          RefRO<TargetEntity> targetRef,
-                         RefRO<AttackDistance> attackDistance,
+                         RefRO<ActionDistance> attackDistance,
                          RefRW<MoveRequest> moveRequestValue,
-                         RefRW<FireRequest> fireRequestValue,
+                         RefRW<ActionRequest> fireRequestValue,
                          EnabledRefRW<MoveRequest> moveRequestEnabled,
-                         EnabledRefRW<FireRequest> fireRequestEnabled,
+                         EnabledRefRW<ActionRequest> fireRequestEnabled,
                          Entity entity
                      )
                      in SystemAPI.Query<
                              RefRO<TargetEntity>,
-                             RefRO<AttackDistance>,
+                             RefRO<ActionDistance>,
                              RefRW<MoveRequest>,
-                             RefRW<FireRequest>,
+                             RefRW<ActionRequest>,
                              EnabledRefRW<MoveRequest>,
-                             EnabledRefRW<FireRequest>>()
+                             EnabledRefRW<ActionRequest>>()
                          .WithPresent<MoveRequest>()
-                         .WithPresent<FireRequest>()
+                         .WithPresent<ActionRequest>()
                          .WithPresent<Unit>()
                          .WithEntityAccess())
             {
 
-              
+                Debugger("AttackTargetSystem");
                 // Target
                 Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
@@ -62,16 +62,17 @@ namespace SampleGame
                 {
                     moveRequestValue.ValueRW.direction = math.normalizesafe(delta);
                     moveRequestEnabled.ValueRW = true;
+                    Debugger("Движение");
                 }
                 else
                 {
                     fireRequestValue.ValueRW.target = target;
                     fireRequestEnabled.ValueRW = true;
-                    Debugger("ATTack");
+                    Debugger("Действие");
                 }
             }
-           [BurstDiscard]
-            void Debugger(string message)=>  UnityEngine.Debug.Log(message);
+            [BurstDiscard]
+            void Debugger(string message) => UnityEngine.Debug.Log(message);
         }
     }
 }

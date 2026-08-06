@@ -6,7 +6,7 @@ namespace SampleGame
     public sealed class FireCooldownAuthoring : MonoBehaviour
     {
         [SerializeField]
-        private FireCooldown _cooldown;
+        private ActionCooldown _cooldown;
         
         private sealed class Baker : Baker<FireCooldownAuthoring>
         {

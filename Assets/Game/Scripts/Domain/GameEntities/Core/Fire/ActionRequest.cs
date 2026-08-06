@@ -6,7 +6,7 @@ namespace SampleGame
     // FireRequest - one frame — single time
     
     [Serializable]
-    public struct FireRequest : IComponentData, IEnableableComponent
+    public struct ActionRequest : IComponentData, IEnableableComponent
     {
         public Entity target;
     }

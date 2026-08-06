@@ -28,20 +28,20 @@ namespace SampleGame
             _takeDamageRequests.Update(ref state);
 
             foreach ((
-                         EnabledRefRW<FireRequest> requestEnabled,
-                         RefRO<FireRequest> requestValue,
-                         RefRW<FireCooldown> cooldown,
+                         EnabledRefRW<ActionRequest> requestEnabled,
+                         RefRO<ActionRequest> requestValue,
+                         RefRW<ActionCooldown> cooldown,
                          RefRO<Team> team,
-                         RefRO<AttackDistance> attackDistance,
+                         RefRO<ActionDistance> attackDistance,
                          RefRO<LocalTransform> transform,
                          RefRO<Damage> damage,
                          Entity entity
                      ) in SystemAPI.Query<
-                         EnabledRefRW<FireRequest>,
-                         RefRO<FireRequest>,
-                         RefRW<FireCooldown>,
+                         EnabledRefRW<ActionRequest>,
+                         RefRO<ActionRequest>,
+                         RefRW<ActionCooldown>,
                          RefRO<Team>,
-                         RefRO<AttackDistance>,
+                         RefRO<ActionDistance>,
                          RefRO<LocalTransform>,
                          RefRO<Damage>>()
                          .WithPresent<Soldier>()

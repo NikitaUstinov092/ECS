@@ -8,6 +8,7 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
+    [WithAll(typeof(Heal))]
     public partial struct DetectHealTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
@@ -23,13 +24,13 @@ namespace SampleGame
             _maxHealthLookup = state.GetComponentLookup<MaxHealth>(isReadOnly: true);
 
             state.RequireForUpdate<SpatialHashData>();
-            
             state.RequireForUpdate<Heal>();
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            _maxHealthLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _teamLookup.Update(ref state);
             _healthLookup.Update(ref state);
@@ -45,6 +46,7 @@ namespace SampleGame
         }
 
         [BurstCompile]
+        [WithAll(typeof(Heal))]
         public partial struct DetectHealJob : IJobEntity
         {
             [NativeDisableUnsafePtrRestriction]

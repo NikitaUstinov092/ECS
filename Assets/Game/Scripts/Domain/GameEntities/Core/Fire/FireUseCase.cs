@@ -5,17 +5,17 @@ namespace SampleGame
 {
     public static class FireUseCase 
     {
-        public static bool IsExpired(in this FireCooldown cooldown)
+        public static bool IsExpired(in this ActionCooldown cooldown)
         {
             return cooldown.time <= 0;
         }
         
-        public static bool IsPlaying(in this FireCooldown cooldown)
+        public static bool IsPlaying(in this ActionCooldown cooldown)
         {
             return cooldown.time > 0;
         }
 
-        public static void ResetTime(ref this FireCooldown cooldown)
+        public static void ResetTime(ref this ActionCooldown cooldown)
         {
             cooldown.time = cooldown.duration;
         }

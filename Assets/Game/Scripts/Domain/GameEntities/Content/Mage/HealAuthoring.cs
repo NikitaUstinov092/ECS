@@ -1,16 +1,25 @@
+using Game.Scripts.MyComponents.Components;
+using Unity.Entities;
 using UnityEngine;
 
-public class HealAuthoring : MonoBehaviour
+namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class HealAuthoring : MonoBehaviour
     {
+        [SerializeField]
+        private int _healAmount;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private class Baker : Baker<HealAuthoring>
+        {
+            public override void Bake(HealAuthoring authoring)
+            {
+                Entity entity = GetEntity(TransformUsageFlags.None);
+               
+                AddComponent(entity, new Heal
+                {
+                   Value = authoring._healAmount
+                });
+            }
+        }
     }
 }

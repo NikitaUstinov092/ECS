@@ -5,6 +5,8 @@ using Unity.Transforms;
 
 namespace SampleGame
 {
+    [UpdateAfter(typeof(DetectHealTargetSystem))]
+    [UpdateAfter(typeof(DetectEnemySystem))] //TO DO Убрать в категории
     [BurstCompile]
     public partial struct ProjectileSystem : ISystem
     {

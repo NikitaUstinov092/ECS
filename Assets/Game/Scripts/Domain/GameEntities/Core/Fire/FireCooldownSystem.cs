@@ -11,7 +11,7 @@ namespace SampleGame
         public void OnUpdate(ref SystemState state)
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
-            foreach (RefRW<FireCooldown> cooldown in SystemAPI.Query<RefRW<FireCooldown>>()) 
+            foreach (RefRW<ActionCooldown> cooldown in SystemAPI.Query<RefRW<ActionCooldown>>()) 
                 cooldown.ValueRW.time = math.max(cooldown.ValueRW.time - deltaTime, 0);
         }
     }
