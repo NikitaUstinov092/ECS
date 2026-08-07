@@ -21,6 +21,18 @@ GameObject:
   - component: {fileID: 9127245739875639975}
   - component: {fileID: 4915349453306404230}
   - component: {fileID: 238989254869262442}
+  - component: {fileID: -2568122069866282536}
+  - component: {fileID: 4376530850225996530}
+  - component: {fileID: 8129627190343229702}
+  - component: {fileID: 7594649317762586207}
+  - component: {fileID: 4093329564948891353}
+  - component: {fileID: 5448158551130990561}
+  - component: {fileID: 7195339238562616025}
+  - component: {fileID: 3858726237571339371}
+  - component: {fileID: 5477305583418423152}
+  - component: {fileID: 4145946827557453952}
+  - component: {fileID: 4604750521128522250}
+  - component: {fileID: 8226323581935384865}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -195,6 +207,161 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
+--- !u!114 &-2568122069866282536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215be660fcd263e45b26c52c663badbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Content.Warlock.SplashHitRadiusAuthoring
+  _radius: 200
+--- !u!114 &4376530850225996530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c287d0a80b308459d9f549a7e9988b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Content.Warlock.SplahHitRequestAuthoring
+--- !u!114 &8129627190343229702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db162012614fc997d28033cacce958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.RotationSpeedAuthoring
+  _value:
+    value: 50
+--- !u!114 &7594649317762586207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7d4e67e49c49af8e44297b50e65147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.TargetEntityAuthoring
+  _target: {fileID: 0}
+--- !u!114 &4093329564948891353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b596b09fd43aab58f52278847bc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AttackDistanceAuthoring
+  _value: 5
+--- !u!114 &5448158551130990561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875c9c4515cf4bd58bca9c015b8a24e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.FireRequestAuthoring
+--- !u!114 &7195339238562616025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7538ec19b1a48e5b82254cd447ccecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.FireCooldownAuthoring
+  _cooldown:
+    time: 0
+    duration: 0
+--- !u!114 &3858726237571339371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dd12d3bba74249af4bbf0d804c134f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AmmoAuthoring
+  Value: 300
+--- !u!114 &5477305583418423152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ba897a89344fca9abc17d466725b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeadCooldownAuthoring
+  Duration: 1.25
+--- !u!114 &4145946827557453952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfd556d10ca4ef9a567c78a682c91f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeathEventAuthoring
+--- !u!114 &4604750521128522250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8952eea49797458ea669adca4dcc04de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DetectionRadiusAuthoring
+  _value: 50
+--- !u!114 &8226323581935384865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335e0a2060724977a6a6aff2043895be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.MoveEventAuthoring
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

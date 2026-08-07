@@ -6,7 +6,7 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
-    public partial struct AttackTargetSystem : ISystem
+    public partial struct ActionTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Health> _healthLookup;

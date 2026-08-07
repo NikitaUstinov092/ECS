@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace SampleGame
 {
-    public sealed class AttackDistanceAuthoring : MonoBehaviour
+    public sealed class ActionDistanceAuthoring : MonoBehaviour
     {
         [SerializeField]
         private float _value;
 
-        private sealed class Baker : Baker<AttackDistanceAuthoring>
+        private sealed class Baker : Baker<ActionDistanceAuthoring>
         {
-            public override void Bake(AttackDistanceAuthoring authoring)
+            public override void Bake(ActionDistanceAuthoring authoring)
             {
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new ActionDistance

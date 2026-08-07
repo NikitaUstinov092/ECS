@@ -63,5 +63,51 @@ namespace SampleGame
             }
             return closest;
         }
+        
+        // Собирает ВСЕ сущности в радиусе от точки, удовлетворяющие предикату,
+        // и добавляет их в переданный NativeList (список должен быть уже создан вызывающим кодом).
+        public static unsafe void FindAllInRadius<TPredicate>(
+            this SpatialHashData spatialHash,
+            float3 position,
+            float radius,
+            in TPredicate predicate,
+            ComponentLookup<LocalTransform> transforms,
+            ref NativeList<Entity> results
+        )
+            where TPredicate : struct, IEntityPredicate
+        {
+            float radiusSq = radius * radius;
+
+            int2 centerCell = GetCell(position, spatialHash.cellSize);
+            int cellRadius = (int) math.ceil(radius / spatialHash.cellSize);
+
+            for (int x = -cellRadius; x <= cellRadius; x++)
+            for (int z = -cellRadius; z <= cellRadius; z++)
+            {
+                int2 cell = centerCell + new int2(x, z);
+                uint hash = Hash(cell);
+                if (!spatialHash.map->TryGetFirstValue(
+                        hash,
+                        out Entity candidate,
+                        out NativeParallelMultiHashMapIterator<uint> iterator
+                    ))
+                    continue;
+
+                do
+                {
+                    if (!predicate.Invoke(candidate))
+                        continue;
+
+                    RefRO<LocalTransform> candidateTransform = transforms.GetRefRO(candidate);
+                    float distanceSq = math.lengthsq(candidateTransform.ValueRO.Position - position);
+                    if (distanceSq > radiusSq)
+                        continue;
+
+                    results.Add(candidate);
+                } while (spatialHash.map->TryGetNextValue(out candidate, ref iterator));
+            }
+        }
     }
 }
+    
+    

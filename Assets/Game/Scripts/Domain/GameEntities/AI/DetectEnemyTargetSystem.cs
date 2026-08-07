@@ -1,5 +1,4 @@
 using Game.Scripts.Domain.GameEntities.AI;
-using Game.Scripts.MyComponents.Components;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
@@ -10,7 +9,7 @@ namespace SampleGame
 {
     
     [BurstCompile]
-    public partial struct DetectEnemySystem : ISystem
+    public partial struct DetectEnemyTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;

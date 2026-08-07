@@ -1,29 +1,28 @@
-using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Game.Scripts.Domain.GameEntities.Content.Soldier
+namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
-    [BurstCompile]
-    public partial struct SoldierMeleeFireSystem : ISystem
+    public partial struct SplashHitRequestSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup; // Random access
         private ComponentLookup<LocalTransform> _transformLookup;
-        private BufferLookup<TakeDamageRequest> _takeDamageRequests;
+        private ComponentLookup<SplashHitRequest> _takeDamageRequests;
 
         public void OnCreate(ref SystemState state)
         {
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
-            _takeDamageRequests = SystemAPI.GetBufferLookup<TakeDamageRequest>(isReadOnly: false);
+            _takeDamageRequests = SystemAPI.GetComponentLookup<SplashHitRequest>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            return;
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _takeDamageRequests.Update(ref state);
@@ -35,7 +34,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                          RefRO<Team> team,
                          RefRO<ActionDistance> attackDistance,
                          RefRO<LocalTransform> transform,
-                         RefRO<Damage> damage,
                          Entity entity
                      ) in SystemAPI.Query<
                          EnabledRefRW<ActionRequest>,
@@ -43,10 +41,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                          RefRW<ActionCooldown>,
                          RefRO<Team>,
                          RefRO<ActionDistance>,
-                         RefRO<LocalTransform>,
-                         RefRO<Damage>>()
-                         .WithPresent<Melee>()
-                         .WithPresent<SampleGame.Soldier>()
+                         RefRO<LocalTransform>>()
                          .WithEntityAccess()
                     )
             {
@@ -76,14 +71,14 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 targetTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
                 
                 // Action
-                if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
+                if (!_takeDamageRequests.HasComponent(entity))
                     continue;
-                
-                requests.Add(new TakeDamageRequest
-                {
-                    damage = damage.ValueRO.value,
-                    instigator = entity
-                });
+
+                SplashHitRequest request = _takeDamageRequests[entity];
+                request.StartPosition = transform.ValueRO.Position;
+
+                _takeDamageRequests[entity] = request;                
+                _takeDamageRequests.SetComponentEnabled(entity, true);
                 
                 cooldown.ValueRW.ResetTime();
             }

@@ -2,6 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace SampleGame
 {
@@ -59,7 +60,7 @@ namespace SampleGame
             {
                 // Request
                 requestEnabled.ValueRW = false;
-
+                Debugger("requestEnabled");
                 // Condition
                 if (cooldown.ValueRO.IsPlaying())
                     continue;
@@ -76,6 +77,8 @@ namespace SampleGame
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform))
                     continue;
 
+                Debugger("target");
+
                 TeamType myTeam = team.ValueRO.value;
                 if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.value == myTeam)
                     continue;
@@ -87,6 +90,8 @@ namespace SampleGame
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                 if (math.lengthsq(delta) > distance * distance)
                     continue;
+                
+                Debugger("deltat");
 
                 RefRO<ProjectilePrefab> projectilePrefab = _projectilePrefabs.GetRefRO(entity);
                 RefRO<FireOffset> fireOffset = _fireOffsetLookup.GetRefRO(entity);
@@ -108,7 +113,10 @@ namespace SampleGame
                 
                 // Event
                 _fireEventLookup.SetComponentEnabled(entity, true);
+                Debugger("Fire Event");
             }
+            [BurstDiscard]
+            void Debugger(string m) => Debug.Log(m);
         }
     }
 }

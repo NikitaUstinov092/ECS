@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SampleGame
 {
+    //TO DO разделить с маной
     public class AmmoAuthoring : MonoBehaviour
     {
         public int Value;
