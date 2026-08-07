@@ -9,6 +9,7 @@ namespace SampleGame
 {
     
     [BurstCompile]
+    [UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst =  true)]
     public partial struct DetectEnemyTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
