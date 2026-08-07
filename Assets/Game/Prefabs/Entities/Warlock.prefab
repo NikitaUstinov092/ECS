@@ -33,6 +33,7 @@ GameObject:
   - component: {fileID: 4145946827557453952}
   - component: {fileID: 4604750521128522250}
   - component: {fileID: 8226323581935384865}
+  - component: {fileID: 3037626905985629926}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.FireCooldownAuthoring
   _cooldown:
     time: 0
-    duration: 0
+    duration: 1
 --- !u!114 &3858726237571339371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +363,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335e0a2060724977a6a6aff2043895be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.MoveEventAuthoring
+--- !u!114 &3037626905985629926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fff6df20d742de9fff2e3a82aa3007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DamageAuthoring
+  _damage: 5
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

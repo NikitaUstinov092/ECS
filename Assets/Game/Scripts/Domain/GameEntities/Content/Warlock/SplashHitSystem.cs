@@ -7,72 +7,95 @@ using Unity.Transforms;
 
 namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
+    [BurstCompile]
     public partial struct SplashHitSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup;
         private ComponentLookup<Health> _healthLookup;
         private ComponentLookup<LocalTransform> _transformLookup;
-        private BufferLookup<TakeDamageRequest> _takeDamageRequests;
-        
-        
+
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            _transformLookup = state.GetComponentLookup<LocalTransform>(isReadOnly: true);
-            _teamLookup = state.GetComponentLookup<Team>(isReadOnly: true);
-            _healthLookup = state.GetComponentLookup<Health>(isReadOnly: true);
-            _takeDamageRequests = state.GetBufferLookup<TakeDamageRequest>(isReadOnly: true);
+            state.RequireForUpdate<EndSimulationEntityCommandBufferSystem.Singleton>();
+            _teamLookup = state.GetComponentLookup<Team>(true);
+            _healthLookup = state.GetComponentLookup<Health>(true);
+            _transformLookup = state.GetComponentLookup<LocalTransform>(true);
 
             state.RequireForUpdate<SpatialHashData>();
         }
-        
+
+
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            return;
-            _transformLookup.Update(ref state);
-            _healthLookup.Update(ref state);
             _teamLookup.Update(ref state);
+            _healthLookup.Update(ref state);
+            _transformLookup.Update(ref state);
+
+
+            var ecb = SystemAPI
+                .GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>()
+                .CreateCommandBuffer(state.WorldUnmanaged)
+                .AsParallelWriter();
+
+
             state.Dependency = new SplashHitJob
             {
+                SpatialHash = SystemAPI.GetSingleton<SpatialHashData>(),
+
                 TeamLookup = _teamLookup,
-                HealthLookup = _healthLookup,   
+                HealthLookup = _healthLookup,
                 TransformLookup = _transformLookup,
-                TakeDamageRequests = _takeDamageRequests
-                
+
+                ECB = ecb
+
             }.ScheduleParallel(state.Dependency);
         }
-        
+
+
         [BurstCompile]
         public partial struct SplashHitJob : IJobEntity
         {
             [NativeDisableUnsafePtrRestriction]
             public SpatialHashData SpatialHash;
+
+            [ReadOnly]
+            public ComponentLookup<Team> TeamLookup;
+
+            [ReadOnly]
+            public ComponentLookup<Health> HealthLookup;
             
-            [ReadOnly]  public ComponentLookup<Team> TeamLookup;
+            [ReadOnly]
+            public ComponentLookup<LocalTransform> TransformLookup;
             
-            [ReadOnly] public ComponentLookup<Health> HealthLookup;
-            
-            [ReadOnly] public ComponentLookup<LocalTransform> TransformLookup;
-            
-            [ReadOnly] public BufferLookup<TakeDamageRequest> TakeDamageRequests;
-            
+            public EntityCommandBuffer.ParallelWriter ECB;
+
+
             private void Execute(
                 Entity entity,
+                [ChunkIndexInQuery] int sortKey,
                 in Team team,
                 in SplashHitRequest request,
                 in SplashHitRadius radius,
-                in Damage damage
-            )
+                in Damage damage)
             {
-                IsEnemyPredicate condition = new IsEnemyPredicate(
+                var condition = new IsEnemyPredicate(
                     entity,
                     team.value,
                     TeamLookup,
                     HealthLookup
                 );
-                
-                NativeList<Entity> hitEntities = new NativeList<Entity>(Allocator.Temp);
+               
+                ECB.SetComponentEnabled<SplashHitRequest>(
+                    sortKey,
+                    entity,
+                    false
+                );
+
+                NativeList<Entity> hitEntities =
+                    new NativeList<Entity>(16, Allocator.Temp);
+
 
                 SpatialHash.FindAllInRadius(
                     request.StartPosition,
@@ -82,24 +105,25 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                     ref hitEntities
                 );
 
+
                 for (int i = 0; i < hitEntities.Length; i++)
                 {
                     Entity target = hitEntities[i];
-                   
-                    if (!TakeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
-                        continue;
-                
-                    requests.Add(new TakeDamageRequest
-                    {
-                        damage = damage.value,
-                        instigator = entity
-                    });
+
+
+                    ECB.AppendToBuffer(
+                        sortKey,
+                        target,
+                        new TakeDamageRequest
+                        {
+                            damage = damage.value,
+                            instigator = entity
+                        });
                 }
+
 
                 hitEntities.Dispose();
             }
         }
     }
-   
-    
 }

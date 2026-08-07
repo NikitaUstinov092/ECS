@@ -3,6 +3,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
@@ -22,7 +23,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            return;
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _takeDamageRequests.Update(ref state);
@@ -48,7 +48,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 
                 // Request
                 requestEnabled.ValueRW = false;
-
+              
                 // Condition
                 if (cooldown.ValueRO.IsPlaying())
                     continue;
@@ -67,7 +67,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                 if (math.lengthsq(delta) > distance * distance)
                     continue;
-              
+                
                 targetTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
                 
                 // Action
@@ -81,6 +81,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 _takeDamageRequests.SetComponentEnabled(entity, true);
                 
                 cooldown.ValueRW.ResetTime();
+                
             }
         }
     }

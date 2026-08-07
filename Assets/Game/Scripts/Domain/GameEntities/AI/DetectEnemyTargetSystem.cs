@@ -24,8 +24,7 @@ namespace SampleGame
 
             state.RequireForUpdate<SpatialHashData>();
         }
-
-        [BurstCompile]
+        
         public void OnUpdate(ref SystemState state)
         {
             _transformLookup.Update(ref state);
