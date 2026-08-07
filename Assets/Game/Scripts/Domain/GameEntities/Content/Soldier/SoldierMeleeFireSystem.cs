@@ -1,10 +1,10 @@
+using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [BurstCompile]
     public partial struct SoldierMeleeFireSystem : ISystem
@@ -44,7 +44,7 @@ namespace SampleGame
                          RefRO<ActionDistance>,
                          RefRO<LocalTransform>,
                          RefRO<Damage>>()
-                         .WithPresent<Soldier>()
+                         .WithPresent<SampleGame.Soldier>()
                          .WithEntityAccess()
                     )
             {
@@ -70,11 +70,13 @@ namespace SampleGame
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                 if (math.lengthsq(delta) > distance * distance)
                     continue;
-
+              
+                targetTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
+                
                 // Action
                 if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
                     continue;
-
+                
                 requests.Add(new TakeDamageRequest
                 {
                     damage = damage.ValueRO.value,

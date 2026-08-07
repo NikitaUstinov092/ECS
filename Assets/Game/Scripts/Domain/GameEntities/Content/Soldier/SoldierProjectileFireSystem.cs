@@ -83,6 +83,7 @@ namespace SampleGame
                 RefRW<LocalTransform> transform = _transformLookup.GetRefRW(entity);
                 
                 float distance = attackDistance.ValueRO.value;
+               
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                 if (math.lengthsq(delta) > distance * distance)
                     continue;

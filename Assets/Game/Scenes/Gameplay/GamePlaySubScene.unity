@@ -592,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcf6ac7d3b742c3972c63a5fe75a92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.HealthAuthoring
-  _current: 100
-  _max: 100
+  _current: 1000
+  _max: 1000
 --- !u!114 &544914276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +680,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfd556d10ca4ef9a567c78a682c91f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeathEventAuthoring
+--- !u!114 &544914283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544914274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbebd4d214682342b7637346472dfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealEventAuthoring
+--- !u!114 &544914284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544914274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
 --- !u!1001 &667480259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -899,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2def87750e714016a13aac0bbdd2eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
-  StartMana: 0
+  StartMana: 100
   RegenPerSecond: 1
 --- !u!114 &763321620
 MonoBehaviour:
@@ -2273,6 +2297,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7657002863243684355}
+    - targetCorrespondingSourceObject: {fileID: 7078650420259860604, guid: a82794b5cab41ef46a2ba26c65e32fc1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7657002863243684358}
+    - targetCorrespondingSourceObject: {fileID: 7078650420259860604, guid: a82794b5cab41ef46a2ba26c65e32fc1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7657002863243684357}
   m_SourcePrefab: {fileID: 100100000, guid: a82794b5cab41ef46a2ba26c65e32fc1, type: 3}
 --- !u!1001 &6075334459726365621
 PrefabInstance:
@@ -2454,6 +2486,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 544914281}
+    - targetCorrespondingSourceObject: {fileID: 6480648308455456160, guid: 09a84d2719aac2546a75f1c2d3fd70ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 544914284}
+    - targetCorrespondingSourceObject: {fileID: 6480648308455456160, guid: 09a84d2719aac2546a75f1c2d3fd70ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 544914283}
   m_SourcePrefab: {fileID: 100100000, guid: 09a84d2719aac2546a75f1c2d3fd70ee, type: 3}
 --- !u!4 &7657002863243684348 stripped
 Transform:
@@ -2473,8 +2513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcf6ac7d3b742c3972c63a5fe75a92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.HealthAuthoring
-  _current: 100
-  _max: 100
+  _current: 1000
+  _max: 1000
 --- !u!114 &7657002863243684350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,6 +2601,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfd556d10ca4ef9a567c78a682c91f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeathEventAuthoring
+--- !u!114 &7657002863243684357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596353829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbebd4d214682342b7637346472dfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealEventAuthoring
+--- !u!114 &7657002863243684358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596353829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

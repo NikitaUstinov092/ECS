@@ -16,5 +16,10 @@ namespace SampleGame
         {
             health.value = math.max(0, health.value - math.max(damage, 0));
         }
+        
+        public static void Increase(ref this Health health,in MaxHealth maxHealth, int heal)
+        {
+            health.value = math.min(health.value + heal, maxHealth.value);
+        }
     }
 }

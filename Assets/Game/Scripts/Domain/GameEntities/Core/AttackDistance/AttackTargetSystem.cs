@@ -44,8 +44,7 @@ namespace SampleGame
                          .WithPresent<Unit>()
                          .WithEntityAccess())
             {
-
-                Debugger("AttackTargetSystem");
+                
                 // Target
                 Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
@@ -62,17 +61,13 @@ namespace SampleGame
                 {
                     moveRequestValue.ValueRW.direction = math.normalizesafe(delta);
                     moveRequestEnabled.ValueRW = true;
-                    Debugger("Движение");
                 }
                 else
                 {
                     fireRequestValue.ValueRW.target = target;
                     fireRequestEnabled.ValueRW = true;
-                    Debugger("Действие");
                 }
             }
-            [BurstDiscard]
-            void Debugger(string message) => UnityEngine.Debug.Log(message);
         }
     }
 }

@@ -9,13 +9,14 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
     [BurstCompile]
-    public partial struct HealSystem : ISystem
+    public partial struct HealRequestSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;
         private ComponentLookup<FireEvent> _fireEventLookup;
         private ComponentLookup<Health> _healthLookup;
-        private ComponentLookup<MaxHealth> _maxHealthLookup;
+       // private ComponentLookup<MaxHealth> _maxHealthLookup;
+       private BufferLookup<TakeHealRequest> _takeHealRequests;
 
         public void OnCreate(ref SystemState state)
         {
@@ -26,7 +27,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             _fireEventLookup = SystemAPI.GetComponentLookup<FireEvent>(isReadOnly: false);
             
             _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: false);
-            _maxHealthLookup = SystemAPI.GetComponentLookup<MaxHealth>(isReadOnly: false);
+            _takeHealRequests = SystemAPI.GetBufferLookup<TakeHealRequest>(isReadOnly: false);
+            
+        //    _maxHealthLookup = SystemAPI.GetComponentLookup<MaxHealth>(isReadOnly: false);
         }
 
         [BurstCompile]
@@ -36,12 +39,14 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             _transformLookup.Update(ref state);
             _fireEventLookup.Update(ref state);
             _healthLookup.Update(ref state);
-            _maxHealthLookup.Update(ref state);
+            _takeHealRequests.Update(ref state);
+ //           _maxHealthLookup.Update(ref state);
 
             state.Dependency = new HealJob
             {
                 TargetHealthLookup =  _healthLookup,
-                TargetMaxHealthLookup =   _maxHealthLookup,
+                TakeHealRequests =  _takeHealRequests,
+          //      TargetMaxHealthLookup =   _maxHealthLookup,
                 TransformLookup =  _transformLookup,
                 TeamLookup =   _teamLookup,
                 
@@ -53,8 +58,10 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         public partial struct HealJob : IJobEntity
         {
             [ReadOnly] public ComponentLookup<LocalTransform> TransformLookup;
-            [ReadOnly] public ComponentLookup<MaxHealth> TargetMaxHealthLookup;
+           // [ReadOnly] public ComponentLookup<MaxHealth> TargetMaxHealthLookup;
             [ReadOnly] public ComponentLookup<Team> TeamLookup;
+            
+            public BufferLookup<TakeHealRequest> TakeHealRequests;
             
             public ComponentLookup<Health> TargetHealthLookup;
             
@@ -66,7 +73,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 ref Ammo ammo,
                 in Heal heal,
                 in Team team,
-                in MaxHealth maxHealth,
                 in ActionDistance attackDistance
             )
             {
@@ -102,13 +108,24 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                     return;
                 
                 // Action Heal — прибавка здоровья цели с клампом по MaxHealth
-                if (!TargetMaxHealthLookup.TryGetComponent(target, out MaxHealth targetMaxHealth))
-                    return;
+                // if (!TargetMaxHealthLookup.TryGetComponent(target, out MaxHealth targetMaxHealth))
+                //     return;
 
                 myTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
-                    targetHealth.value = math.min(targetHealth.value + heal.Value, targetMaxHealth.value);
-                    TargetHealthLookup[target] = targetHealth; //TO DO перелать через буффер
-            
+                   
+                // targetHealth.value = math.min(targetHealth.value + heal.Value, targetMaxHealth.value);
+                    //
+                    // TargetHealthLookup[target] = targetHealth; //TO DO перелать через буффер
+                  
+                if (!TakeHealRequests.TryGetBuffer(target, out DynamicBuffer<TakeHealRequest> requests))
+                    return;
+                
+                requests.Add(new TakeHealRequest
+                {
+                    HealAmount = heal.Value,
+                    Instigator = entity
+                });
+                
                 cooldown.ResetTime();
                 ammo.value--;
                 
