@@ -33,6 +33,7 @@ GameObject:
   - component: {fileID: 8393211538043009721}
   - component: {fileID: 5912409988144495636}
   - component: {fileID: 6587861955305473021}
+  - component: {fileID: 8238997381879327457}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -337,8 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dd12d3bba74249af4bbf0d804c134f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AmmoAuthoring
-  CurrentStamina: 30
-  MaxStamina: 30
+  _currentStamina: 30
 --- !u!114 &5912409988144495636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +363,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
+--- !u!114 &8238997381879327457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f20fb7d77c40cda7a5621e7989d928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Stamina.StaminaRegenAuthoring
+  _secondsRate: 2
+  _maxStamina: 30
+  _regenCountPerRate: 1
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

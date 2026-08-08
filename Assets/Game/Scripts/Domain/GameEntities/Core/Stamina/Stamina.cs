@@ -2,7 +2,7 @@ using System;
 using Unity.Entities;
 using UnityEngine.Serialization;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Stamina
 {
     [Serializable]
     public struct Stamina : IComponentData

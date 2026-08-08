@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Views
 {
-    public class ManaView : MonoBehaviour
+    public class MoneyView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _healthValue;
     

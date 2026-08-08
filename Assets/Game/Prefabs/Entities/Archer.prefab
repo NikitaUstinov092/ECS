@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 2070634331622384112}
   - component: {fileID: 5473914466803519272}
   - component: {fileID: 9200408314533786636}
+  - component: {fileID: 5331409483145766960}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -252,8 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dd12d3bba74249af4bbf0d804c134f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AmmoAuthoring
-  CurrentStamina: 30
-  MaxStamina: 30
+  _currentStamina: 30
 --- !u!114 &3743299068971624324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +390,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
+--- !u!114 &5331409483145766960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f20fb7d77c40cda7a5621e7989d928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Stamina.StaminaRegenAuthoring
+  _secondsRate: 2
+  _maxStamina: 30
+  _regenCountPerRate: 1
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

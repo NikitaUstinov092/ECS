@@ -3,7 +3,7 @@ using Unity.Entities;
 
 namespace Game.Scripts.MyComponents.Requests
 {
-    public struct SpendManaRequest :  IComponentData, IEnableableComponent
+    public struct SpendMoneyRequest :  IComponentData, IEnableableComponent
     {
         public int Amount;
         public PurchaseDetails PurchaseDetails;

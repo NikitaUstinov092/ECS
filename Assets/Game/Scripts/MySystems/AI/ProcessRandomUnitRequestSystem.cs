@@ -21,14 +21,14 @@ namespace Game.Scripts.MySystems
             {
                 foreach ( var (team1, spendManaRequest, entity)
                          in SystemAPI.Query<RefRO<Team>,
-                                 EnabledRefRW<SpendManaRequest>>().WithDisabled<SpendManaRequest>()
+                                 EnabledRefRW<SpendMoneyRequest>>().WithDisabled<SpendMoneyRequest>()
                              .WithEntityAccess())
                 {
                    
                     if(team.ValueRO.value != team1.ValueRO.value)
                         continue;
                     
-                    state.EntityManager.SetComponentData(entity, new SpendManaRequest
+                    state.EntityManager.SetComponentData(entity, new SpendMoneyRequest
                     {
                         Amount = request.ValueRO.RandomUnitData.Price,
                         PurchaseDetails = new PurchaseDetails

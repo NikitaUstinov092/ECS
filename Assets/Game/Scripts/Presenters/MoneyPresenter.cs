@@ -1,5 +1,4 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.MyComponents.Components;
 using Game.Scripts.Views;
 using SampleGame;
 using Unity.Collections;
@@ -8,10 +7,10 @@ using UnityEngine;
 
 namespace Game.Scripts.Presenters
 {
-    public class ManaPresenter : MonoBehaviour
+    public class MoneyPresenter : MonoBehaviour
     {
         [SerializeField] 
-        private ManaView _view;
+        private MoneyView _view;
         
         [SerializeField] 
         private TeamType _teamType;

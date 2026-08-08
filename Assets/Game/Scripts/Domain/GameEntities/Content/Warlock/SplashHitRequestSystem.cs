@@ -1,3 +1,4 @@
+using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
 using Unity.Burst;

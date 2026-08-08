@@ -1,25 +1,26 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.MyComponents.Components;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.MyAuthorings
 {
-    public class ManaAuthoring : MonoBehaviour
+    public class MoneyAuthoring : MonoBehaviour
     {
-        public int StartMana = 0;
+        [FormerlySerializedAs("StartMana")] 
+        public int StartMoney = 0;
         public int RegenPerSecond = 1;
     }
 
-    public class ManaBaker : Baker<ManaAuthoring>
+    public class ManaBaker : Baker<MoneyAuthoring>
     {
-        public override void Bake(ManaAuthoring authoring)
+        public override void Bake(MoneyAuthoring authoring)
         {
             Entity entity = GetEntity(TransformUsageFlags.None);
 
             AddComponent(entity, new Money
             {
-                Current = authoring.StartMana,
+                Current = authoring.StartMoney,
                 RegenPerSecond = authoring.RegenPerSecond,
                 RegenTimer = 0f
             });

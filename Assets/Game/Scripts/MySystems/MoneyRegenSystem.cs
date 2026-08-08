@@ -6,7 +6,7 @@ using Unity.Entities;
 namespace Game.Scripts.MySystems
 {
     [BurstCompile]
-    public partial struct ManaRegenSystem : ISystem
+    public partial struct MoneyRegenSystem : ISystem
     {
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
@@ -25,7 +25,6 @@ namespace Game.Scripts.MySystems
 
                     moneyData.Current += moneyData.RegenPerSecond;
                 }
-               
             }
         }
     }

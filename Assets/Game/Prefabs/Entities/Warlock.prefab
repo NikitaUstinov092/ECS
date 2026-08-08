@@ -34,6 +34,7 @@ GameObject:
   - component: {fileID: 4604750521128522250}
   - component: {fileID: 8226323581935384865}
   - component: {fileID: 3037626905985629926}
+  - component: {fileID: 995875533980271362}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -312,8 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dd12d3bba74249af4bbf0d804c134f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AmmoAuthoring
-  CurrentStamina: 30
-  MaxStamina: 30
+  _currentStamina: 30
 --- !u!114 &5477305583418423152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +377,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DamageAuthoring
   _damage: 5
+--- !u!114 &995875533980271362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f20fb7d77c40cda7a5621e7989d928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Stamina.StaminaRegenAuthoring
+  _secondsRate: 2
+  _maxStamina: 30
+  _regenCountPerRate: 1
 --- !u!1001 &2374355558966095868
 PrefabInstance:
   m_ObjectHideFlags: 0

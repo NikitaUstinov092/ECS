@@ -1,5 +1,4 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.MyComponents.Components;
 using Game.Scripts.MyComponents.Events;
 using Game.Scripts.MyComponents.Requests;
 using SampleGame;
@@ -9,27 +8,23 @@ using Unity.Entities;
 namespace Game.Scripts.MySystems
 {
     [BurstCompile]
-    public partial struct SpendManaSystem : ISystem
+    public partial struct SpendMoneySystem : ISystem
     {
-      //  private ComponentLookup<SpawnUnitRequest> _spawnUnitRequestLookup;
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
-    //        _spawnUnitRequestLookup = SystemAPI.GetComponentLookup<SpawnUnitRequest>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-    //        _spawnUnitRequestLookup.Update(ref state);
-            
-            foreach ((EnabledRefRW<SpendManaRequest> requestEnabled,
-                         RefRO<SpendManaRequest> request, 
+            foreach ((EnabledRefRW<SpendMoneyRequest> requestEnabled,
+                         RefRO<SpendMoneyRequest> request, 
                          RefRW<SpawnUnitRequest> spawnUnitRequest,
                          EnabledRefRW<SpawnUnitRequest> spawnUnitRequestEnabled)
                      in SystemAPI.Query<
-                         EnabledRefRW<SpendManaRequest>,
-                         RefRO<SpendManaRequest>, 
+                         EnabledRefRW<SpendMoneyRequest>,
+                         RefRO<SpendMoneyRequest>, 
                          RefRW<SpawnUnitRequest>,
                          EnabledRefRW<SpawnUnitRequest>>()
                          .WithDisabled<GameOver>()

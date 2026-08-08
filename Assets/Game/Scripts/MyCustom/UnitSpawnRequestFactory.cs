@@ -28,7 +28,7 @@ namespace Game.Scripts.MyCustom
         {
             // Ищем Entity с SpendManaRequest для конкретной команды
             EntityQuery query = new EntityQueryBuilder(Allocator.Temp)
-                .WithAll<SpendManaRequest, Team>()
+                .WithAll<SpendMoneyRequest, Team>()
                 .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)
                 .Build(_entityManager);
             
@@ -42,7 +42,7 @@ namespace Game.Scripts.MyCustom
                 
                 if (teamComponent.value == team)
                 {
-                    _entityManager.SetComponentData(entity, new SpendManaRequest
+                    _entityManager.SetComponentData(entity, new SpendMoneyRequest
                     {
                         Amount = price,
                         PurchaseDetails = new PurchaseDetails
@@ -52,7 +52,7 @@ namespace Game.Scripts.MyCustom
                         }
                     });
 
-                    _entityManager.SetComponentEnabled<SpendManaRequest>(entity, true);
+                    _entityManager.SetComponentEnabled<SpendMoneyRequest>(entity, true);
                 }
             }
             
