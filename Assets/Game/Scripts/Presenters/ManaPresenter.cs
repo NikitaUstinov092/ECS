@@ -24,7 +24,7 @@ namespace Game.Scripts.Presenters
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             _manaQuery = _entityManager.CreateEntityQuery(
-                ComponentType.ReadOnly<Mana>(),
+                ComponentType.ReadOnly<Money>(),
                 ComponentType.ReadOnly<Team>());
         }
 
@@ -40,8 +40,8 @@ namespace Game.Scripts.Presenters
                 if (_entityManager.GetComponentData<Team>(entity).value != _teamType)
                     continue;
 
-                Mana mana = _entityManager.GetComponentData<Mana>(entity);
-                _view.ManaCountTextValue = mana.Current.ToString();
+                Money money = _entityManager.GetComponentData<Money>(entity);
+                _view.ManaCountTextValue = money.Current.ToString();
                 break;
             }
         }

@@ -4,8 +4,7 @@ using Unity.Entities;
 namespace SampleGame
 {
     [Serializable]
-    public struct Ammo : IComponentData
+    public struct ActionEvent : IComponentData, IEnableableComponent
     {
-        public int value;
     }
 }

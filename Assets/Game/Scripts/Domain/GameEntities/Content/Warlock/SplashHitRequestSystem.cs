@@ -1,9 +1,9 @@
+using Game.Scripts.MyComponents.Components;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
@@ -11,13 +11,15 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
     {
         private ComponentLookup<Team> _teamLookup; // Random access
         private ComponentLookup<LocalTransform> _transformLookup;
-        private ComponentLookup<SplashHitRequest> _takeDamageRequests;
+        private ComponentLookup<SplashHitRequest> _splashHitRequests;
+        private ComponentLookup<Stamina> _stamina;
 
         public void OnCreate(ref SystemState state)
         {
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
-            _takeDamageRequests = SystemAPI.GetComponentLookup<SplashHitRequest>(isReadOnly: false);
+            _splashHitRequests = SystemAPI.GetComponentLookup<SplashHitRequest>(isReadOnly: false);
+            _stamina = SystemAPI.GetComponentLookup<Stamina>(isReadOnly: false);
         }
 
         [BurstCompile]
@@ -25,7 +27,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
         {
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
-            _takeDamageRequests.Update(ref state);
+            _splashHitRequests.Update(ref state);
+            _stamina.Update(ref state);
 
             foreach ((
                          EnabledRefRW<ActionRequest> requestEnabled,
@@ -41,16 +44,22 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                          RefRW<ActionCooldown>,
                          RefRO<Team>,
                          RefRO<ActionDistance>,
-                         RefRO<LocalTransform>>()
+                         RefRO<LocalTransform>>().WithPresent<SplashHitRequest>()
                          .WithEntityAccess()
                     )
             {
-                
+             
                 // Request
                 requestEnabled.ValueRW = false;
               
                 // Condition
                 if (cooldown.ValueRO.IsPlaying())
+                    continue;
+                
+                if(!_stamina.TryGetComponent(entity, out Stamina mana))
+                    continue;
+                
+                if(mana.Value<=0)
                     continue;
 
                 Entity target = requestValue.ValueRO.target;
@@ -71,17 +80,17 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 targetTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
                 
                 // Action
-                if (!_takeDamageRequests.HasComponent(entity))
+                if (!_splashHitRequests.HasComponent(entity))
                     continue;
 
-                SplashHitRequest request = _takeDamageRequests[entity];
+                SplashHitRequest request = _splashHitRequests[entity];
                 request.StartPosition = transform.ValueRO.Position;
 
-                _takeDamageRequests[entity] = request;                
-                _takeDamageRequests.SetComponentEnabled(entity, true);
+                _splashHitRequests[entity] = request;                
+                _splashHitRequests.SetComponentEnabled(entity, true);
                 
                 cooldown.ValueRW.ResetTime();
-                
+                mana.Value--;
             }
         }
     }

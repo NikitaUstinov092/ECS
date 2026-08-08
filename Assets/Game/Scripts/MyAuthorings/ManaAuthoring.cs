@@ -17,7 +17,7 @@ namespace Game.Scripts.MyAuthorings
         {
             Entity entity = GetEntity(TransformUsageFlags.None);
 
-            AddComponent(entity, new Mana
+            AddComponent(entity, new Money
             {
                 Current = authoring.StartMana,
                 RegenPerSecond = authoring.RegenPerSecond,

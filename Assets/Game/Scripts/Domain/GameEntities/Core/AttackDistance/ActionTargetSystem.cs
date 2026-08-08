@@ -2,6 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace SampleGame
 {
@@ -27,9 +28,9 @@ namespace SampleGame
                          RefRO<TargetEntity> targetRef,
                          RefRO<ActionDistance> attackDistance,
                          RefRW<MoveRequest> moveRequestValue,
-                         RefRW<ActionRequest> fireRequestValue,
+                         RefRW<ActionRequest> actionRequest,
                          EnabledRefRW<MoveRequest> moveRequestEnabled,
-                         EnabledRefRW<ActionRequest> fireRequestEnabled,
+                         EnabledRefRW<ActionRequest> actionRequestEnabled,
                          Entity entity
                      )
                      in SystemAPI.Query<
@@ -44,7 +45,8 @@ namespace SampleGame
                          .WithPresent<Unit>()
                          .WithEntityAccess())
             {
-                
+
+             
                 // Target
                 Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
@@ -64,8 +66,8 @@ namespace SampleGame
                 }
                 else
                 {
-                    fireRequestValue.ValueRW.target = target;
-                    fireRequestEnabled.ValueRW = true;
+                    actionRequest.ValueRW.target = target;
+                    actionRequestEnabled.ValueRW = true;
                 }
             }
         }

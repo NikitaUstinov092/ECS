@@ -10,7 +10,7 @@ namespace SampleGame
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            foreach (EnabledRefRW<FireEvent> fireEvent in SystemAPI.Query<EnabledRefRW<FireEvent>>()) 
+            foreach (EnabledRefRW<ActionEvent> fireEvent in SystemAPI.Query<EnabledRefRW<ActionEvent>>()) 
                 fireEvent.ValueRW = false;
         }
     }

@@ -32,22 +32,18 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
             _teamLookup.Update(ref state);
             _healthLookup.Update(ref state);
             _transformLookup.Update(ref state);
-
-
+            
             var ecb = SystemAPI
                 .GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>()
                 .CreateCommandBuffer(state.WorldUnmanaged)
                 .AsParallelWriter();
 
-
             state.Dependency = new SplashHitJob
             {
                 SpatialHash = SystemAPI.GetSingleton<SpatialHashData>(),
-
                 TeamLookup = _teamLookup,
                 HealthLookup = _healthLookup,
                 TransformLookup = _transformLookup,
-
                 ECB = ecb
 
             }.ScheduleParallel(state.Dependency);

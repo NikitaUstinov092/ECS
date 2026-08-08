@@ -2,7 +2,7 @@
 
 namespace Game.Scripts.MyComponents.Components
 {
-    public struct Mana : IComponentData
+    public struct Money : IComponentData
     {
         public int Current;
         public int RegenPerSecond;

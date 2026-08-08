@@ -10,8 +10,8 @@ namespace SampleGame
             public override void Bake(FireEventAuthoring authoring)
             {
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent<FireEvent>(entity);
-                this.SetComponentEnabled<FireEvent>(entity, false);
+                this.AddComponent<ActionEvent>(entity);
+                this.SetComponentEnabled<ActionEvent>(entity, false);
             }
         }
     }

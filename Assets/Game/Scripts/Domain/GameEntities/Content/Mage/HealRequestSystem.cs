@@ -13,10 +13,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;
-        private ComponentLookup<FireEvent> _fireEventLookup;
+        private ComponentLookup<ActionEvent> _fireEventLookup;
         private ComponentLookup<Health> _healthLookup;
-       // private ComponentLookup<MaxHealth> _maxHealthLookup;
-       private BufferLookup<TakeHealRequest> _takeHealRequests;
+        private BufferLookup<TakeHealRequest> _takeHealRequests;
 
         public void OnCreate(ref SystemState state)
         {
@@ -24,12 +23,10 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
 
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
-            _fireEventLookup = SystemAPI.GetComponentLookup<FireEvent>(isReadOnly: false);
+            _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
             
             _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: false);
             _takeHealRequests = SystemAPI.GetBufferLookup<TakeHealRequest>(isReadOnly: false);
-            
-        //    _maxHealthLookup = SystemAPI.GetComponentLookup<MaxHealth>(isReadOnly: false);
         }
 
         [BurstCompile]
@@ -40,13 +37,11 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             _fireEventLookup.Update(ref state);
             _healthLookup.Update(ref state);
             _takeHealRequests.Update(ref state);
- //           _maxHealthLookup.Update(ref state);
 
             state.Dependency = new HealJob
             {
                 TargetHealthLookup =  _healthLookup,
                 TakeHealRequests =  _takeHealRequests,
-          //      TargetMaxHealthLookup =   _maxHealthLookup,
                 TransformLookup =  _transformLookup,
                 TeamLookup =   _teamLookup,
                 
@@ -58,7 +53,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         public partial struct HealJob : IJobEntity
         {
             [ReadOnly] public ComponentLookup<LocalTransform> TransformLookup;
-           // [ReadOnly] public ComponentLookup<MaxHealth> TargetMaxHealthLookup;
             [ReadOnly] public ComponentLookup<Team> TeamLookup;
             
             public BufferLookup<TakeHealRequest> TakeHealRequests;
@@ -70,7 +64,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 EnabledRefRW<ActionRequest> requestEnabled,
                 ref ActionRequest requestValue,
                 ref ActionCooldown cooldown,
-                ref Ammo ammo,
+                ref Stamina stamina,
                 in Heal heal,
                 in Team team,
                 in ActionDistance attackDistance
@@ -81,7 +75,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 if (cooldown.time > 0)
                     return;
                 
-                if (ammo.value <= 0) 
+                if (stamina.Value <= 0) 
                     return;
             
                 Entity target = requestValue.target;
@@ -107,15 +101,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 if (math.lengthsq(delta) > distance * distance)
                     return;
                 
-                // Action Heal — прибавка здоровья цели с клампом по MaxHealth
-                // if (!TargetMaxHealthLookup.TryGetComponent(target, out MaxHealth targetMaxHealth))
-                //     return;
 
                 myTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
-                   
-                // targetHealth.value = math.min(targetHealth.value + heal.Value, targetMaxHealth.value);
-                    //
-                    // TargetHealthLookup[target] = targetHealth; //TO DO перелать через буффер
+                
                   
                 if (!TakeHealRequests.TryGetBuffer(target, out DynamicBuffer<TakeHealRequest> requests))
                     return;
@@ -127,7 +115,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 });
                 
                 cooldown.ResetTime();
-                ammo.value--;
+                stamina.Value--;
                 
             }
         }

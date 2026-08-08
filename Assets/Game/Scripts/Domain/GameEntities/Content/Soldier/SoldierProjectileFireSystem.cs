@@ -13,7 +13,7 @@ namespace SampleGame
         private ComponentLookup<Team> _teamLookup;
         private ComponentLookup<ProjectilePrefab> _projectilePrefabs;
         private ComponentLookup<FireOffset> _fireOffsetLookup;
-        private ComponentLookup<FireEvent> _fireEventLookup;
+        private ComponentLookup<ActionEvent> _fireEventLookup;
 
         public void OnCreate(ref SystemState state)
         {
@@ -23,7 +23,7 @@ namespace SampleGame
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _projectilePrefabs = SystemAPI.GetComponentLookup<ProjectilePrefab>(isReadOnly: true);
             _fireOffsetLookup = SystemAPI.GetComponentLookup<FireOffset>(isReadOnly: true);
-            _fireEventLookup = SystemAPI.GetComponentLookup<FireEvent>(isReadOnly: false);
+            _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
         }
 
         [BurstCompile]
@@ -42,7 +42,7 @@ namespace SampleGame
                          EnabledRefRW<ActionRequest> requestEnabled,
                          RefRW<ActionRequest> requestValue,
                          RefRW<ActionCooldown> cooldown,
-                         RefRW<Ammo> ammo,
+                         RefRW<Stamina> ammo,
                          RefRO<Team> team,
                          RefRO<Health> health,
                          RefRO<ActionDistance> attackDistance,
@@ -51,12 +51,12 @@ namespace SampleGame
                              EnabledRefRW<ActionRequest>,
                              RefRW<ActionRequest>,
                              RefRW<ActionCooldown>,
-                             RefRW<Ammo>,
+                             RefRW<Stamina>,
                              RefRO<Team>,
                              RefRO<Health>,
                              RefRO<ActionDistance>
                          >().WithPresent<Soldier>().WithPresent<ProjectilePrefab>()
-                         .WithEntityAccess()) //TO DO Переписать на джобу ProjectilePrefab уже перебор тегов
+                         .WithEntityAccess()) 
             {
                 // Request
                 requestEnabled.ValueRW = false;
@@ -68,7 +68,7 @@ namespace SampleGame
                 if (health.ValueRO.IsDead())
                     continue;
 
-                if (ammo.ValueRO.value <= 0)
+                if (ammo.ValueRO.Value <= 0)
                     continue;
 
                 Entity target = requestValue.ValueRO.target;
@@ -109,7 +109,7 @@ namespace SampleGame
                 );
 
                 cooldown.ValueRW.ResetTime();
-                ammo.ValueRW.value--;
+                ammo.ValueRW.Value--;
                 
                 // Event
                 _fireEventLookup.SetComponentEnabled(entity, true);

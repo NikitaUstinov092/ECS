@@ -13,17 +13,17 @@ namespace Game.Scripts.MySystems
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
             
-            foreach (var mana in SystemAPI.Query<RefRW<Mana>>().WithDisabled<GameOver>())
+            foreach (var mana in SystemAPI.Query<RefRW<Money>>().WithDisabled<GameOver>())
             {
-                ref Mana manaData = ref mana.ValueRW;
+                ref Money moneyData = ref mana.ValueRW;
                 
-                manaData.RegenTimer += deltaTime;
+                moneyData.RegenTimer += deltaTime;
 
-                while (manaData.RegenTimer >= 1f)
+                while (moneyData.RegenTimer >= 1f)
                 {
-                    manaData.RegenTimer -= 1f;
+                    moneyData.RegenTimer -= 1f;
 
-                    manaData.Current += manaData.RegenPerSecond;
+                    moneyData.Current += moneyData.RegenPerSecond;
                 }
                
             }

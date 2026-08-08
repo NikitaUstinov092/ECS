@@ -43,7 +43,7 @@ namespace Game.Scripts.MySystems
                 bool canBuy = false;
 
                 foreach (var (mana, team)
-                         in SystemAPI.Query<RefRW<Mana>, RefRO<Team>>())
+                         in SystemAPI.Query<RefRW<Money>, RefRO<Team>>())
                 {
                     if (team.ValueRO.value != purchase.Team)
                         continue;
