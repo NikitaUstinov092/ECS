@@ -1,49 +1,65 @@
-﻿using Game.Scripts.Common.Color;
-using MyGame.Rendering;
+﻿using MyGame.Rendering;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Rendering;
-using UnityEngine;
 
-[UpdateInGroup(typeof(InitializationSystemGroup))]
-public partial struct SetupMaterialPropertySystem : ISystem
+namespace Game.Scripts.Common.Color
 {
-    public void OnCreate(ref SystemState state)
+    [UpdateInGroup(typeof(InitializationSystemGroup))]
+    public partial struct SetupMaterialPropertySystem : ISystem
     {
-        state.RequireForUpdate<MyMaterialPropertyColorTarget>();
-    }
-
-    public void OnUpdate(ref SystemState state)
-    {
-        var target = SystemAPI.GetSingleton<MyMaterialPropertyColorTarget>();
-
-        Material targetMaterial = target.Material.Value;
-
-        if (targetMaterial == null)
-            return;
-
-        var ecb = new EntityCommandBuffer(Unity.Collections.Allocator.Temp);
-
-        foreach (var (materialMeshInfo, renderMeshArray, entity) in
-                 SystemAPI.Query<
-                         RefRO<MaterialMeshInfo>,
-                         RenderMeshArray>()
-                     .WithEntityAccess())
+        public void OnCreate(ref SystemState state)
         {
-            var material = renderMeshArray.GetMaterial(materialMeshInfo.ValueRO);
-
-            if (material != targetMaterial)
-                continue;
-
-            if (state.EntityManager.HasComponent<MyMaterialPropertyColor1>(entity))
-                continue;
-
-            ecb.AddComponent(entity, new MyMaterialPropertyColor1
-            {
-                Value = target.Color
-            });
+            state.RequireForUpdate<MyMaterialPropertyColorTarget>();
         }
 
-        ecb.Playback(state.EntityManager);
-        ecb.Dispose();
+        public void OnUpdate(ref SystemState state)
+        {
+            var ecb = new EntityCommandBuffer(Allocator.Temp);
+
+            foreach ((
+                RefRO<MyMaterialPropertyColorTarget> target,
+                Entity owner) in
+                SystemAPI.Query<RefRO<MyMaterialPropertyColorTarget>>()
+                    .WithEntityAccess())
+            {
+                Entity targetEntity = owner;
+
+                // Перебираем самого owner и всех его descendants
+                var linkedEntityGroup =
+                    state.EntityManager.GetBuffer<LinkedEntityGroup>(targetEntity);
+
+                for (int i = 0; i < linkedEntityGroup.Length; i++)
+                {
+                    Entity entity = linkedEntityGroup[i].Value;
+
+                    if (!state.EntityManager.HasComponent<MaterialMeshInfo>(entity))
+                        continue;
+
+                    if (!state.EntityManager.HasComponent<RenderMeshArray>(entity))
+                        continue;
+
+                    var materialMeshInfo =
+                        state.EntityManager.GetComponentData<MaterialMeshInfo>(entity);
+
+                    var renderMeshArray =
+                        state.EntityManager.GetSharedComponentManaged<RenderMeshArray>(entity);
+
+                    var material =
+                        renderMeshArray.GetMaterial(materialMeshInfo);
+
+                    if (material != target.ValueRO.Material)
+                        continue;
+
+                    if (state.EntityManager.HasComponent<MyMaterialPropertyColor1>(entity))
+                        continue;
+
+                    ecb.AddComponent(entity, new MyMaterialPropertyColor1());
+                }
+            }
+
+            ecb.Playback(state.EntityManager);
+            ecb.Dispose();
+        }
     }
 }

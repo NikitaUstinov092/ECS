@@ -8298,6 +8298,7 @@ GameObject:
   - component: {fileID: 6705618277204709091}
   - component: {fileID: 4107429911376056808}
   - component: {fileID: 2552133835254203115}
+  - component: {fileID: 4441225811025431337}
   m_Layer: 0
   m_Name: Swordsman1
   m_TagString: Untagged
@@ -8626,3 +8627,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adac4863cf88dd44aebd13cc06bb7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAuthoring
+--- !u!114 &4441225811025431337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721122632549702622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ddec64fd4444a8b73cec0ae9e09fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Common.Color.MyMaterialPropertyColorTargetAuthoring
+  targetMaterial: {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
+  color: {r: 1, g: 1, b: 1, a: 1}

@@ -6,7 +6,6 @@ namespace Game.Scripts.Common.Color
     public class MyMaterialPropertyColorTargetAuthoring : MonoBehaviour
     {
         public Material targetMaterial;
-        public UnityEngine.Color color = UnityEngine.Color.white;
 
         class Baker : Baker<MyMaterialPropertyColorTargetAuthoring>
         {
@@ -16,12 +15,7 @@ namespace Game.Scripts.Common.Color
 
                 AddComponent(entity, new MyMaterialPropertyColorTarget
                 {
-                    Material = authoring.targetMaterial,
-                    Color = new Unity.Mathematics.float4(
-                        authoring.color.linear.r,
-                        authoring.color.linear.g,
-                        authoring.color.linear.b,
-                        authoring.color.linear.a)
+                    Material = authoring.targetMaterial
                 });
             }
         }
@@ -30,6 +24,5 @@ namespace Game.Scripts.Common.Color
     public struct MyMaterialPropertyColorTarget : IComponentData
     {
         public UnityObjectRef<Material> Material;
-        public Unity.Mathematics.float4 Color;
     }
 }
