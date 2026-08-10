@@ -1,0 +1,10 @@
+{
+    "name": "SnivelerCode.GpuAnimation.Generated",
+    "rootNamespace": "SnivelerCode.GpuAnimation.Generated",
+    "references": [
+        "SnivelerCode.GpuAnimation.Runtime",
+        "Unity.Collections"
+    ],
+    "autoReferenced": true,
+    "noEngineReferences": true
+}

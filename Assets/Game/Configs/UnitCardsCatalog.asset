@@ -16,24 +16,21 @@ MonoBehaviour:
   - <Name>k__BackingField: Swordman
     <Icon>k__BackingField: {fileID: 21300000, guid: 560c46b53b7160f4486f3a311dac0a6a,
       type: 3}
-    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: 672d95e5eaa94fe4c890e0965e4ea820,
+    <Prefab>k__BackingField: {fileID: 8721122632549702622, guid: 9a825b1b9481aec4ba9ddcedf1ed0c1f,
       type: 3}
     <Price>k__BackingField: 5
   - <Name>k__BackingField: Archer
     <Icon>k__BackingField: {fileID: 21300000, guid: fb2a35ff6389e9a4c9a481866412d46c,
       type: 3}
-    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: 64170d8b6a7c5c84e9a0841f53002a09,
-      type: 3}
+    <Prefab>k__BackingField: {fileID: 0}
     <Price>k__BackingField: 10
   - <Name>k__BackingField: Mage
     <Icon>k__BackingField: {fileID: 21300000, guid: d06048e0fbbba4350b03ae3c97a7f4d2,
       type: 3}
-    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: e509c663fa25e2749bbb17707ca86b90,
-      type: 3}
+    <Prefab>k__BackingField: {fileID: 0}
     <Price>k__BackingField: 15
   - <Name>k__BackingField: Warlock
     <Icon>k__BackingField: {fileID: 21300000, guid: 84d6188a729b94346a3500b754d5d7a8,
       type: 3}
-    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: 2a9be3a63affa2c459d7441a820ab475,
-      type: 3}
+    <Prefab>k__BackingField: {fileID: 0}
     <Price>k__BackingField: 20
