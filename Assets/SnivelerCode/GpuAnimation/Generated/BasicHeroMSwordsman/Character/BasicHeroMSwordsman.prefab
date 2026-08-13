@@ -417,7 +417,7 @@ MonoBehaviour:
         Mode: 1
         Threshold: 0
     - Index: 2
-      Start: 25
+      Start: 0
       Duration: 0.25
       Conditions:
       - Parameter: 1

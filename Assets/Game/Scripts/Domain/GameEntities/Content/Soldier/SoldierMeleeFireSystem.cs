@@ -18,7 +18,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
         public void OnCreate(ref SystemState state)
         {
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
-            _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
+            _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: false);
             _takeDamageRequests = SystemAPI.GetBufferLookup<TakeDamageRequest>(isReadOnly: false);
             _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
         }
@@ -62,6 +62,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                     continue;
 
                 Entity target = requestValue.ValueRO.target;
+             
                 if (target == Entity.Null ||
                     !SystemAPI.Exists(target) ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform))
@@ -73,10 +74,16 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 
                 float distance = attackDistance.ValueRO.value;
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
+              
                 if (math.lengthsq(delta) > distance * distance)
                     continue;
+                
+                if (!_transformLookup.TryGetComponent(entity, out LocalTransform currentEntityTransform)) 
+                    continue;
               
-                targetTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
+                currentEntityTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
+                
+                _transformLookup[entity] = currentEntityTransform;
                 
                 // Action
                 if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))

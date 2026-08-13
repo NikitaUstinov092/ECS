@@ -5038,7 +5038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.MoveSpeedAuthoring
   _value:
-    value: 5
+    value: 8
 --- !u!114 &2751555327417888283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5063,7 +5063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3b596b09fd43aab58f52278847bc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AttackDistanceAuthoring
-  _value: 5
+  _value: 2
 --- !u!114 &5501491668568352096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.RotationSpeedAuthoring
   _value:
-    value: 50
+    value: 200
 --- !u!114 &612022160496974666
 MonoBehaviour:
   m_ObjectHideFlags: 0
