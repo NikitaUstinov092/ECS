@@ -14,10 +14,10 @@ namespace SnivelerCode.GpuAnimation.Generated
     {
         public static readonly byte TPose = 0;
         public static readonly byte CombatIdle = 1;
-        public static readonly byte Sprint = 2;
-        public static readonly byte Attack = 3;
-        public static readonly byte DeathB = 4;
-        public static readonly byte TakeDamage = 5;
+        public static readonly byte Attack = 2;
+        public static readonly byte DeathB = 3;
+        public static readonly byte TakeDamage = 4;
+        public static readonly byte RunForward = 5;
     }
 
     public static partial class AnimatorParams

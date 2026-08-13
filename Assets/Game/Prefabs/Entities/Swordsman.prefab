@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 5020622493068164525}
   - component: {fileID: 3425531916396371906}
   m_Layer: 0
-  m_Name: Swordsman1
+  m_Name: Swordsman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5324,12 +5324,12 @@ PrefabInstance:
     - target: {fileID: 8975489145761047108, guid: 2ba02e82382a4444baa623d17cefaa8a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.05078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8975489145761047108, guid: 2ba02e82382a4444baa623d17cefaa8a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.43064
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8975489145761047108, guid: 2ba02e82382a4444baa623d17cefaa8a,
         type: 3}
