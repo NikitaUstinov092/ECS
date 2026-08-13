@@ -17,6 +17,7 @@ namespace SnivelerCode.GpuAnimation.Generated
         public static readonly byte Sprint = 2;
         public static readonly byte Attack = 3;
         public static readonly byte DeathB = 4;
+        public static readonly byte TakeDamage = 5;
     }
 
     public static partial class AnimatorParams

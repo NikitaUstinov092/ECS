@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8975489145761047108}
   - component: {fileID: 5294465105910655130}
-  - component: {fileID: 8049783833400834063}
+  - component: {fileID: 8362750212229623868}
   m_Layer: 0
   m_Name: BasicHeroMSwordsman
   m_TagString: Untagged
@@ -148,13 +148,13 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.59999996
+  - screenRelativeHeight: 0
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4758650078822126710}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!114 &8049783833400834063
+--- !u!114 &8362750212229623868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,6 +300,27 @@ MonoBehaviour:
       Duration: 0.25
       Conditions:
       - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 5
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 3
         Mode: 1
         Threshold: 0
     RootMotionFrames:
@@ -1187,11 +1208,39 @@ MonoBehaviour:
     FPS: 60
     Start: 8722
     Frames: 32
-    Speed: 0.54
+    Speed: 1
     Loop: 1
     Transitions:
-    - Index: 1
+    - Index: 2
       Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 5
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 1
+      Start: 17
       Duration: 0.25
       Conditions:
       - Parameter: 2
@@ -1525,20 +1574,38 @@ MonoBehaviour:
     Speed: 1
     Loop: 0
     Transitions:
-    - Index: 1
-      Start: 81
-      Duration: 0.25
-      Conditions:
-      - Parameter: 2
-        Mode: 2
-        Threshold: 0
     - Index: 2
-      Start: 81
+      Start: 0
       Duration: 0.25
       Conditions:
       - Parameter: 2
         Mode: 1
         Threshold: 0
+    - Index: 5
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 1
+      Start: 81
+      Duration: 0.25
+      Conditions: []
     RootMotionFrames:
     - rot:
         value:
@@ -2506,7 +2573,35 @@ MonoBehaviour:
     Frames: 80
     Speed: 1
     Loop: 0
-    Transitions: []
+    Transitions:
+    - Index: 2
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 5
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
     RootMotionFrames:
     - rot:
         value:
@@ -2908,6 +3003,446 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+  - Name: TakeDamage
+    FPS: 60
+    Start: 29106
+    Frames: 40
+    Speed: 1
+    Loop: 0
+    Transitions:
+    - Index: 2
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 5
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 1
+      Start: 25
+      Duration: 0.25
+      Conditions: []
+    RootMotionFrames:
     - rot:
         value:
           x: 0

@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace SampleGame
 {
-    public sealed class FireEventAuthoring : MonoBehaviour
+    public sealed class ActionEventAuthoring : MonoBehaviour
     {
-        private sealed class Baker : Baker<FireEventAuthoring>
+        private sealed class Baker : Baker<ActionEventAuthoring>
         {
-            public override void Bake(FireEventAuthoring authoring)
+            public override void Bake(ActionEventAuthoring authoring)
             {
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent<ActionEvent>(entity);

@@ -17,9 +17,9 @@ Material:
   - _SNIVELER_DQS
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses:
@@ -72,16 +72,16 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color1: {r: 0.8396226, g: 0.58351827, b: 0.22574759, a: 1}
-    - _Color2: {r: 0.4339623, g: 0.16222197, b: 0.07164471, a: 1}
-    - _Color3: {r: 0.68182623, g: 0.79911906, b: 0.8867924, a: 1}
+    - _Color1: {r: 1, g: 0.23529407, b: 0.23529407, a: 1}
+    - _Color2: {r: 0.14901957, g: 0.972549, b: 0.24705875, a: 1}
+    - _Color3: {r: 0.14509797, g: 0.5333334, b: 0.8235295, a: 1}
     - _CorneaColor: {r: 0.20392156, g: 0.8705883, b: 0.9490196, a: 1}
-    - _EyeWhiteColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EyeWhiteColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _FlashColor: {r: 2, g: 2, b: 2, a: 0}
-    - _LipColor: {r: 1, g: 0, b: 0.17499983, a: 1}
+    - _LipColor: {r: 0.8078432, g: 0.02352941, b: 0.16078427, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5000112011965809662
+--- !u!114 &5017516248199564520
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

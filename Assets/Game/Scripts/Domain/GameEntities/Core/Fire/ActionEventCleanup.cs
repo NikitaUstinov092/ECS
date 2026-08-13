@@ -5,7 +5,7 @@ namespace SampleGame
 {
     [BurstCompile]
     [UpdateInGroup(typeof(CleanupSystemGroup))]
-    public partial struct FireEventCleanup : ISystem
+    public partial struct ActionEventCleanup : ISystem
     {
         [BurstCompile]
         public void OnUpdate(ref SystemState state)

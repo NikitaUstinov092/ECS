@@ -13,12 +13,14 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
         private ComponentLookup<Team> _teamLookup; // Random access
         private ComponentLookup<LocalTransform> _transformLookup;
         private BufferLookup<TakeDamageRequest> _takeDamageRequests;
+        private ComponentLookup<ActionEvent> _fireEventLookup;
 
         public void OnCreate(ref SystemState state)
         {
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
             _takeDamageRequests = SystemAPI.GetBufferLookup<TakeDamageRequest>(isReadOnly: false);
+            _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
         }
 
         [BurstCompile]
@@ -27,6 +29,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _takeDamageRequests.Update(ref state);
+            _fireEventLookup.Update(ref state);
 
             foreach ((
                          EnabledRefRW<ActionRequest> requestEnabled,
@@ -86,6 +89,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 });
                 
                 cooldown.ValueRW.ResetTime();
+                _fireEventLookup.SetComponentEnabled(entity, true);
             }
         }
     }
