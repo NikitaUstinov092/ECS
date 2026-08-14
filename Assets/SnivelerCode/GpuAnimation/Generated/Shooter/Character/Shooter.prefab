@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1646450129277335094
+--- !u!1 &3799042591419906716
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1877660369124164172}
-  - component: {fileID: 1338055266746951503}
-  - component: {fileID: 7852363381977687765}
+  - component: {fileID: 3628864817650879056}
+  - component: {fileID: 5403629357297644252}
+  - component: {fileID: 224941618341888460}
   m_Layer: 0
-  m_Name: BasicHeroMSwordsman
+  m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1877660369124164172
+--- !u!4 &3628864817650879056
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646450129277335094}
+  m_GameObject: {fileID: 3799042591419906716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 226200512455674005}
+  - {fileID: 1047092155454341880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &1338055266746951503
+--- !u!205 &5403629357297644252
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646450129277335094}
+  m_GameObject: {fileID: 3799042591419906716}
   serializedVersion: 3
-  m_LocalReferencePoint: {x: 0, y: 1.5253922, z: 0.71531534}
-  m_Size: 3.1704576
+  m_LocalReferencePoint: {x: -0.1827991, y: 1.5206774, z: -0.20919502}
+  m_Size: 3.5360556
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -51,22 +51,22 @@ LODGroup:
   - screenRelativeHeight: 0
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 2202905197362336764}
+    - renderer: {fileID: 9093648439571795887}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!114 &7852363381977687765
+--- !u!114 &224941618341888460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646450129277335094}
+  m_GameObject: {fileID: 3799042591419906716}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c52c1b0d4615df41a24356b9c6da308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Authoring.AnimatorAuthoring
-  Matrices: {fileID: 11400000, guid: c88c80889ba76ac45b21cf4be736f241, type: 2}
+  Matrices: {fileID: 11400000, guid: e95356705d8c35f47a9ab1db3f88d6d7, type: 2}
   Bones:
     BonesNames:
     - pelvis_joint
@@ -188,21 +188,28 @@ MonoBehaviour:
         x: 0
         y: 0
         z: 0
-  - Name: CombatIdle
+  - Name: Idle
     FPS: 60
     Start: 98
-    Frames: 88
+    Frames: 280
     Speed: 1
     Loop: 1
     Transitions:
-    - Index: 3
+    - Index: 5
       Start: 0
-      Duration: 0.25
+      Duration: 0.1
       Conditions:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 5
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
@@ -211,96 +218,60 @@ MonoBehaviour:
         Threshold: 0
     - Index: 2
       Start: 0
-      Duration: 0.25
+      Duration: 0.02
       Conditions:
       - Parameter: 1
-        Mode: 1
-        Threshold: 0
-    - Index: 4
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 0
         Mode: 1
         Threshold: 0
     RootMotionFrames: []
   - Name: Attack
     FPS: 60
-    Start: 8722
-    Frames: 96
-    Speed: 1
+    Start: 27538
+    Frames: 90
+    Speed: 2
     Loop: 0
     Transitions:
-    - Index: 3
+    - Index: 5
       Start: 0
-      Duration: 0.25
+      Duration: 0.1
       Conditions:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 5
+    - Index: 3
       Start: 0
       Duration: 0.25
       Conditions:
-      - Parameter: 2
+      - Parameter: 0
         Mode: 1
         Threshold: 0
     - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
-      - Parameter: 0
+      - Parameter: 2
         Mode: 1
         Threshold: 0
     - Index: 1
-      Start: 81
+      Start: 78
       Duration: 0.25
       Conditions: []
     RootMotionFrames: []
-  - Name: DeathB
-    FPS: 60
-    Start: 18130
-    Frames: 80
-    Speed: 1
-    Loop: 0
-    Transitions:
-    - Index: 5
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 2
-        Mode: 1
-        Threshold: 0
-    - Index: 2
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 1
-        Mode: 1
-        Threshold: 0
-    - Index: 4
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 0
-        Mode: 1
-        Threshold: 0
-    RootMotionFrames: []
   - Name: TakeDamage
     FPS: 60
-    Start: 25970
+    Start: 36358
     Frames: 40
     Speed: 1
     Loop: 0
     Transitions:
-    - Index: 3
+    - Index: 5
       Start: 0
-      Duration: 0.25
+      Duration: 0.1
       Conditions:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 5
+    - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
@@ -309,7 +280,7 @@ MonoBehaviour:
         Threshold: 0
     - Index: 2
       Start: 0
-      Duration: 0.25
+      Duration: 0.02
       Conditions:
       - Parameter: 1
         Mode: 1
@@ -319,32 +290,32 @@ MonoBehaviour:
       Duration: 0.25
       Conditions: []
     RootMotionFrames: []
-  - Name: RunForward
+  - Name: Walk
     FPS: 60
-    Start: 29890
-    Frames: 40
+    Start: 40278
+    Frames: 50
     Speed: 1
     Loop: 1
     Transitions:
-    - Index: 3
+    - Index: 5
       Start: 0
-      Duration: 0.25
+      Duration: 0.1
       Conditions:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 2
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 1
-        Mode: 1
-        Threshold: 0
-    - Index: 4
+    - Index: 3
       Start: 0
       Duration: 0.25
       Conditions:
       - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 2
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 1
         Mode: 1
         Threshold: 0
     - Index: 1
@@ -353,6 +324,35 @@ MonoBehaviour:
       Conditions:
       - Parameter: 2
         Mode: 2
+        Threshold: 0
+    RootMotionFrames: []
+  - Name: ArcherDeath02
+    FPS: 60
+    Start: 45178
+    Frames: 72
+    Speed: 1
+    Loop: 0
+    Transitions:
+    - Index: 3
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 0
+        Mode: 1
+        Threshold: 0
+    - Index: 4
+      Start: 0
+      Duration: 0.25
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 2
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 1
+        Mode: 1
         Threshold: 0
     RootMotionFrames: []
   Parameters:
@@ -369,7 +369,7 @@ MonoBehaviour:
     Value: 0
     IsTrigger: 1
   Slots: []
---- !u!1 &8164808318685599761
+--- !u!1 &7980769014308971508
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,9 +377,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 226200512455674005}
-  - component: {fileID: 6946358332054472788}
-  - component: {fileID: 2202905197362336764}
+  - component: {fileID: 1047092155454341880}
+  - component: {fileID: 7046437109574647289}
+  - component: {fileID: 9093648439571795887}
   m_Layer: 0
   m_Name: _lod0
   m_TagString: Untagged
@@ -387,36 +387,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &226200512455674005
+--- !u!4 &1047092155454341880
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164808318685599761}
+  m_GameObject: {fileID: 7980769014308971508}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1877660369124164172}
+  m_Father: {fileID: 3628864817650879056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6946358332054472788
+--- !u!33 &7046437109574647289
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164808318685599761}
-  m_Mesh: {fileID: 4300000, guid: d820a653bcc6562439cb1440c5b1788d, type: 2}
---- !u!23 &2202905197362336764
+  m_GameObject: {fileID: 7980769014308971508}
+  m_Mesh: {fileID: 4300000, guid: 3f8dbac175cc6fb409f24977f5e01ad2, type: 2}
+--- !u!23 &9093648439571795887
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164808318685599761}
+  m_GameObject: {fileID: 7980769014308971508}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -435,17 +435,18 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
-  - {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
-  - {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
-  - {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
-  - {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
-  - {fileID: 2100000, guid: 38bc6bfd3a1fb044daf8bf30693f3dbc, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: d808d2005026d7e41951b60d140b0e2f, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+  - {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

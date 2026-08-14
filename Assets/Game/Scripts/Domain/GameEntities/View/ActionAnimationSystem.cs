@@ -16,9 +16,7 @@ public partial struct ActionAnimationSystem : ISystem
 
     public void OnUpdate(ref SystemState state)
     {
-        return;
          _fireEventLookup.Update(ref state);
-      
         
             foreach ((
                          RefRO<ModelEntity> modelEntityRef,

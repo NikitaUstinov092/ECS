@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicHeroMSwordsman
   m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Components.AnimatorMatricesAsset
   IsDqs: 1
-  UniqueId: 5513709912625816428
+  UniqueId: 5214372441196323124
   MatricesDqs:
   - Real:
       value:
