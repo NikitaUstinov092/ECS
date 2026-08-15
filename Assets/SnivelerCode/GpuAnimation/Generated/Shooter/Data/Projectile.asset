@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d734bcd8e24564b8a241d93e4f3a2c, type: 3}
+  m_Name: Projectile
+  m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Components.AttachmentProfileAsset
+  prefab: {fileID: 1409629050007978407, guid: aec2c31c594bbab44ba9ba0afae4e779, type: 3}
+  defaultBoneOffset:
+    Index: -1
+    Offset:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  events:
+  - AnimationIndex: 2
+    TriggerFrame: 77
+    BoneOffset:
+      Index: 0
+      Offset:
+        e00: -0.0017731807
+        e01: -0.21949841
+        e02: 0.97561103
+        e03: -0.77399313
+        e10: -0.9396208
+        e11: 0.33423325
+        e12: 0.07348964
+        e13: -0.47195098
+        e20: -0.34221247
+        e21: -0.9165743
+        e22: -0.2068378
+        e23: 2.5551467
+        e30: 0
+        e31: 0
+        e32: 0
+        e33: 1

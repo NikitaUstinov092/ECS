@@ -3,7 +3,7 @@ using Unity.Transforms;
 
 namespace SampleGame
 {
-    public static class FireUseCase 
+    public static class ActionUseCase 
     {
         public static bool IsExpired(in this ActionCooldown cooldown)
         {

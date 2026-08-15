@@ -10,7 +10,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
     [BurstCompile]
     public partial struct SoldierMeleeFireSystem : ISystem
     {
-        private ComponentLookup<Team> _teamLookup; // Random access
+        private ComponentLookup<Team> _teamLookup; 
         private ComponentLookup<LocalTransform> _transformLookup;
         private BufferLookup<TakeDamageRequest> _takeDamageRequests;
         private ComponentLookup<ActionEvent> _fireEventLookup;

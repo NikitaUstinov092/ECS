@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shooter
   m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Components.AnimatorMatricesAsset
   IsDqs: 1
-  UniqueId: 5672496699309675680
+  UniqueId: 4851587097577970772
   MatricesDqs:
   - Real:
       value:

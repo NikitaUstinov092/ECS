@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3628864817650879056}
   - component: {fileID: 5403629357297644252}
   - component: {fileID: 224941618341888460}
-  - component: {fileID: 2140801956831253112}
+  - component: {fileID: 9096614657208785594}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -7459,7 +7459,7 @@ MonoBehaviour:
     FPS: 60
     Start: 17542
     Frames: 122
-    Speed: 1
+    Speed: 2
     Loop: 0
     Transitions:
     - Index: 5
@@ -10341,7 +10341,8 @@ MonoBehaviour:
     IsTrigger: 1
   Slots:
   - {fileID: 11400000, guid: 4a17c991cb741f542a3b7c3316f1a59b, type: 2}
---- !u!114 &2140801956831253112
+  - {fileID: 11400000, guid: 0c6d86573a94d3440a67936c01f65b72, type: 2}
+--- !u!114 &9096614657208785594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -17,7 +17,7 @@ namespace SampleGame
         {
             Entity projectile = ecb.Instantiate(projectilePrefab.value);
 
-            float3 spawnPosition = FireUseCase.GetFirePoint(transform, fireOffset);
+            float3 spawnPosition = ActionUseCase.GetFirePoint(transform, fireOffset);
             quaternion spawnRotation = transform.Rotation;
             
             ecb.SetComponent(projectile, LocalTransform.FromPositionRotation(spawnPosition, spawnRotation));

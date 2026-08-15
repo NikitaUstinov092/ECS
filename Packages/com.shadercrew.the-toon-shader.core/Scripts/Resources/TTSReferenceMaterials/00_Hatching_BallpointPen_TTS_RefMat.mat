@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 4
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -21,40 +21,20 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 00_Hatching_BallpointPen_TTS_RefMat
-  m_Shader: {fileID: 4800000, guid: 1c6b3902befc80643a83432be8825adc, type: 3}
-  m_ValidKeywords:
-  - _SHADING_COLOR
-  m_InvalidKeywords:
-  - _ANCHORSSTOOBJECTSORIGIN_ON
-  - _CASTSHADOWSANCHORSSTOOBJECTSORIGIN_ON
-  - _CASTSHADOWSSSCAMERADISTANCESCALED_ON
-  - _ENABLEANTIALIASING_ON
-  - _ENABLECASTSHADOWSRANDOMIZER_ON
-  - _ENABLEOUTLINE_ON
-  - _ENABLERIMRANDOMIZER_ON
-  - _ENABLERIMSTYLING_ON
-  - _ENABLESHADINGRANDOMIZER_ON
-  - _ENABLESHADINGSTYLING_ON
-  - _ENABLESHADOWS_ON
-  - _ENABLESPECULARRANDOMIZER_ON
-  - _ENABLESTYLING_ON
-  - _ENABLETOONSHADING_ON
-  - _HATCHINGAFFECTEDBYNORMALMAP_ON
-  - _RIMAFFECTEDBYNORMALMAP_ON
-  - _RIMANCHORSSTOOBJECTSORIGIN_ON
-  - _RIMSSCAMERADISTANCESCALED_ON
-  - _SHADINGAFFECTEDBYNORMALMAP_ON
-  - _SPECULARAFFECTEDBYNORMALMAP_ON
-  - _SPECULARANCHORSSTOOBJECTSORIGIN_ON
-  - _SPECULARSSCAMERADISTANCESCALED_ON
-  - _SSCAMERADISTANCESCALED_ON
-  - _STYLINGADJUSTDISTANCEFADEVALUE_ON
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -136,11 +116,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AddPrecomputedVelocity: 0
     - _AdjustStylingDistanceFadeValue: 0
     - _AlphaClip: 0
+    - _AlphaToMask: 0
     - _AmbientColorContribution: 0
     - _AnchorSSToObjectsOrigin: 1
     - _Blend: 0
+    - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadowColorMode: 0
     - _CastShadowsAnchorSSToObjectsOrigin: 1
@@ -181,6 +164,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DrawSpace: 0
     - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _EnableAntiAliasing: 1
     - _EnableCastShadows: 0
     - _EnableCastShadowsRandomizer: 1
@@ -274,6 +258,7 @@ Material:
     - _ShadingNoise1Size: 1.79
     - _ShadingNoise2Seed: 1
     - _ShadingStyle: 0
+    - _ShadingUseLightColors: 0
     - _ShadowMode: 0
     - _ShadowsAffectByNormalMap: 1
     - _Smoothness: 0.336
@@ -309,8 +294,10 @@ Material:
     - _SpecularStyle: 0
     - _SpecularThicknessRandomMode: 1
     - _SpecularThicknesshRandomIntensity: 1
+    - _SpecularUseLightColors: 1
     - _SpecularWhiteNoiseSeed: 1
     - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _StylingAdjustDistanceFadeValue: 1
     - _StylingCastShadowsBlending: 0
     - _StylingCastShadowsDensity: 220.5
@@ -367,6 +354,7 @@ Material:
     - _StylingShadingThicknessControl: 0
     - _StylingShadingThicknessFalloff: 0.346
     - _StylingSpecularBlending: 0
+    - _StylingSpecularCutOutShading: 0
     - _StylingSpecularDensity: 34.03
     - _StylingSpecularHalftonesOffset: 0.513
     - _StylingSpecularHalftonesRoundness: 1
@@ -383,6 +371,8 @@ Material:
     - _StylingSpecularThickness: 0.644
     - _StylingSpecularThicknessControl: 0
     - _StylingSpecularThicknessFalloff: 0.629
+    - _StylingSpecularUseLightColors: 0
+    - _SumLightsBeforePosterization: 1
     - _Surface: 0
     - _SyncWithLightPartitioning: 0
     - _SyncWithRim: 0
@@ -397,12 +387,13 @@ Material:
     - _UseCurve: 1
     - _UsePBRLighting: 0
     - _WorkflowMode: 1
+    - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.8301887, g: 0.8235862, b: 0.7714489, a: 1}
     - _CastShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _CastShadowsPolarCenter: {r: 0.54, g: 0.47, b: 0, a: 0}
-    - _Color: {r: 0.83137256, g: 0.8235294, b: 0.77254903, a: 1}
+    - _Color: {r: 0.8301887, g: 0.8235862, b: 0.7714489, a: 1}
     - _CoreShadowColor: {r: 0, g: 0.01321578, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FormShadowColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
@@ -418,3 +409,4 @@ Material:
     - _StylingRimColor: {r: 0.7877358, g: 0.8155007, b: 1, a: 1}
     - _StylingSpecularColor: {r: 1, g: 0.9744728, b: 0.8915094, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
