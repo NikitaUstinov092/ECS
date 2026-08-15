@@ -13,10 +13,10 @@ namespace SnivelerCode.GpuAnimation.Generated
     public static class AnimatorShooter
     {
         public static readonly byte TPose = 0;
-        public static readonly byte Idle = 1;
-        public static readonly byte Attack = 2;
+        public static readonly byte ArcherIdle01 = 1;
+        public static readonly byte ArcherBowShot01 = 2;
         public static readonly byte TakeDamage = 3;
-        public static readonly byte Walk = 4;
+        public static readonly byte ArcherRun01Forward = 4;
         public static readonly byte ArcherDeath02 = 5;
     }
 

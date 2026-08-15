@@ -1,0 +1,17 @@
+using Unity.Entities;
+using UnityEngine;
+
+namespace SampleGame
+{
+    public sealed class AttacherViewHolderAuthoring : MonoBehaviour
+    {
+        public sealed class Baker : Baker<AttacherViewHolderAuthoring>
+        {
+            public override void Bake(AttacherViewHolderAuthoring authoring)
+            {
+                Entity entity = GetEntity(TransformUsageFlags.Dynamic);
+                this.AddComponent<AttacherView>(entity);
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d734bcd8e24564b8a241d93e4f3a2c, type: 3}
+  m_Name: Bow03 1
+  m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Components.AttachmentProfileAsset
+  prefab: {fileID: 8249305810382430543, guid: da686b9309f703442a1cd79a91074612, type: 3}
+  defaultBoneOffset:
+    Index: 0
+    Offset:
+      e00: 0.16950311
+      e01: -0.312183
+      e02: -0.9347782
+      e03: 0.0000049277974
+      e10: 0.97071254
+      e11: 0.2167419
+      e12: 0.10363503
+      e13: 0.000018215564
+      e20: 0.17025244
+      e21: -0.9249674
+      e22: 0.3397783
+      e23: 0.000034304496
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  events: []
