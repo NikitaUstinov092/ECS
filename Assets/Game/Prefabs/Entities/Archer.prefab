@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 5331409483145766960}
   - component: {fileID: 5085927281575145177}
   - component: {fileID: 7288952861589082665}
+  - component: {fileID: 2950740336217688433}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -466,6 +467,19 @@ MonoBehaviour:
   duration:
     time: 0
     duration: 1.5
+--- !u!114 &2950740336217688433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ddec64fd4444a8b73cec0ae9e09fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Common.Color.MyMaterialPropertyColorTargetAuthoring
+  targetMaterial: {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
 --- !u!1001 &3699895201114397584
 PrefabInstance:
   m_ObjectHideFlags: 0
