@@ -4931,7 +4931,6 @@ GameObject:
   - component: {fileID: 6313200351071816172}
   - component: {fileID: 2751555327417888283}
   - component: {fileID: 6831128693403580358}
-  - component: {fileID: 5501491668568352096}
   - component: {fileID: 714082329863670436}
   - component: {fileID: 4773295499433933182}
   - component: {fileID: 4877588846215833325}
@@ -4950,6 +4949,9 @@ GameObject:
   - component: {fileID: 4441225811025431337}
   - component: {fileID: 5020622493068164525}
   - component: {fileID: 3425531916396371906}
+  - component: {fileID: 4390437077630939990}
+  - component: {fileID: 3142759309397203346}
+  - component: {fileID: 4788682961010531339}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Untagged
@@ -5064,19 +5066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AttackDistanceAuthoring
   _value: 2
---- !u!114 &5501491668568352096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8721122632549702622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fff6df20d742de9fff2e3a82aa3007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DamageAuthoring
-  _damage: 10
 --- !u!114 &714082329863670436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,6 +5292,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16549610bfe4458aa9389201d072bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Entities.Hybrid::Unity.Entities.Hybrid.Baking.LinkedEntityGroupAuthoring
+--- !u!114 &4390437077630939990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721122632549702622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fff6df20d742de9fff2e3a82aa3007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DamageAuthoring
+  _damage: 10
+--- !u!114 &3142759309397203346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721122632549702622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981adbace07345b6917e40e55d5a459d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.PostActionCooldownAuthoring
+  duration:
+    time: 0
+    duration: 1.2
+--- !u!114 &4788682961010531339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721122632549702622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f925465e71f54b389f770a698f70862d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.PostActionRequestAuthoring
 --- !u!1001 &1677344164661833607
 PrefabInstance:
   m_ObjectHideFlags: 0

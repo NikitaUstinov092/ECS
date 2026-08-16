@@ -1,19 +1,18 @@
+using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace SampleGame
 {
     [BurstCompile]
+    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TO DO Уйти от зависимостей
     public partial struct SoldierProjectileActionSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;
-        private ComponentLookup<ProjectilePrefab> _projectilePrefabs;
-        private ComponentLookup<FireOffset> _fireOffsetLookup;
         private ComponentLookup<ActionEvent> _actionEvent;
         private ComponentLookup<PostActionRequest> _postActionRequest;
 
@@ -23,8 +22,6 @@ namespace SampleGame
 
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: false);
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
-            _projectilePrefabs = SystemAPI.GetComponentLookup<ProjectilePrefab>(isReadOnly: true);
-            _fireOffsetLookup = SystemAPI.GetComponentLookup<FireOffset>(isReadOnly: true);
             _actionEvent = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
             _postActionRequest = SystemAPI.GetComponentLookup<PostActionRequest>(isReadOnly: false);
         }
@@ -33,20 +30,15 @@ namespace SampleGame
         public void OnUpdate(ref SystemState state)
         {
             _postActionRequest.Update(ref state);
-            _fireOffsetLookup.Update(ref state);
-            _projectilePrefabs.Update(ref state);
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _actionEvent.Update(ref state);
-
-            // EntityCommandBuffer ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
-            //     .CreateCommandBuffer(state.WorldUnmanaged);
-
+            
             foreach ((
                          EnabledRefRW<ActionRequest> requestEnabled,
                          RefRW<ActionRequest> requestValue,
                          RefRW<ActionCooldown> cooldown,
-                         RefRW<Stamina> ammo, //TO DO заменить на патроны
+                         RefRO<Stamina> ammo, //TO DO заменить на патроны
                          RefRO<Team> team,
                          RefRO<Health> health,
                          RefRO<ActionDistance> attackDistance,
@@ -55,11 +47,11 @@ namespace SampleGame
                              EnabledRefRW<ActionRequest>,
                              RefRW<ActionRequest>,
                              RefRW<ActionCooldown>,
-                             RefRW<Stamina>,
+                             RefRO<Stamina>,
                              RefRO<Team>,
                              RefRO<Health>,
                              RefRO<ActionDistance>
-                         >().WithPresent<Soldier>().WithPresent<ProjectilePrefab>() //TO DO заменить на ammo
+                         >().WithPresent<ProjectilePrefab>() //TO DO заменить на ammo
                          .WithEntityAccess()) 
             {
                 // Request
@@ -68,7 +60,7 @@ namespace SampleGame
                 // Condition
                 if (cooldown.ValueRO.IsPlaying())
                     continue;
-
+                
                 if (health.ValueRO.IsDead())
                     continue;
 
@@ -76,6 +68,7 @@ namespace SampleGame
                     continue;
 
                 Entity target = requestValue.ValueRO.target;
+                
                 if (target == Entity.Null ||
                     !SystemAPI.Exists(target) ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform))
@@ -95,39 +88,20 @@ namespace SampleGame
                 if (math.lengthsq(delta) > distance * distance)
                     continue;
                 
-
-                // RefRO<ProjectilePrefab> projectilePrefab = _projectilePrefabs.GetRefRO(entity);
-                // RefRO<FireOffset> fireOffset = _fireOffsetLookup.GetRefRO(entity);
-
                 // Action
                 transform.ValueRW.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
-                
-             
-                
-                // ProjectileUseCase.SpawnProjectile(
-                //     ref ecb,
-                //     projectilePrefab.ValueRO,
-                //     transform.ValueRO,
-                //     fireOffset.ValueRO,
-                //     team,
-                //     target
-                // );
-
                 cooldown.ValueRW.ResetTime();
-                ammo.ValueRW.Value--;
                 
                 // Event
                 _actionEvent.SetComponentEnabled(entity, true);
                 
+                //Request
                 if(!_postActionRequest.HasComponent(entity))
                     continue;
                 
-
                 _postActionRequest[entity] = new PostActionRequest { target = target };
                 _postActionRequest.SetComponentEnabled(entity, true);
-                
             }
-          
         }
     }
 }

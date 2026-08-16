@@ -6,7 +6,7 @@ namespace SampleGame
     public class PostActionCooldownAuthoring : MonoBehaviour
     {
         [SerializeField] 
-        private ProjectileCooldown duration;
+        private PostActionCooldown duration;
 
         private class Baker : Baker<PostActionCooldownAuthoring>
         {

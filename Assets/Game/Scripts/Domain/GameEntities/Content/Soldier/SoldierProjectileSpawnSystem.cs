@@ -1,4 +1,5 @@
-﻿using Unity.Burst;
+﻿using Game.Scripts.Domain.GameEntities.Core.Stamina;
+using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -6,36 +7,44 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierProjectileActionSystem))] //TO DO сделать нормально
+    [UpdateAfter(typeof(SoldierProjectileActionSystem))] //TO DO Уйти от зависимостей
     public partial struct SoldierProjectileSpawnSystem : ISystem
     {
+        private ComponentLookup<Stamina> _ammoLookup;
+        private ComponentLookup<Health> _healthLookup;
+        
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            _ammoLookup = SystemAPI.GetComponentLookup<Stamina>(isReadOnly: false);
+            _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            _ammoLookup.Update(ref state);
+            _healthLookup.Update(ref state);
+            
             EntityCommandBuffer ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>()
                 .CreateCommandBuffer(state.WorldUnmanaged);
             
             foreach ((
                          EnabledRefRW<PostActionRequest> requestEnabled,
                          RefRW<PostActionRequest> requestValue,
-                         RefRW<ProjectileCooldown> projectileCooldown,
+                         RefRW<PostActionCooldown> projectileCooldown,
                          RefRO<ProjectilePrefab> projectilePrefab,
                          RefRO<FireOffset> fireOffset,
                          RefRO<Team> team,
-                         RefRO<LocalTransform> transform
+                         RefRO<LocalTransform> transform, Entity entity
                      ) in SystemAPI.Query<
                              EnabledRefRW<PostActionRequest>, 
                                  RefRW<PostActionRequest>, 
-                             RefRW<ProjectileCooldown>,
+                             RefRW<PostActionCooldown>,
                 RefRO<ProjectilePrefab>,
                              RefRO<FireOffset>,
                              RefRO<Team>,
-                             RefRO<LocalTransform>>().WithPresent<ProjectilePrefab>())
+                             RefRO<LocalTransform>>().WithPresent<ProjectilePrefab>().WithEntityAccess())
             {
                 
               
@@ -44,6 +53,12 @@ namespace SampleGame
                 
                 if (projectileCooldown.ValueRO.time > 0)
                     continue;
+                
+                if (_healthLookup.TryGetComponent(entity, out Health health))
+                {
+                    if(!health.IsAlive())
+                        continue;
+                }
                 
                 Entity target = requestValue.ValueRO.target;
                 
@@ -55,6 +70,9 @@ namespace SampleGame
                     team,
                     target
                 );
+                
+                var ammoRW = _ammoLookup.GetRefRW(entity);
+                ammoRW.ValueRW.Value--;
               
                 requestEnabled.ValueRW = false;
                 projectileCooldown.ValueRW.time = projectileCooldown.ValueRO.duration;

@@ -5,7 +5,7 @@ using Unity.Mathematics;
 namespace SampleGame
 {
     [BurstCompile]
-    public partial struct FireCooldownSystem : ISystem
+    public partial struct ActionCooldownSystem : ISystem
     {
         [BurstCompile]
         public void OnUpdate(ref SystemState state)

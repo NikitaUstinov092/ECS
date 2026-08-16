@@ -202,7 +202,7 @@ MonoBehaviour:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 5
+    - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
@@ -214,13 +214,6 @@ MonoBehaviour:
       Duration: 0.25
       Conditions:
       - Parameter: 1
-        Mode: 1
-        Threshold: 0
-    - Index: 4
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 0
         Mode: 1
         Threshold: 0
     RootMotionFrames: []
@@ -238,18 +231,11 @@ MonoBehaviour:
       - Parameter: 3
         Mode: 1
         Threshold: 0
-    - Index: 5
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 2
-        Mode: 1
-        Threshold: 0
     - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
-      - Parameter: 0
+      - Parameter: 2
         Mode: 1
         Threshold: 0
     - Index: 1
@@ -264,46 +250,10 @@ MonoBehaviour:
     Speed: 1
     Loop: 0
     Transitions:
-    - Index: 5
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 2
-        Mode: 1
-        Threshold: 0
-    - Index: 2
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 1
-        Mode: 1
-        Threshold: 0
     - Index: 4
       Start: 0
       Duration: 0.25
       Conditions:
-      - Parameter: 0
-        Mode: 1
-        Threshold: 0
-    RootMotionFrames: []
-  - Name: TakeDamage
-    FPS: 60
-    Start: 25970
-    Frames: 40
-    Speed: 1
-    Loop: 0
-    Transitions:
-    - Index: 3
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 3
-        Mode: 1
-        Threshold: 0
-    - Index: 5
-      Start: 0
-      Duration: 0.25
-      Conditions:
       - Parameter: 2
         Mode: 1
         Threshold: 0
@@ -314,14 +264,10 @@ MonoBehaviour:
       - Parameter: 1
         Mode: 1
         Threshold: 0
-    - Index: 1
-      Start: 25
-      Duration: 0.25
-      Conditions: []
     RootMotionFrames: []
   - Name: RunForward
     FPS: 60
-    Start: 29890
+    Start: 25970
     Frames: 40
     Speed: 1
     Loop: 1
@@ -338,13 +284,6 @@ MonoBehaviour:
       Duration: 0.25
       Conditions:
       - Parameter: 1
-        Mode: 1
-        Threshold: 0
-    - Index: 4
-      Start: 0
-      Duration: 0.25
-      Conditions:
-      - Parameter: 0
         Mode: 1
         Threshold: 0
     - Index: 1

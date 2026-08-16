@@ -1,19 +1,20 @@
-using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Game.Scripts.Domain.GameEntities.Content.Soldier
+namespace Game.Scripts.Domain.GameEntities.Content.Swordman
 {
     [BurstCompile]
-    public partial struct SoldierMeleeFireSystem : ISystem
+    public partial struct SoldierMeleeActionSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup; 
         private ComponentLookup<LocalTransform> _transformLookup;
         private BufferLookup<TakeDamageRequest> _takeDamageRequests;
         private ComponentLookup<ActionEvent> _fireEventLookup;
+        private ComponentLookup<Health> _healthLookup;
+        private ComponentLookup<PostActionRequest> _postActionRequest;
 
         public void OnCreate(ref SystemState state)
         {
@@ -21,15 +22,19 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: false);
             _takeDamageRequests = SystemAPI.GetBufferLookup<TakeDamageRequest>(isReadOnly: false);
             _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
+            _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: true);
+            _postActionRequest = SystemAPI.GetComponentLookup<PostActionRequest>(isReadOnly: false);
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            _postActionRequest.Update(ref state);
             _teamLookup.Update(ref state);
             _transformLookup.Update(ref state);
             _takeDamageRequests.Update(ref state);
             _fireEventLookup.Update(ref state);
+            _healthLookup.Update(ref state);
 
             foreach ((
                          EnabledRefRW<ActionRequest> requestEnabled,
@@ -61,6 +66,12 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 if (cooldown.ValueRO.IsPlaying())
                     continue;
 
+                if (_healthLookup.TryGetComponent(entity, out Health health))
+                {
+                    if (health.IsDead())
+                        continue;
+                }
+
                 Entity target = requestValue.ValueRO.target;
              
                 if (target == Entity.Null ||
@@ -69,6 +80,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                     continue;
 
                 TeamType myTeam = team.ValueRO.value;
+                
                 if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.value == myTeam)
                     continue;
 
@@ -86,14 +98,20 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 _transformLookup[entity] = currentEntityTransform;
                 
                 // Action
-                if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
+                // if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
+                //     continue;
+                //
+                // requests.Add(new TakeDamageRequest
+                // {
+                //     damage = damage.ValueRO.value,
+                //     instigator = entity
+                // });
+                
+                if(!_postActionRequest.HasComponent(entity))
                     continue;
                 
-                requests.Add(new TakeDamageRequest
-                {
-                    damage = damage.ValueRO.value,
-                    instigator = entity
-                });
+                _postActionRequest[entity] = new PostActionRequest { target = target };
+                _postActionRequest.SetComponentEnabled(entity, true);
                 
                 cooldown.ValueRW.ResetTime();
                 _fireEventLookup.SetComponentEnabled(entity, true);

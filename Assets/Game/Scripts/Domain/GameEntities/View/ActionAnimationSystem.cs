@@ -1,47 +1,54 @@
+using System.Reflection;
 using SampleGame;
 using SnivelerCode.GpuAnimation.Generated;
 using SnivelerCode.GpuAnimation.Runtime.Components;
+using SnivelerCode.GpuAnimation.Runtime.Utils;
 using Unity.Entities;
+using UnityEngine;
 
-[UpdateInGroup(typeof(PresentationSystemGroup))]
-public partial struct ActionAnimationSystem : ISystem
+namespace Game.Scripts.Domain.GameEntities.View
 {
-    private ComponentLookup<ActionEvent> _fireEventLookup;
-
-    public void OnCreate(ref SystemState state)
+    [UpdateInGroup(typeof(PresentationSystemGroup), OrderLast = true)]
+    public partial struct ActionAnimationSystem : ISystem
     {
-        _fireEventLookup =
-            SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: true);
-    }
+        private ComponentLookup<ActionEvent> _fireEventLookup;
 
-    public void OnUpdate(ref SystemState state)
-    {
-         _fireEventLookup.Update(ref state);
-        
-            foreach ((
-                         RefRO<ModelEntity> modelEntityRef,
-                         DynamicBuffer<AnimatorParameterData> parameterBuffer)
+        public void OnCreate(ref SystemState state)
+        {
+            _fireEventLookup =
+                SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: true);
+        }
+
+        public void OnUpdate(ref SystemState state)
+        {
+            _fireEventLookup.Update(ref state);
+
+            foreach ((RefRO<ModelEntity> modelEntityRef,
+                      DynamicBuffer<AnimatorParameterData> parameterBuffer)
                      in SystemAPI.Query<
                          RefRO<ModelEntity>,
                          DynamicBuffer<AnimatorParameterData>>())
             {
                 Entity modelEntity = modelEntityRef.ValueRO.value;
-        
-                if (!_fireEventLookup.HasComponent(modelEntity))
-                    continue;
-        
+
                 int isFire =
                     _fireEventLookup.IsComponentEnabled(modelEntity) ? 1 : 0;
                 
-                var fireIndex = AnimatorParams.BasicHeroMSwordsman.Fire;
-        
-                var buffer = parameterBuffer;
-        
-                buffer[fireIndex] = new AnimatorParameterData
-                {
-                    Value = isFire
-                };
-                
+
+                AnimatorParams.Shooter.Fire
+                    .Value(isFire)
+                    .Apply(parameterBuffer);
+               
+                // if (isFire == 1)
+                // {
+                //     for (int i = 0; i < parameterBuffer.Length; i++)
+                //     {
+                //         AnimatorParameterData parameter = parameterBuffer[i];
+                //
+                //         Debug.Log($"Buffer[{i}]: {parameter.Value}");
+                //     }
+                // }
             }
+        }
     }
 }
