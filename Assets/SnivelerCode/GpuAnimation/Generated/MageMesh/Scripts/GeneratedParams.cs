@@ -10,18 +10,18 @@ using SnivelerCode.GpuAnimation.Runtime.Components;
 
 namespace SnivelerCode.GpuAnimation.Generated
 {
-    // public static class AnimatorShooter
-    // {
-    //     public static readonly byte TPose = 0;
-    //     public static readonly byte ArcherIdle01 = 1;
-    //     public static readonly byte ArcherBowShot01 = 2;
-    //     public static readonly byte ArcherRun01Forward = 4;
-    //     public static readonly byte ArcherDeath02 = 3;
-    // }
+    public static class AnimatorMageMesh
+    {
+        public static readonly byte TPose = 0;
+        public static readonly byte ArcherIdle01 = 1;
+        public static readonly byte ThrowingIdle01Action01 = 2;
+        public static readonly byte ArcherRun01Forward = 3;
+        public static readonly byte ArcherDeath02 = 4;
+    }
 
     public static partial class AnimatorParams
     {
-        public static class Shooter
+        public static class MageMesh
         {
             public static readonly byte TakeDamage = 0;
             public static readonly byte Fire = 1;

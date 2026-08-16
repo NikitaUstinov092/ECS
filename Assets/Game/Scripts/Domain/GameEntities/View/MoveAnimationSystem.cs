@@ -1,11 +1,11 @@
+using SampleGame;
 using SnivelerCode.GpuAnimation.Generated;
 using SnivelerCode.GpuAnimation.Runtime.Components;
 using SnivelerCode.GpuAnimation.Runtime.Utils;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View
 {
     [UpdateInGroup(typeof(PresentationSystemGroup), OrderFirst = true)]
     public partial struct MoveAnimationSystem : ISystem
@@ -29,7 +29,6 @@ namespace SampleGame
                 int isMoving = _moveEventLookup.IsComponentEnabled(modelEntity) ? 1 : 0;
                 
                 AnimatorParams.Shooter.IsMoving.Value(isMoving).Apply(parameterBuffer);
-                AnimatorParams.BasicHeroMSwordsman.IsMoving.Value(isMoving).Apply(parameterBuffer);
             }
         }
     }
