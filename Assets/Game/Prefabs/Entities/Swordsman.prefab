@@ -5319,7 +5319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.PostActionCooldownAuthoring
   duration:
     time: 0
-    duration: 1.2
+    duration: 1
 --- !u!114 &4788682961010531339
 MonoBehaviour:
   m_ObjectHideFlags: 0

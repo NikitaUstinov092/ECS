@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MageMesh
   m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Components.AnimatorMatricesAsset
   IsDqs: 1
-  UniqueId: 5216625978625218952
+  UniqueId: 5681149909015186035
   MatricesDqs:
   - Real:
       value:

@@ -2,7 +2,6 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace SampleGame
 {
@@ -45,10 +44,11 @@ namespace SampleGame
                          .WithPresent<Unit>()
                          .WithEntityAccess())
             {
-
+                if (_healthLookup.TryGetComponent(entity, out Health entityHealth) && !entityHealth.IsAlive())
+                    continue;
              
-                // Target
-                Entity target = targetRef.ValueRO.value;
+                    // Target
+                    Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform) ||
                     !_healthLookup.TryGetComponent(target, out Health targetHealth) ||

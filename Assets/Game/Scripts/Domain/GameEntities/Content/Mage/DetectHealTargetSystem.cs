@@ -9,6 +9,7 @@ namespace SampleGame
 {
     [BurstCompile]
     [WithAll(typeof(Heal))]
+    [UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst =  true)]
     public partial struct DetectHealTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;

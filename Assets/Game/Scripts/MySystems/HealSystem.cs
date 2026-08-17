@@ -1,3 +1,4 @@
+using Game.Scripts.Domain.GameEntities.Content.Mage;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
 using Unity.Burst;
@@ -5,6 +6,7 @@ using Unity.Entities;
 
 namespace Game.Scripts.MySystems
 {
+    [UpdateAfter(typeof(HealRequestSystem))] //TO DO разложить по группам
     public partial struct HealSystem : ISystem
     {
         [BurstCompile]

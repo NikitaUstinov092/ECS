@@ -1,3 +1,4 @@
+using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
@@ -10,6 +11,7 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
     [BurstCompile]
+    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TO DO разложить по группам
     public partial struct HealRequestSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
@@ -51,6 +53,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         
         [BurstCompile]
         [WithPresent(typeof(Heal))]
+        [WithDisabled(typeof(ActionEvent))]
         public partial struct HealJob : IJobEntity
         {
             [ReadOnly] public ComponentLookup<LocalTransform> TransformLookup;
@@ -63,6 +66,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             private void Execute(
                 Entity entity,
                 EnabledRefRW<ActionRequest> requestEnabled,
+                EnabledRefRW<ActionEvent> actionEventEnabled,
                 ref ActionRequest requestValue,
                 ref ActionCooldown cooldown,
                 ref Stamina stamina,
@@ -102,7 +106,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 if (math.lengthsq(delta) > distance * distance)
                     return;
                 
-
                 myTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
                 
                   
@@ -117,8 +120,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 
                 cooldown.ResetTime();
                 stamina.Value--;
-                
+                actionEventEnabled.ValueRW = true;
             }
+            
         }
     }
 }
