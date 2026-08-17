@@ -34,6 +34,6 @@ MonoBehaviour:
   - <Name>k__BackingField: Warlock
     <Icon>k__BackingField: {fileID: 21300000, guid: 84d6188a729b94346a3500b754d5d7a8,
       type: 3}
-    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: 64170d8b6a7c5c84e9a0841f53002a09,
+    <Prefab>k__BackingField: {fileID: 8692576747330127513, guid: 2a9be3a63affa2c459d7441a820ab475,
       type: 3}
     <Price>k__BackingField: 20

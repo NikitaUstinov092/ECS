@@ -1,0 +1,411 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7060801486924274493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5250915332574378553}
+  - component: {fileID: 3370889438266821315}
+  - component: {fileID: 2782703197103127944}
+  m_Layer: 0
+  m_Name: Warlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5250915332574378553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060801486924274493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3509959085945002514}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &3370889438266821315
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060801486924274493}
+  serializedVersion: 3
+  m_LocalReferencePoint: {x: 0, y: 1.5672039, z: -0.008826733}
+  m_Size: 3.1704576
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8145057552776602121}
+  m_Enabled: 1
+  m_GlobalIlluminationLOD: 0
+--- !u!114 &2782703197103127944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060801486924274493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c52c1b0d4615df41a24356b9c6da308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SnivelerCode.GpuAnimation.Runtime::SnivelerCode.GpuAnimation.Runtime.Authoring.AnimatorAuthoring
+  Matrices: {fileID: 11400000, guid: 5a070ded2ac7e304e8bcc12e434e9186, type: 2}
+  Bones:
+    BonesNames:
+    - pelvis_joint
+    - waist_joint
+    - chest_joint
+    - neck_joint
+    - head_joint
+    - hair_joint0
+    - hair_joint1
+    - hair_joint2
+    - hair_joint3
+    - hair_joint4
+    - topPonytail_joint1
+    - topPonytail_joint2
+    - topPonytail_joint3
+    - L_Pigtail_joint1
+    - L_Pigtail_joint2
+    - L_Pigtail_joint3
+    - R_Pigtail_joint1
+    - R_Pigtail_joint2
+    - R_Pigtail_joint3
+    - L_eyebrow_joint
+    - eyes_joint
+    - mouth_joint
+    - R_eyebrow_joint
+    - cape_joint1
+    - cape_joint2
+    - cape_joint3
+    - cape_joint4
+    - cape_joint5
+    - cape_joint6
+    - L_clavicle_joint
+    - L_shoulder_joint
+    - L_elbow_joint
+    - L_wrist_joint
+    - L_midFinger_joint1
+    - L_midFinger_joint2
+    - L_midFinger_joint3
+    - L_equip_joint
+    - bowJoint
+    - stringJoint
+    - L_indexFinger_joint1
+    - L_indexFinger_joint2
+    - L_indexFinger_joint3
+    - L_ringFinger_joint1
+    - L_ringFinger_joint2
+    - L_ringFinger_joint3
+    - L_pinkyFinger_joint1
+    - L_pinkyFinger_joint2
+    - L_pinkyFinger_joint3
+    - L_thumbFinger_joint1
+    - L_thumbFinger_joint2
+    - L_thumbFinger_joint3
+    - bosom_joint
+    - R_clavicle_joint
+    - R_shoulder_joint
+    - R_elbow_joint
+    - R_wrist_joint
+    - R_midFinger_joint1
+    - R_midFinger_joint2
+    - R_midFinger_joint3
+    - R_equip_joint
+    - R_indexFinger_joint1
+    - R_indexFinger_joint2
+    - R_indexFinger_joint3
+    - R_ringFinger_joint1
+    - R_ringFinger_joint2
+    - R_ringFinger_joint3
+    - R_pinkyFinger_joint1
+    - R_pinkyFinger_joint2
+    - R_pinkyFinger_joint3
+    - R_thumbFinger_joint1
+    - R_thumbFinger_joint2
+    - R_thumbFinger_joint3
+    - L_thigh_joint
+    - L_knee_joint
+    - L_ankle_joint
+    - L_ball_joint
+    - L_toe_joint
+    - Back_coatTail1
+    - Back_coatTail2
+    - Back_coatTail3
+    - Back_coatTail4
+    - Front_coatTail1
+    - Front_coatTail2
+    - Front_coatTail3
+    - Front_oatTail4
+    - R_thigh_joint
+    - R_knee_joint
+    - R_ankle_joint
+    - R_ball_joint
+    - R_toe_joint
+    - L_coatTail_joint1
+    - L_coatTail_joint2
+    - L_coatTail_joint3
+    - L_coatTail_joint4
+    - R_coatTail_joint1
+    - R_coatTail_joint2
+    - R_coatTail_joint3
+    - R_coatTail_joint4
+    BlobBones: []
+  DefaultAnimation: 1
+  Animations:
+  - Name: TPose
+    FPS: 0
+    Start: 0
+    Frames: 1
+    Speed: 1
+    Loop: 0
+    Transitions: []
+    RootMotionFrames:
+    - rot:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+      pos:
+        x: 0
+        y: 0
+        z: 0
+  - Name: ArcherIdle01
+    FPS: 60
+    Start: 98
+    Frames: 178
+    Speed: 1
+    Loop: 1
+    Transitions:
+    - Index: 4
+      Start: 0
+      Duration: 0.1
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 2
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    RootMotionFrames: []
+  - Name: ThrowingIdle01Action01
+    FPS: 60
+    Start: 17542
+    Frames: 132
+    Speed: 1
+    Loop: 0
+    Transitions:
+    - Index: 4
+      Start: 0
+      Duration: 0.1
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 3
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 1
+      Start: 115
+      Duration: 0.02
+      Conditions: []
+    RootMotionFrames: []
+  - Name: ArcherRun01Forward
+    FPS: 60
+    Start: 30478
+    Frames: 40
+    Speed: 1
+    Loop: 1
+    Transitions:
+    - Index: 4
+      Start: 0
+      Duration: 0.1
+      Conditions:
+      - Parameter: 3
+        Mode: 1
+        Threshold: 0
+    - Index: 2
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    - Index: 1
+      Start: 0
+      Duration: 0
+      Conditions:
+      - Parameter: 2
+        Mode: 2
+        Threshold: 0
+    RootMotionFrames: []
+  - Name: ArcherDeath02
+    FPS: 60
+    Start: 34398
+    Frames: 72
+    Speed: 1
+    Loop: 0
+    Transitions:
+    - Index: 3
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 2
+        Mode: 1
+        Threshold: 0
+    - Index: 2
+      Start: 0
+      Duration: 0.02
+      Conditions:
+      - Parameter: 1
+        Mode: 1
+        Threshold: 0
+    RootMotionFrames: []
+  Parameters:
+  - Name: TakeDamage
+    Value: 0
+    IsTrigger: 1
+  - Name: Fire
+    Value: 0
+    IsTrigger: 1
+  - Name: IsMoving
+    Value: 0
+    IsTrigger: 0
+  - Name: Death
+    Value: 0
+    IsTrigger: 1
+  Slots: []
+--- !u!1 &7641240426884819134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3509959085945002514}
+  - component: {fileID: 2219529501445641773}
+  - component: {fileID: 8145057552776602121}
+  m_Layer: 0
+  m_Name: _lod0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3509959085945002514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641240426884819134}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5250915332574378553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2219529501445641773
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641240426884819134}
+  m_Mesh: {fileID: 4300000, guid: f2f9e7a536b90bf45beb1af5877b4252, type: 2}
+--- !u!23 &8145057552776602121
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641240426884819134}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 2
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  - {fileID: 2100000, guid: 78a3a2004af3a3048bd3a46e8f3d1207, type: 2}
+  - {fileID: 2100000, guid: 78a3a2004af3a3048bd3a46e8f3d1207, type: 2}
+  - {fileID: 2100000, guid: 78a3a2004af3a3048bd3a46e8f3d1207, type: 2}
+  - {fileID: 2100000, guid: 78a3a2004af3a3048bd3a46e8f3d1207, type: 2}
+  - {fileID: 2100000, guid: 78a3a2004af3a3048bd3a46e8f3d1207, type: 2}
+  - {fileID: 2100000, guid: 7d27fe67441e6634ea565a1e3e358c69, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}

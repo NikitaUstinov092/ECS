@@ -5275,7 +5275,8 @@ MonoBehaviour:
   - Name: Death
     Value: 0
     IsTrigger: 1
-  Slots: []
+  Slots:
+  - {fileID: 11400000, guid: 4a17c991cb741f542a3b7c3316f1a59b, type: 2}
 --- !u!1 &7980769014308971508
 GameObject:
   m_ObjectHideFlags: 0

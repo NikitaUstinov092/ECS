@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6803891752060814339}
   - component: {fileID: 7028035663533873664}
   - component: {fileID: 1539518546916217538}
+  - component: {fileID: 1863027520419176421}
+  - component: {fileID: 8704496958133211405}
   m_Layer: 0
   m_Name: FX_Blood
   m_TagString: Untagged
@@ -4915,6 +4917,31 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &1863027520419176421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496283778936840571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c613279778069634a8e6b7c069940472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.View.Damage.DamageVfxAuthoring
+--- !u!114 &8704496958133211405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496283778936840571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b939689dabd964c8a18e780e6507de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.ModelEntityAuthoring
+  Value: {fileID: 8721122632549702622}
 --- !u!1 &8721122632549702622
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses:
@@ -72,8 +72,8 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color1: {r: 1, g: 0.23529407, b: 0.23529407, a: 1}
-    - _Color2: {r: 0.14901957, g: 0.972549, b: 0.24705875, a: 1}
+    - _Color1: {r: 1, g: 0.5254902, b: 0.23529404, a: 1}
+    - _Color2: {r: 0.32941177, g: 0.16470589, b: 0.03529412, a: 1}
     - _Color3: {r: 0.14509797, g: 0.5333334, b: 0.8235295, a: 1}
     - _CorneaColor: {r: 0.20392156, g: 0.8705883, b: 0.9490196, a: 1}
     - _EyeWhiteColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}

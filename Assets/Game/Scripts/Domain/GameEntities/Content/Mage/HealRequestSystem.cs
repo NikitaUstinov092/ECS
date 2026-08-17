@@ -22,7 +22,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
 
-            _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: true);
+            _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: false);
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
             
@@ -54,8 +54,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         [WithDisabled(typeof(ActionEvent))]
         public partial struct HealJob : IJobEntity
         {
-            [ReadOnly] public ComponentLookup<LocalTransform> TransformLookup;
             [ReadOnly] public ComponentLookup<Team> TeamLookup;
+            
+            public ComponentLookup<LocalTransform> TransformLookup;
             
             public BufferLookup<TakeHealRequest> TakeHealRequests;
             
@@ -103,8 +104,10 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 
                 if (math.lengthsq(delta) > distance * distance)
                     return;
-                
-                myTransform.Rotation = quaternion.LookRotation(math.normalize(delta), math.up());
+
+                myTransform.Rotation = quaternion.LookRotationSafe(delta, math.up());
+
+                TransformLookup[entity] = myTransform;
                 
                   
                 if (!TakeHealRequests.TryGetBuffer(target, out DynamicBuffer<TakeHealRequest> requests))

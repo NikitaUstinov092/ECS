@@ -8,6 +8,7 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
     [BurstCompile]
+    [UpdateAfter(typeof(SoldierProjectileActionSystem))] //TO DO Уйти от зависимостей
     public partial struct SplashHitSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup;
@@ -24,7 +25,6 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 
             state.RequireForUpdate<SpatialHashData>();
         }
-
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
@@ -51,6 +51,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 
 
         [BurstCompile]
+        [WithDisabled(typeof(ActionEvent))]
         public partial struct SplashHitJob : IJobEntity
         {
             [NativeDisableUnsafePtrRestriction]
@@ -70,6 +71,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 
             private void Execute(
                 Entity entity,
+                EnabledRefRW<ActionEvent> actionEvent,
                 [ChunkIndexInQuery] int sortKey,
                 in Team team,
                 in SplashHitRequest request,
@@ -105,8 +107,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 for (int i = 0; i < hitEntities.Length; i++)
                 {
                     Entity target = hitEntities[i];
-
-
+                    
                     ECB.AppendToBuffer(
                         sortKey,
                         target,
@@ -117,7 +118,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                         });
                 }
 
-
+                actionEvent.ValueRW = true;
                 hitEntities.Dispose();
             }
         }
