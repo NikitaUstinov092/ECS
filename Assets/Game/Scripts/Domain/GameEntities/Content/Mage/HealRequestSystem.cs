@@ -1,4 +1,3 @@
-using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
@@ -11,7 +10,6 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TO DO разложить по группам
     public partial struct HealRequestSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
