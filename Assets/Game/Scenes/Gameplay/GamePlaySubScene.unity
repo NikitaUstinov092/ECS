@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 763321624}
   - component: {fileID: 763321625}
   - component: {fileID: 763321626}
+  - component: {fileID: 763321627}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -369,8 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2def87750e714016a13aac0bbdd2eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
-  StartMoney: 0
-  RegenPerSecond: 1
 --- !u!114 &763321620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +447,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303cfec6557b40a4eb6078c65837beb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverAuthoring
+--- !u!114 &763321627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763321616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911f89194c5c4b13b21cb40865e6f3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.Players.Money.MoneyRegenAuthoring
+  regenCountPerRate: 1
+  secondsRate: 1
 --- !u!1 &945504108
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +661,7 @@ GameObject:
   - component: {fileID: 1729509286}
   - component: {fileID: 1729509287}
   - component: {fileID: 1729509288}
+  - component: {fileID: 1729509289}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -682,8 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2def87750e714016a13aac0bbdd2eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
-  StartMoney: 0
-  RegenPerSecond: 1
 --- !u!114 &1729509282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +786,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303cfec6557b40a4eb6078c65837beb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverAuthoring
+--- !u!114 &1729509289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729509278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911f89194c5c4b13b21cb40865e6f3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.Players.Money.MoneyRegenAuthoring
+  regenCountPerRate: 1
+  secondsRate: 1
 --- !u!1 &1953945048
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,11 +21,11 @@ namespace Game.Scripts.Domain.GameEntities.Core.Ammo
                          RefRO<MaxStamina>>())
                      
             {
-                ref Ammo currentStamina = ref ammo.ValueRW;
+                ref Ammo currentAmmo = ref ammo.ValueRW;
                 
                 ref AmmoRegen staminaRegenData = ref regen.ValueRW;
                 
-                if(currentStamina.Value >= maxStamina.ValueRO.Value)
+                if(currentAmmo.Value >= maxStamina.ValueRO.Value)
                     continue;
                 
                 staminaRegenData.RegenTimer += deltaTime;
@@ -34,7 +34,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Ammo
                 {
                     staminaRegenData.RegenTimer -= staminaRegenData.SecondsRate;
 
-                    currentStamina.Value += staminaRegenData.RegenCountPerRate;
+                    currentAmmo.Value += staminaRegenData.RegenCountPerRate;
                 }
             }
             

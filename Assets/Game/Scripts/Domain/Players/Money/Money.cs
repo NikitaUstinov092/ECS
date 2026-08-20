@@ -5,9 +5,5 @@ namespace Game.Scripts.MyComponents.Components
     public struct Money : IComponentData
     {
         public int Current;
-        public int RegenPerSecond;
-
-        // Таймер до следующего восстановления
-        public float RegenTimer;
     }
 }
