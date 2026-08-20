@@ -8,7 +8,7 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Warlock
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierProjectileActionSystem))] //TO DO Уйти от зависимостей
+    [UpdateAfter(typeof(SoldierShootActionSystem))] //TO DO Уйти от зависимостей
     public partial struct SplashHitSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup;

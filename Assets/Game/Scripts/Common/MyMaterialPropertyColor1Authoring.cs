@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Rendering;
 
-namespace MyGame.Rendering  // Ваше пространство имен
+namespace Game.Scripts.Common 
 {
     [MaterialProperty("_Color1")]
     public struct MyMaterialPropertyColor1 : IComponentData

@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 4236278540492876870}
   - component: {fileID: 6610339437757069537}
   - component: {fileID: 8452025503521821168}
-  - component: {fileID: 2375079495399205008}
   - component: {fileID: 3743299068971624324}
   - component: {fileID: 5282019706570469374}
   - component: {fileID: 3231303606849251048}
@@ -66,10 +65,11 @@ GameObject:
   - component: {fileID: 2070634331622384112}
   - component: {fileID: 5473914466803519272}
   - component: {fileID: 9200408314533786636}
-  - component: {fileID: 5331409483145766960}
   - component: {fileID: 5085927281575145177}
   - component: {fileID: 7288952861589082665}
   - component: {fileID: 2950740336217688433}
+  - component: {fileID: 72926304817964349}
+  - component: {fileID: 7606137668756211143}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -276,19 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.ArmorMultiplierAuthoring
   Value: 0
---- !u!114 &2375079495399205008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692576747330127513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6dd12d3bba74249af4bbf0d804c134f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SampleGame.AmmoAuthoring
-  _currentStamina: 30
 --- !u!114 &3743299068971624324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,21 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
---- !u!114 &5331409483145766960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692576747330127513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f20fb7d77c40cda7a5621e7989d928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Stamina.StaminaRegenAuthoring
-  _secondsRate: 2
-  _maxStamina: 30
-  _regenCountPerRate: 1
 --- !u!114 &5085927281575145177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +452,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Common.Color.MyMaterialPropertyColorTargetAuthoring
   targetMaterial: {fileID: 2100000, guid: 4f6e42d38a7eb3146a21e4783211dd9e, type: 2}
+--- !u!114 &72926304817964349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8616085e4c55492283a6fb68bf438b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Ammo.AmmoAuthoring
+  _startAmmo: 30
+--- !u!114 &7606137668756211143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692576747330127513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed9925e2b494482ba22d98f7cebe7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Ammo.AmmoRegenAuthoring
+  _secondsRate: 2
+  _maxAmmo: 30
+  _regenCountPerRate: 1
 --- !u!1001 &3699895201114397584
 PrefabInstance:
   m_ObjectHideFlags: 0

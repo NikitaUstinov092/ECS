@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Common
 {
     [UpdateInGroup(typeof(PresentationSystemGroup), OrderLast = true)]
     public partial class CleanupSystemGroup : ComponentSystemGroup

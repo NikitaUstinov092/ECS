@@ -1,5 +1,5 @@
 using Game.Scripts.Domain.GameEntities.Content.Swordman;
-using Game.Scripts.Domain.GameEntities.Core.Stamina;
+using Game.Scripts.Domain.GameEntities.Core.Ammo;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -8,8 +8,8 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TO DO Уйти от зависимостей
-    public partial struct SoldierProjectileActionSystem : ISystem
+    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TODO Уйти от зависимостей
+    public partial struct SoldierShootActionSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
         private ComponentLookup<Team> _teamLookup;
@@ -38,7 +38,7 @@ namespace SampleGame
                          EnabledRefRW<ActionRequest> requestEnabled,
                          RefRW<ActionRequest> requestValue,
                          RefRW<ActionCooldown> cooldown,
-                         RefRO<Stamina> ammo, //TO DO заменить на патроны
+                         RefRO<Ammo> ammo, 
                          RefRO<Team> team,
                          RefRO<Health> health,
                          RefRO<ActionDistance> attackDistance,
@@ -47,11 +47,11 @@ namespace SampleGame
                              EnabledRefRW<ActionRequest>,
                              RefRW<ActionRequest>,
                              RefRW<ActionCooldown>,
-                             RefRO<Stamina>,
+                             RefRO<Ammo>,
                              RefRO<Team>,
                              RefRO<Health>,
                              RefRO<ActionDistance>
-                         >().WithPresent<ProjectilePrefab>() //TO DO заменить на ammo
+                         >().WithPresent<Ammo>() 
                          .WithEntityAccess()) 
             {
                 // Request

@@ -12,11 +12,13 @@ namespace Game.Scripts.MyCustom
         
         private UnitCardData _unitCardData;
         private Button _button;
+        private UnitSpawnRequestFactory _unitSpawnRequestFactory;
         
         private void Awake()
         {
             _button = GetComponent<Button>();
             _unitCardData = GetComponentInParent<UnitCardData>();
+            _unitSpawnRequestFactory =  GetComponentInParent<UnitSpawnRequestFactory>();
         }
 
         private void OnEnable()
@@ -31,7 +33,7 @@ namespace Game.Scripts.MyCustom
         
         private void OnButtonClick()
         {
-            UnitSpawnRequestFactory.Instance.CreateUnitRequest(_teamType,
+            _unitSpawnRequestFactory.CreateUnitRequest(_teamType,
                 _unitCardData.Name, _unitCardData.Price);
         }
     }

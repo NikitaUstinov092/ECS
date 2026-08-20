@@ -1,22 +1,23 @@
-﻿using Game.Scripts.Domain.GameEntities.Core.Stamina;
+﻿using Game.Scripts.Domain.GameEntities.Core.Ammo;
+using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierProjectileActionSystem))] //TO DO Уйти от зависимостей
+    [UpdateAfter(typeof(SoldierShootActionSystem))] //TODO Уйти от зависимостей
     public partial struct SoldierProjectileSpawnSystem : ISystem
     {
-        private ComponentLookup<Stamina> _ammoLookup;
+        private ComponentLookup<Ammo> _ammoLookup;
         private ComponentLookup<Health> _healthLookup;
         
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
-            _ammoLookup = SystemAPI.GetComponentLookup<Stamina>(isReadOnly: false);
+            _ammoLookup = SystemAPI.GetComponentLookup<Ammo>(isReadOnly: false);
             _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: false);
         }
 

@@ -1,4 +1,4 @@
-using MyGame.Rendering;
+using Game.Scripts.Common;
 using Unity.Entities;
 using Unity.Entities.Graphics.URPMaterialProperties;
 using Unity.Mathematics;

@@ -12,7 +12,7 @@ namespace SampleGame
         [SerializeField] 
         private int _currentStamina;
         
-        public class AmmoBaker : Baker<StaminaAuthoring>
+        public class StaminaBaker : Baker<StaminaAuthoring>
         {
             public override void Bake(StaminaAuthoring authoring)
             {
