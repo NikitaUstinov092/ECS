@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Predicates
 {
     public interface IEntityPredicate
     {

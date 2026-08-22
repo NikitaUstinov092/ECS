@@ -1,9 +1,11 @@
+using Game.Scripts.Domain.GameEntities.Core.Armor;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
-using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [BurstCompile]
     public partial struct SoldierTakeDamageSystem : ISystem

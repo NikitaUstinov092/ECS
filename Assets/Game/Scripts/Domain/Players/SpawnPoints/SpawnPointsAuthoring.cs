@@ -1,9 +1,7 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.Players.SpawnPoints
 {
     public class SpawnPointsAuthoring : MonoBehaviour
     {

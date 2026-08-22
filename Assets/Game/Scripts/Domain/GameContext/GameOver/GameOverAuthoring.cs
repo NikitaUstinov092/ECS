@@ -1,8 +1,7 @@
-using Game.Scripts.MyComponents.Events;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.GameContext.GameOver
 {
     public class GameOverAuthoring : MonoBehaviour
     {

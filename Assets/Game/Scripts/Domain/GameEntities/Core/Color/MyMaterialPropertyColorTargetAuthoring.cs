@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.Common.Color
+namespace Game.Scripts.Domain.GameEntities.Core.Color
 {
     public class MyMaterialPropertyColorTargetAuthoring : MonoBehaviour
     {

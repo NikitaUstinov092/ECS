@@ -1,9 +1,12 @@
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Move;
+using Game.Scripts.Domain.GameEntities.Core.Rotation;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [BurstCompile]
     public partial struct SoldierMoveSystem : ISystem

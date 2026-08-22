@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View.Attachments
 {
     public struct AttachmentView : IComponentData
     {

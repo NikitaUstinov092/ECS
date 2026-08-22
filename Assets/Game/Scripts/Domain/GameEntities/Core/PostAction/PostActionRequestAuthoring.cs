@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.PostAction
 {
     public class PostActionRequestAuthoring : MonoBehaviour
     {

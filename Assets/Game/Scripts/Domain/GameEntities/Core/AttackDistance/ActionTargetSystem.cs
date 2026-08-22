@@ -1,20 +1,24 @@
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Move;
+using Game.Scripts.Domain.GameEntities.Core.Target;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
 {
     [BurstCompile]
     public partial struct ActionTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
-        private ComponentLookup<Health> _healthLookup;
+        private ComponentLookup<Health.Health> _healthLookup;
 
         public void OnCreate(ref SystemState state)
         {
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(true);
-            _healthLookup = SystemAPI.GetComponentLookup<Health>(true);
+            _healthLookup = SystemAPI.GetComponentLookup<Health.Health>(true);
         }
 
         [BurstCompile]
@@ -41,17 +45,17 @@ namespace SampleGame
                              EnabledRefRW<ActionRequest>>()
                          .WithPresent<MoveRequest>()
                          .WithPresent<ActionRequest>()
-                         .WithPresent<Unit>()
+                         .WithPresent<Unit.Unit>()
                          .WithEntityAccess())
             {
-                if (_healthLookup.TryGetComponent(entity, out Health entityHealth) && !entityHealth.IsAlive())
+                if (_healthLookup.TryGetComponent(entity, out Health.Health entityHealth) && !entityHealth.IsAlive())
                     continue;
              
                     // Target
                     Entity target = targetRef.ValueRO.value;
                 if (target == Entity.Null ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform) ||
-                    !_healthLookup.TryGetComponent(target, out Health targetHealth) ||
+                    !_healthLookup.TryGetComponent(target, out Health.Health targetHealth) ||
                     !targetHealth.IsAlive())
                     continue;
 

@@ -1,7 +1,7 @@
 using Unity.Burst;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Lifetime
 {
     [BurstCompile]
     public partial struct LifetimeSystem : ISystem 

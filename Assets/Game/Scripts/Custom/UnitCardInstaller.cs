@@ -1,8 +1,8 @@
-using System;
-using SampleGame;
+using Game.Scripts.Common.Units;
+using Game.Scripts.Views;
 using UnityEngine;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom
 {
     public class UnitCardInstaller : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using Unity.Mathematics;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Health
 {
     public static class HealthUseCase
     {

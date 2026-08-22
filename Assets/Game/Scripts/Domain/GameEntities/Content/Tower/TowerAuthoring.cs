@@ -1,8 +1,7 @@
-using Game.Scripts.MyComponents.Components;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.GameEntities.Content.Tower
 {
     public sealed class TowerAuthoring : MonoBehaviour
     {

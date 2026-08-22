@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Components
+namespace Game.Scripts.Domain.GameEntities.Content.Tower
 {
     public struct Tower : IComponentData
     {

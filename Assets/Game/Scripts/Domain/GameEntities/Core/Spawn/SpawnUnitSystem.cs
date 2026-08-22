@@ -1,13 +1,11 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Events;
-using Game.Scripts.MyComponents.Requests;
-using Game.Scripts.MyCustom;
+﻿using Game.Scripts.Domain.Players.SpawnPoints;
+using Game.Scripts.Domain.Players.Units;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Random = Unity.Mathematics.Random;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 {
     [BurstCompile]
     public partial struct SpawnUnitSystem : ISystem

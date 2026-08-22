@@ -1,4 +1,11 @@
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Content.Archer;
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.Damage;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.GameEntities.Predicates;
+using Game.Scripts.Domain.SpatialHash;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;

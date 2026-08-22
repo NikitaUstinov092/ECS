@@ -1,10 +1,11 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyCustom;
-using SampleGame;
+﻿using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.Players.Money;
+using Game.Scripts.Views;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.Presenters
+namespace Game.Scripts.Custom.Presenters
 {
     [RequireComponent(typeof(UnitCardData))]
     [RequireComponent(typeof(UnitCardView))]

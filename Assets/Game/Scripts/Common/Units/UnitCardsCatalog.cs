@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Common.Units
 {
     [CreateAssetMenu(menuName = "Unit Cards Catalog")]
     public sealed class UnitCardsCatalog : ScriptableObject

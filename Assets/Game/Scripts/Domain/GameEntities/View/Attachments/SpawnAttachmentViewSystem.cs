@@ -5,7 +5,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View.Attachments
 {
     // Система спауна предметов в руках
     [UpdateInGroup(typeof(InitializationSystemGroup))]

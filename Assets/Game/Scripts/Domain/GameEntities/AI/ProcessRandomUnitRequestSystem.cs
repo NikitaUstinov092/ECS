@@ -1,12 +1,9 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Requests;
-using SampleGame;
+﻿using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.Players.Money;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.GameEntities.AI
 {
     [BurstCompile]
     [UpdateAfter(typeof(RandomUnitRequestSystem))]

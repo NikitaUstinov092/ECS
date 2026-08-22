@@ -1,7 +1,7 @@
 using System;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Action
 {
     [Serializable]
     public struct ActionCooldown : IComponentData

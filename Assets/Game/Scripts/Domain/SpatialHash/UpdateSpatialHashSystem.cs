@@ -1,10 +1,10 @@
+using Game.Scripts.Domain.GameEntities.Core.Unit;
 using Unity.Burst;
-using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.SpatialHash
 {
     [BurstCompile]
     public unsafe partial struct UpdateSpatialHashSystem : ISystem

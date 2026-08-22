@@ -1,11 +1,10 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Events;
-using Game.Scripts.MyComponents.Requests;
-using SampleGame;
+﻿using Game.Scripts.Domain.GameContext.GameOver;
+using Game.Scripts.Domain.GameEntities.Core.Spawn;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.Players.Money
 {
     [BurstCompile]
     public partial struct SpendMoneySystem : ISystem

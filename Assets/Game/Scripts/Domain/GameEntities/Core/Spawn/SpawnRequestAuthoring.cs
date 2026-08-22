@@ -1,9 +1,7 @@
-using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Requests;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 {
     public class SpawnRequestAuthoring : MonoBehaviour
     {

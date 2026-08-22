@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
 {
     public struct ActionDistance : IComponentData
     {

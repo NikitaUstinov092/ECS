@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Move
 {
     public static class MoveUseCase
     {

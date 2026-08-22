@@ -1,7 +1,7 @@
-﻿using SampleGame;
+﻿using Game.Scripts.Common.Team;
 using Unity.Collections;
 
-namespace Game.Scripts.MyComponents.Components
+namespace Game.Scripts.Domain.Players.Money
 {
     public struct PurchaseDetails
     {

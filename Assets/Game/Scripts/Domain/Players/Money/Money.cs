@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Components
+namespace Game.Scripts.Domain.Players.Money
 {
     public struct Money : IComponentData
     {

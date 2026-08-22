@@ -1,10 +1,10 @@
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace Game.Scripts.Domain.GameEntities.Content.Base
+namespace Game.Scripts.Domain.GameEntities.Content.Tower
 {
     public partial struct TowerTakeDamageSystem:  ISystem
     {

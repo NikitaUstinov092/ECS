@@ -2,7 +2,7 @@
 using Unity.Entities;
 using Unity.Rendering;
 
-namespace Game.Scripts.Common.Color
+namespace Game.Scripts.Domain.GameEntities.Core.Color
 {
     [UpdateInGroup(typeof(InitializationSystemGroup))]
     public partial struct SetupMaterialPropertySystem : ISystem

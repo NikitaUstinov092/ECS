@@ -1,9 +1,10 @@
+using Game.Scripts.Domain.GameEntities.Predicates;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.SpatialHash
 {
     public static class SpatialHashUseCase
     {

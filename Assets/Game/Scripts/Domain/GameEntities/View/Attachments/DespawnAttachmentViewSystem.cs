@@ -2,7 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View.Attachments
 {
     [UpdateInGroup(typeof(InitializationSystemGroup))]
     public partial struct DespawnAttachmentViewSystem : ISystem

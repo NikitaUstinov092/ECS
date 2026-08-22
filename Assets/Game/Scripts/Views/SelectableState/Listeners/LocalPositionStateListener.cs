@@ -2,7 +2,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Views.SelectableState.Listeners
 {
     public sealed class LocalPositionStateListener : SelectableStateListener<Vector3>
     {

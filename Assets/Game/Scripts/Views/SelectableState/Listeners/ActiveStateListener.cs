@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Views.SelectableState.Listeners
 {
     public sealed class ActiveStateListener : SelectableStateListener<bool>
     {

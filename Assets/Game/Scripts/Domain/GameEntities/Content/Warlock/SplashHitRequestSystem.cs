@@ -1,6 +1,8 @@
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.AttackDistance;
 using Game.Scripts.Domain.GameEntities.Core.Stamina;
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;

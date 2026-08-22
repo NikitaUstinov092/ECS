@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Target
 {
     public sealed class TargetOffsetAuthoring : MonoBehaviour
     {

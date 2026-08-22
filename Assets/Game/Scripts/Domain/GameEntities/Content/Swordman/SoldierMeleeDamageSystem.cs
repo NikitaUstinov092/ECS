@@ -1,5 +1,8 @@
 using Game.Scripts.Common;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Damage;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.PostAction;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;

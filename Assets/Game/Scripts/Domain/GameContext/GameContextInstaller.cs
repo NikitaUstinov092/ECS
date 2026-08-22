@@ -1,7 +1,8 @@
+using Game.Scripts.Domain.SpatialHash;
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameContext
 {
     public sealed class GameContextInstaller : MonoBehaviour
     {

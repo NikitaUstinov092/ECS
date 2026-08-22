@@ -1,11 +1,12 @@
-using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Events;
-using SampleGame;
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Content.Tower;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.GameContext.GameOver
 {
     public partial struct GameOverSystem : ISystem
     {

@@ -1,8 +1,7 @@
-using Game.Scripts.MyComponents.Requests;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.Players.Money
 {
     public class SpendMoneyRequestAuthoring : MonoBehaviour
     {

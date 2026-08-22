@@ -1,4 +1,4 @@
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Move;
 using SnivelerCode.GpuAnimation.Generated;
 using SnivelerCode.GpuAnimation.Runtime.Components;
 using SnivelerCode.GpuAnimation.Runtime.Utils;

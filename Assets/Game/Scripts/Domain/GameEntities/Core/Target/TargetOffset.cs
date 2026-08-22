@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Target
 {
     public struct TargetOffset : IComponentData
     {

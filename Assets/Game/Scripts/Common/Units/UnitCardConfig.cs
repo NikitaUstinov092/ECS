@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Common.Units
 {
     [Serializable]
     public sealed class UnitCardConfig

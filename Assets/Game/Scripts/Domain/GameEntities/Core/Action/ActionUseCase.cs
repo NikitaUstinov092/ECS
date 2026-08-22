@@ -1,7 +1,8 @@
+using Game.Scripts.Domain.GameEntities.Core.Fire;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Action
 {
     public static class ActionUseCase 
     {

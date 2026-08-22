@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Common.Team
 {
     [CreateAssetMenu(
         fileName = "TeamViewConfig",

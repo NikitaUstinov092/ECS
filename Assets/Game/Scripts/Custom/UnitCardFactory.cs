@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using SampleGame;
+using Game.Scripts.Common.Units;
+using Game.Scripts.Views;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom
 {
     public sealed class UnitCardFactory
     {

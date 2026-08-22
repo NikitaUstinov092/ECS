@@ -1,8 +1,8 @@
-using SampleGame;
+using Game.Scripts.Common.Team;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom.UI
 {
     [RequireComponent(typeof(Button))]
     public class ButtonSpawnRequest : MonoBehaviour

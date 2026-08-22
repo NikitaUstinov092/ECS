@@ -1,6 +1,9 @@
-﻿using Unity.Entities;
+﻿using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Predicates
 {
     public struct IsHitFriendPredicate:IEntityPredicate
     {

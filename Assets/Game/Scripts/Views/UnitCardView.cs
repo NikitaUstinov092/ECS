@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace SampleGame
+namespace Game.Scripts.Views
 {
     public sealed class UnitCardView : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.TakeDamage
 {
     [InternalBufferCapacity(4)]
     public struct TakeDamageRequest : IBufferElementData

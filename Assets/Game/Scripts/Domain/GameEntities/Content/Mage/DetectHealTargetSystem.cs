@@ -1,11 +1,17 @@
-﻿using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.Domain.GameEntities.Core.Detection;
+using Game.Scripts.Domain.GameEntities.Core.Heal;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Target;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.GameEntities.Predicates;
+using Game.Scripts.Domain.SpatialHash;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
     [BurstCompile]
     [WithAll(typeof(Heal))]

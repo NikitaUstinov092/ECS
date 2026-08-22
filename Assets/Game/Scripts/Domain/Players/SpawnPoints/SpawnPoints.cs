@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
 
-namespace Game.Scripts.MyComponents.Components
+namespace Game.Scripts.Domain.Players.SpawnPoints
 {
     public struct SpawnPoint : IBufferElementData
     {

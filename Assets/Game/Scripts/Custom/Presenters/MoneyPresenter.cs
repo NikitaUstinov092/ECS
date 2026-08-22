@@ -1,11 +1,12 @@
-﻿using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.Players.Money;
 using Game.Scripts.Views;
-using SampleGame;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.Presenters
+namespace Game.Scripts.Custom.Presenters
 {
     public class MoneyPresenter : MonoBehaviour
     {

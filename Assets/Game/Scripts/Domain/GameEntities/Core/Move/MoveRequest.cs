@@ -2,7 +2,7 @@ using System;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Move
 {
     [Serializable]
     public struct MoveRequest : IComponentData, IEnableableComponent

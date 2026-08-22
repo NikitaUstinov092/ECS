@@ -1,10 +1,9 @@
 using Game.Scripts.Common;
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Health;
 using Unity.Burst;
 using Unity.Entities;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.GameEntities.Core.Heal
 {
     [UpdateAfter(typeof(ActionSystemGroup))] 
     public partial struct HealSystem : ISystem
@@ -13,12 +12,12 @@ namespace Game.Scripts.MySystems
         public void OnUpdate(ref SystemState state)
         {
             foreach ((
-                         RefRW<Health> health,
+                         RefRW<Health.Health> health,
                          RefRO<MaxHealth> maxHealth,
                          DynamicBuffer<TakeHealRequest> requests
                      ) in SystemAPI
                          .Query<
-                             RefRW<Health>, 
+                             RefRW<Health.Health>, 
                              RefRO<MaxHealth>,
                              DynamicBuffer<TakeHealRequest>>())
             {

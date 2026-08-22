@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SampleGame
+namespace Game.Scripts.Views.SelectableState
 {
     [ExecuteAlways]
     [HideMonoScript]

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Game.Scripts.Common.Team;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View
 {
     
     [CreateAssetMenu(

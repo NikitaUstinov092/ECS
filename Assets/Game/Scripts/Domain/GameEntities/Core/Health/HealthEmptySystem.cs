@@ -1,8 +1,8 @@
+using Game.Scripts.Domain.GameEntities.Core.Death;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Health
 {
     [BurstCompile]
     public partial struct HealthEmptySystem : ISystem

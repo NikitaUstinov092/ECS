@@ -4,7 +4,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.SpatialHash
 {
     [Serializable]
     public unsafe struct SpatialHashInstaller // MonoInstaller (Zenject)

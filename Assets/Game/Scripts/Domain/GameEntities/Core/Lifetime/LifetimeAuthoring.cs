@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Lifetime
 {
     public sealed class LifetimeAuthoring : MonoBehaviour
     {

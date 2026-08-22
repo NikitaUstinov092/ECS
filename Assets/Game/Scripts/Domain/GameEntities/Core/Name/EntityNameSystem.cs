@@ -2,7 +2,7 @@
 using Unity.Collections;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Name
 {
     [UpdateInGroup(typeof(PresentationSystemGroup))]
     public partial struct EntityNameSystem : ISystem

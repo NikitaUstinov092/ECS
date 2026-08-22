@@ -1,11 +1,10 @@
 ﻿using System.Linq;
-using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Requests;
-using SampleGame;
+using Game.Scripts.Common.Units;
+using Game.Scripts.Domain.Players.Units;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.Domain.EnemyAI
+namespace Game.Scripts.Domain.GameEntities.AI
 {
     public sealed class AIAuthoring : MonoBehaviour
     {

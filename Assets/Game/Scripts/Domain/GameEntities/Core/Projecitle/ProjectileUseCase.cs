@@ -1,8 +1,11 @@
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.Fire;
+using Game.Scripts.Domain.GameEntities.Core.Target;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
 {
     public static class ProjectileUseCase
     {
@@ -11,7 +14,7 @@ namespace SampleGame
             ProjectilePrefab projectilePrefab,
             LocalTransform transform,
             FireOffset fireOffset,
-            RefRO<Team> team,
+            RefRO<Team.Team> team,
             Entity target
         )
         {

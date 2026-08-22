@@ -1,7 +1,7 @@
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.SpatialHash
 {
     public static unsafe class UnsafeUseCase
     {

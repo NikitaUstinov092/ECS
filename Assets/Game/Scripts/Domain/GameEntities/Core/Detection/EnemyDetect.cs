@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Components
+namespace Game.Scripts.Domain.GameEntities.Core.Detection
 {
     public struct EnemyDetect : IComponentData
     {

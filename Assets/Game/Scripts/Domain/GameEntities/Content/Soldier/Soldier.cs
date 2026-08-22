@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     public struct Soldier : IComponentData
     {

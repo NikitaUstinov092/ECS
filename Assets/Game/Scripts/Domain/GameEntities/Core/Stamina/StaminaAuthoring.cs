@@ -1,9 +1,8 @@
-using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Stamina
 {
     public class StaminaAuthoring : MonoBehaviour
     {

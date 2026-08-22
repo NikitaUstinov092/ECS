@@ -1,6 +1,10 @@
 ﻿using Game.Scripts.Common;
 using Game.Scripts.Domain.GameEntities.Core.Ammo;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Fire;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.PostAction;
+using Game.Scripts.Domain.GameEntities.Core.Projecitle;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;

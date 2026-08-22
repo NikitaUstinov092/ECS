@@ -1,8 +1,8 @@
-﻿using SampleGame;
+﻿using Game.Scripts.Common.Team;
 using Unity.Collections;
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Requests
+namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 {
     public struct SpawnUnitRequest : IComponentData, IEnableableComponent
     {

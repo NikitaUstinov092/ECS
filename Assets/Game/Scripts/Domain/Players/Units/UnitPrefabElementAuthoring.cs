@@ -1,9 +1,8 @@
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Common.Units;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.Players.Units
 {
     public sealed class UnitPrefabElementAuthoring : MonoBehaviour
     {

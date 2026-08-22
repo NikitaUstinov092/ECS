@@ -1,12 +1,17 @@
 using Game.Scripts.Common;
-using Game.Scripts.Domain.GameEntities.Content.Swordman;
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Action;
 using Game.Scripts.Domain.GameEntities.Core.Ammo;
+using Game.Scripts.Domain.GameEntities.Core.AttackDistance;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.PostAction;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Archer
 {
     [BurstCompile]
     [UpdateInGroup(typeof(ActionSystemGroup))] 

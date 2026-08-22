@@ -1,11 +1,13 @@
-using Game.Scripts.MyComponents.Components;
+using Game.Scripts.Domain.GameEntities.Core.Target;
+using Game.Scripts.Domain.GameEntities.Predicates;
+using Game.Scripts.Domain.SpatialHash;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Detection
 {
     
     [BurstCompile]
@@ -13,14 +15,14 @@ namespace SampleGame
     public partial struct DetectEnemyTargetSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
-        private ComponentLookup<Team> _teamLookup;
-        private ComponentLookup<Health> _healthLookup;
+        private ComponentLookup<Team.Team> _teamLookup;
+        private ComponentLookup<Health.Health> _healthLookup;
 
         public void OnCreate(ref SystemState state)
         {
             _transformLookup = state.GetComponentLookup<LocalTransform>(isReadOnly: true);
-            _teamLookup = state.GetComponentLookup<Team>(isReadOnly: true);
-            _healthLookup = state.GetComponentLookup<Health>(isReadOnly: true);
+            _teamLookup = state.GetComponentLookup<Team.Team>(isReadOnly: true);
+            _healthLookup = state.GetComponentLookup<Health.Health>(isReadOnly: true);
 
             state.RequireForUpdate<SpatialHashData>();
         }
@@ -52,15 +54,15 @@ namespace SampleGame
             public ComponentLookup<LocalTransform> TransformLookup;
 
             [ReadOnly]
-            public ComponentLookup<Team> TeamLookup;
+            public ComponentLookup<Team.Team> TeamLookup;
 
             [ReadOnly]
-            public ComponentLookup<Health> HealthLookup;
+            public ComponentLookup<Health.Health> HealthLookup;
 
             private void Execute(
                 Entity entity,
                 in LocalTransform transform,
-                in Team team,
+                in Team.Team team,
                 in DetectionRadius detectionRadius,
                 ref TargetEntity target
             )

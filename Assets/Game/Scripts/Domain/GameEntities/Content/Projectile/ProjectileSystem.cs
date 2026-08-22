@@ -1,10 +1,15 @@
 using Game.Scripts.Common;
+using Game.Scripts.Domain.GameEntities.Core.Damage;
+using Game.Scripts.Domain.GameEntities.Core.Move;
+using Game.Scripts.Domain.GameEntities.Core.StoppingDistance;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
+using Game.Scripts.Domain.GameEntities.Core.Target;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Projectile
 {
     [UpdateAfter(typeof(ActionSystemGroup))]
     [BurstCompile]

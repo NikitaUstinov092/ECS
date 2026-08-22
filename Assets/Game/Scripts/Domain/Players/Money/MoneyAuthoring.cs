@@ -13,7 +13,7 @@ namespace Game.Scripts.Domain.Players.Money
             {
                 Entity entity = GetEntity(TransformUsageFlags.None);
 
-                AddComponent(entity, new MyComponents.Components.Money
+                AddComponent(entity, new Money
                 {
                     Current = authoring._startMoney
                 });

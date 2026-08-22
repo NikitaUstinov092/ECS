@@ -1,7 +1,7 @@
-﻿using Game.Scripts.MyComponents.Components;
+﻿using Game.Scripts.Domain.Players.Units;
 using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Requests
+namespace Game.Scripts.Domain.GameEntities.AI
 {
     public struct RandomUnitRequest : IComponentData
     {

@@ -2,7 +2,7 @@ using Unity.Burst;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Rotation
 {
     [BurstCompile]
     public static class RotationUseCase

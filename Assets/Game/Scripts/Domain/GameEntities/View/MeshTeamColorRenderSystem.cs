@@ -1,12 +1,12 @@
-using Game.Scripts.Common;
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Color;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Entities;
-using Unity.Entities.Graphics.URPMaterialProperties;
 using Unity.Mathematics;
-using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View
 {
     public sealed partial class MeshTeamColorRenderSystem : SystemBase
     {

@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Move
 {
     public sealed class MoveSpeedAuthoring : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Projectile
 {
     public sealed class ProjectileAuthoring : MonoBehaviour
     {

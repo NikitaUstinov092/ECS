@@ -1,7 +1,6 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Unity.Entities;
+﻿using Unity.Entities;
 
-namespace Game.Scripts.MyComponents.Requests
+namespace Game.Scripts.Domain.Players.Money
 {
     public struct SpendMoneyRequest :  IComponentData, IEnableableComponent
     {

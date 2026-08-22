@@ -1,4 +1,4 @@
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
 using Unity.Entities;
 using UnityEngine;
 

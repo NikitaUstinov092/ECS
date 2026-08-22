@@ -1,23 +1,22 @@
 using Game.Scripts.Common;
-using Game.Scripts.Domain.GameEntities.Core.Stamina;
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.AttackDistance;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Game.Scripts.Domain.GameEntities.Content.Mage
+namespace Game.Scripts.Domain.GameEntities.Core.Heal
 {
     [UpdateInGroup(typeof(ActionSystemGroup))] 
     [BurstCompile]
     public partial struct HealRequestSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
-        private ComponentLookup<Team> _teamLookup;
+        private ComponentLookup<Team.Team> _teamLookup;
         private ComponentLookup<ActionEvent> _fireEventLookup;
-        private ComponentLookup<Health> _healthLookup;
+        private ComponentLookup<Health.Health> _healthLookup;
         private BufferLookup<TakeHealRequest> _takeHealRequests;
 
         public void OnCreate(ref SystemState state)
@@ -25,10 +24,10 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
 
             _transformLookup = SystemAPI.GetComponentLookup<LocalTransform>(isReadOnly: false);
-            _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
+            _teamLookup = SystemAPI.GetComponentLookup<Team.Team>(isReadOnly: true);
             _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
             
-            _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: true);
+            _healthLookup = SystemAPI.GetComponentLookup<Health.Health>(isReadOnly: true);
             _takeHealRequests = SystemAPI.GetBufferLookup<TakeHealRequest>(isReadOnly: false);
         }
 
@@ -56,8 +55,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         [WithDisabled(typeof(ActionEvent))]
         public partial struct HealJob : IJobEntity
         {
-            [ReadOnly] public ComponentLookup<Team> TeamLookup;
-            [ReadOnly] public ComponentLookup<Health> TargetHealthLookup;
+            [ReadOnly] public ComponentLookup<Team.Team> TeamLookup;
+            [ReadOnly] public ComponentLookup<Health.Health> TargetHealthLookup;
             
             public ComponentLookup<LocalTransform> TransformLookup;
             
@@ -69,9 +68,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                 EnabledRefRW<ActionEvent> actionEventEnabled,
                 ref ActionRequest requestValue,
                 ref ActionCooldown cooldown,
-                ref Stamina stamina,
+                ref Stamina.Stamina stamina,
                 in Heal heal,
-                in Team team,
+                in Team.Team team,
                 in ActionDistance attackDistance
             )
             {
@@ -89,11 +88,11 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
                     !TransformLookup.TryGetComponent(target, out LocalTransform targetTransform))
                     return;
             
-                if (!TeamLookup.TryGetComponent(target, out Team targetTeam) ||
+                if (!TeamLookup.TryGetComponent(target, out Team.Team targetTeam) ||
                     targetTeam.value != team.value)
                     return;
             
-                if (!TargetHealthLookup.TryGetComponent(target, out Health targetHealth) ||
+                if (!TargetHealthLookup.TryGetComponent(target, out Health.Health targetHealth) ||
                     targetHealth.value <=0)
                     return;
             

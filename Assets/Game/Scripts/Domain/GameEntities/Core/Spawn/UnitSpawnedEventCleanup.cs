@@ -1,9 +1,8 @@
-﻿using Game.Scripts.MyComponents.Events;
-using SampleGame;
+﻿using Game.Scripts.Common;
 using Unity.Burst;
 using Unity.Entities;
 
-namespace Game.Scripts.Common
+namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 {
     [BurstCompile]
     [UpdateInGroup(typeof(CleanupSystemGroup))]

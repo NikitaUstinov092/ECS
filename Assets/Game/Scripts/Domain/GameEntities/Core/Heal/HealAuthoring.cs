@@ -1,8 +1,7 @@
-using Game.Scripts.MyComponents.Components;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.Domain.GameEntities.Content.Mage
+namespace Game.Scripts.Domain.GameEntities.Core.Heal
 {
     public class HealAuthoring : MonoBehaviour
     {

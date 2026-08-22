@@ -1,7 +1,7 @@
 using System;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Projectile
 {
     [Serializable]
     public struct Projectile : IComponentData

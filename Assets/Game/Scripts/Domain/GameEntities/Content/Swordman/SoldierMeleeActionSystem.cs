@@ -1,5 +1,12 @@
 using Game.Scripts.Common;
-using SampleGame;
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Action;
+using Game.Scripts.Domain.GameEntities.Core.AttackDistance;
+using Game.Scripts.Domain.GameEntities.Core.Damage;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.PostAction;
+using Game.Scripts.Domain.GameEntities.Core.TakeDamage;
+using Game.Scripts.Domain.GameEntities.Core.Team;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -56,7 +63,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Swordman
                          RefRO<LocalTransform>,
                          RefRO<Damage>>()
                          .WithPresent<Melee>()
-                         .WithPresent<SampleGame.Soldier>()
+                         .WithPresent<Soldier.Soldier>()
                          .WithEntityAccess()
                     )
             {

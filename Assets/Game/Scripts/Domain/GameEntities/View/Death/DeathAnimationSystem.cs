@@ -1,7 +1,8 @@
+using Game.Scripts.Domain.GameEntities.Core.Death;
 using SnivelerCode.GpuAnimation.Runtime.Components;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View.Death
 {
     [UpdateInGroup(typeof(PresentationSystemGroup))]
     public partial struct DeathAnimationSystem : ISystem

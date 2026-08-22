@@ -1,10 +1,13 @@
-using Game.Scripts.MyComponents.Components;
-using SampleGame;
+using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Content.Tower;
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Views;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom.Presenters
 {
     [RequireComponent(typeof(HealthView))]
     public class HealthBarPresenter : MonoBehaviour

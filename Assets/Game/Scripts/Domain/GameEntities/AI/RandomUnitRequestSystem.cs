@@ -1,12 +1,11 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Events;
-using Game.Scripts.MyComponents.Requests;
-using SampleGame;
+﻿using Game.Scripts.Domain.GameEntities.Core.Spawn;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.Players.Units;
 using Unity.Burst;
 using Unity.Entities;
 using Random = Unity.Mathematics.Random;
 
-namespace Game.Scripts.MySystems
+namespace Game.Scripts.Domain.GameEntities.AI
 {  
     [BurstCompile]
     [UpdateAfter(typeof(SpawnUnitSystem))] //Раскидать по нормальным группам

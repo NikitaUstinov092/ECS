@@ -1,7 +1,10 @@
+using Game.Scripts.Domain.GameEntities.Core.Health;
+using Game.Scripts.Domain.GameEntities.Core.Move;
+using Game.Scripts.Domain.GameEntities.Core.Unit;
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [RequireComponent(typeof(MoveRequestAuthoring))]
     [RequireComponent(typeof(MoveSpeedAuthoring))]

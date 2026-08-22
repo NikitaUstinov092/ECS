@@ -1,17 +1,18 @@
-using Game.Scripts.Domain.GameEntities.Content.Swordman;
-using Game.Scripts.MyComponents.Events;
 using Unity.Entities;
 using UnityEngine;
 
-public class MeleeAuthoring : MonoBehaviour
+namespace Game.Scripts.Domain.GameEntities.Content.Swordman
 {
-    private class Baker : Baker<MeleeAuthoring>
+    public class MeleeAuthoring : MonoBehaviour
     {
-        public override void Bake(MeleeAuthoring authoring)
+        private class Baker : Baker<MeleeAuthoring>
         {
-            Entity entity = GetEntity(TransformUsageFlags.None);
+            public override void Bake(MeleeAuthoring authoring)
+            {
+                Entity entity = GetEntity(TransformUsageFlags.None);
 
-            AddComponent<Melee>(entity);
+                AddComponent<Melee>(entity);
+            }
         }
     }
 }

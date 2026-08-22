@@ -2,7 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Action
 {
     [BurstCompile]
     public partial struct ActionCooldownSystem : ISystem

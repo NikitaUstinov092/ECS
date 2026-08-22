@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom
 {
     public class UnitCardData : MonoBehaviour
     {

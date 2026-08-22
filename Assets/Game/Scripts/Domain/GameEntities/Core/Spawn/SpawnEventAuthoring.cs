@@ -1,9 +1,7 @@
-﻿using Game.Scripts.MyComponents;
-using Game.Scripts.MyComponents.Events;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 {
     public class SpawnEventAuthoring : MonoBehaviour
     {

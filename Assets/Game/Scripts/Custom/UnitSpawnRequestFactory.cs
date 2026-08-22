@@ -1,11 +1,11 @@
-﻿using Game.Scripts.MyComponents.Components;
-using Game.Scripts.MyComponents.Requests;
-using SampleGame;
+﻿using Game.Scripts.Common.Team;
+using Game.Scripts.Domain.GameEntities.Core.Team;
+using Game.Scripts.Domain.Players.Money;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyCustom
+namespace Game.Scripts.Custom
 {
     public class UnitSpawnRequestFactory : MonoBehaviour
     {

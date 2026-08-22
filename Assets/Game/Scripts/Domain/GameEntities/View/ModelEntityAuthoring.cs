@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.View
 {
     public class ModelEntityAuthoring : MonoBehaviour
     {

@@ -1,7 +1,8 @@
+using Game.Scripts.Common.Team;
 using Unity.Entities;
 using UnityEngine;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Team
 {
     public sealed class TeamAuthoring : MonoBehaviour
     {

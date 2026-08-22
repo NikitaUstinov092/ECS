@@ -2,7 +2,7 @@ using Game.Scripts.Common;
 using Unity.Burst;
 using Unity.Entities;
 
-namespace SampleGame
+namespace Game.Scripts.Domain.GameEntities.Core.Death
 {
     [BurstCompile]
     [UpdateInGroup(typeof(CleanupSystemGroup))]
