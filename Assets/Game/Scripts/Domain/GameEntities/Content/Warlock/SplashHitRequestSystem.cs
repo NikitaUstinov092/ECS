@@ -94,6 +94,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 
                 cooldown.ValueRW.ResetTime();
                 mana.Value--;
+                _stamina[entity] = mana;
             }
         }
     }
