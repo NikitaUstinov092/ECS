@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SampleGame;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -28,7 +27,6 @@ namespace Game.Scripts.MyCustom
                 Fill(card, config);
             }
         }
-
 
         private void Fill(UnitCardView view, UnitCardConfig config)
         {

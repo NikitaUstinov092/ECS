@@ -9,14 +9,7 @@ namespace Game.Scripts.MyCustom
 {
     public class UnitSpawnRequestFactory : MonoBehaviour
     {
-        public static UnitSpawnRequestFactory Instance { get; private set; }
-        
         private EntityManager _entityManager;
-        
-        private void Awake()
-        {
-            Instance = this;
-        }
         
         private void Start()
         {

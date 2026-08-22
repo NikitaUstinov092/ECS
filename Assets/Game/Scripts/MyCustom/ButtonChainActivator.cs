@@ -17,6 +17,7 @@ namespace Game.Scripts.MyCustom
         {
             if(_state == value)
                 return;
+            
             _state = value;
             
             foreach (var button in _buttons)
