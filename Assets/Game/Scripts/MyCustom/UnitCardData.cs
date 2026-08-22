@@ -11,14 +11,14 @@ namespace Game.Scripts.MyCustom
         [ShowInInspector, ReadOnly]
         public string Name{ get; private set;}
 
-        public void InstallPrice(int configPrice)
+        public void SetPrice(int price)
         {
-            Price = configPrice;
+            Price = price;
         }
 
-        public void InstallName(string configName)
+        public void SetName(string name)
         {
-            Name = configName;
+            Name = name;
         }
     }
 }

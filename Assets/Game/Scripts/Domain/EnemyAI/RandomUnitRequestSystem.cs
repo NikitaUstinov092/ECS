@@ -49,7 +49,7 @@ namespace Game.Scripts.MySystems
                         continue;
                    
                     int index = _random.NextInt(cards.Length);
-                    request.ValueRW.RandomUnitData = cards[index].Data;
+                    request.ValueRW.Data = cards[index].Data;
                 }
                 
             }

@@ -5,6 +5,6 @@ namespace Game.Scripts.MyComponents.Requests
 {
     public struct RandomUnitRequest : IComponentData
     {
-        public UnitPriceData RandomUnitData;
+        public UnitPriceData Data;
     }
 }

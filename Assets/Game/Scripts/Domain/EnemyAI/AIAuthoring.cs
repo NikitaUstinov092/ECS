@@ -42,7 +42,7 @@ namespace Game.Scripts.Domain.EnemyAI
                 }
                 AddComponent(entity, new RandomUnitRequest
                 {
-                    RandomUnitData = new UnitPriceData
+                    Data = new UnitPriceData
                     {
                         Name = randomCard.Name,
                         Price = randomCard.Price

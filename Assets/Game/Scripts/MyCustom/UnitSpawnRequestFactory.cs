@@ -30,9 +30,9 @@ namespace Game.Scripts.MyCustom
             // Фильтруем по команде
             foreach (var entity in query.ToEntityArray(Allocator.Temp))
             {
-                Team teamComponent = _entityManager.GetComponentData<Team>(entity);
-                
-                if (teamComponent.value == team)
+                Team entityTeam = _entityManager.GetComponentData<Team>(entity);
+
+                if (entityTeam.value == team)
                 {
                     _entityManager.SetComponentData(entity, new SpendMoneyRequest
                     {

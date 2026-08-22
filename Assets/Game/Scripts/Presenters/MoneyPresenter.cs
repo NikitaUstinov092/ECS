@@ -16,23 +16,23 @@ namespace Game.Scripts.Presenters
         private TeamType _teamType;
 
         private EntityManager _entityManager;
-        private EntityQuery _manaQuery;
+        private EntityQuery _moneyQuery;
 
         private void Awake()
         {
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
-            _manaQuery = _entityManager.CreateEntityQuery(
+            _moneyQuery = _entityManager.CreateEntityQuery(
                 ComponentType.ReadOnly<Money>(),
                 ComponentType.ReadOnly<Team>());
         }
 
         private void LateUpdate()
         {
-            if (_manaQuery.IsEmpty)
+            if (_moneyQuery.IsEmpty)
                 return;
 
-            using var entities = _manaQuery.ToEntityArray(Allocator.Temp);
+            using var entities = _moneyQuery.ToEntityArray(Allocator.Temp);
 
             foreach (var entity in entities)
             {

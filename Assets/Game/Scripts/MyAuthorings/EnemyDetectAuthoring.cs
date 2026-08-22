@@ -1,4 +1,4 @@
-using Game.Scripts.Domain.GameEntities.AI;
+using Game.Scripts.MyComponents.Components;
 using Unity.Entities;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ namespace Game.Scripts.MyAuthorings
 {
     public class EnemyDetectAuthoring : MonoBehaviour
     {
-        public class ManaBaker : Baker<EnemyDetectAuthoring>
+        private class Baker : Baker<EnemyDetectAuthoring>
         {
             public override void Bake(EnemyDetectAuthoring authoring)
             {

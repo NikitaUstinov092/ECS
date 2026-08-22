@@ -10,8 +10,8 @@ namespace Game.Scripts.MyAuthorings
         {
             public override void Bake(TakeHealRequestAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddBuffer<TakeHealRequest>(entity);  // 4 
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddBuffer<TakeHealRequest>(entity);
             }
         }
     }

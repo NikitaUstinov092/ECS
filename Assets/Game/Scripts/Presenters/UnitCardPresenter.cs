@@ -17,7 +17,7 @@ namespace Game.Scripts.Presenters
         private UnitCardData _unitCardData;
         
         private EntityManager _entityManager;
-        private EntityQuery _manaQuery;
+        private EntityQuery _moneyQuery;
         
 
         private void Awake()
@@ -27,17 +27,17 @@ namespace Game.Scripts.Presenters
             
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
-            _manaQuery = _entityManager.CreateEntityQuery(
+            _moneyQuery = _entityManager.CreateEntityQuery(
                 ComponentType.ReadOnly<Money>(),
                 ComponentType.ReadOnly<Team>());
         }
 
         private void LateUpdate()
         {
-            if (_manaQuery.IsEmpty)
+            if (_moneyQuery.IsEmpty)
                 return;
 
-            var entities = _manaQuery.ToEntityArray(Unity.Collections.Allocator.Temp);
+            var entities = _moneyQuery.ToEntityArray(Unity.Collections.Allocator.Temp);
 
             foreach (var entity in entities)
             {
@@ -52,14 +52,14 @@ namespace Game.Scripts.Presenters
             }
         }
 
-        private void UpdateView(int currentMana)
+        private void UpdateView(int currentMoney)
         {
             int price = _unitCardData.Price;
             
-            if (currentMana >= price)
+            if (currentMoney >= price)
             {
-                if (currentMana == price)
-                    UpdateProgressView(currentMana, price);
+                if (currentMoney == price)
+                    UpdateProgressView(currentMoney, price);
                 
                 _view.SetEnabled(true);
                 return;
@@ -67,13 +67,13 @@ namespace Game.Scripts.Presenters
             
             _view.SetEnabled(false);
             
-            UpdateProgressView(currentMana, price);
+            UpdateProgressView(currentMoney, price);
         }
 
-        private void UpdateProgressView(int currentMana, int price)
+        private void UpdateProgressView(int currentMoney, int price)
         {
-            _view.SetProgressCaption($"{currentMana}/{price}");
-            _view.SetProgress((float)currentMana / price);
+            _view.SetProgressCaption($"{currentMoney}/{price}");
+            _view.SetProgress((float)currentMoney / price);
         }
     }
 }

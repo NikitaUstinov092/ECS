@@ -33,8 +33,8 @@ namespace Game.Scripts.MyCustom
             view.SetIcon(config.Icon);
             view.SetName(config.Name);
             var unitCardData = view.gameObject.GetComponent<UnitCardData>();
-            unitCardData.InstallPrice(config.Price);
-            unitCardData.InstallName(config.Name);
+            unitCardData.SetPrice(config.Price);
+            unitCardData.SetName(config.Name);
         }
     }
 }

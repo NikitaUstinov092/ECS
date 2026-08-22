@@ -1,4 +1,4 @@
-using Game.Scripts.Domain.GameEntities.AI;
+using Game.Scripts.MyComponents.Components;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;

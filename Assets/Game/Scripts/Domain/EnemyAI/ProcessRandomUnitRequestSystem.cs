@@ -30,11 +30,11 @@ namespace Game.Scripts.MySystems
                     
                     state.EntityManager.SetComponentData(entity, new SpendMoneyRequest
                     {
-                        Amount = request.ValueRO.RandomUnitData.Price,
+                        Amount = request.ValueRO.Data.Price,
                         PurchaseDetails = new PurchaseDetails
                         {
                             Team = team.ValueRO.value,
-                            UnitName = request.ValueRO.RandomUnitData.Name
+                            UnitName = request.ValueRO.Data.Name
                         }
                     });
 
