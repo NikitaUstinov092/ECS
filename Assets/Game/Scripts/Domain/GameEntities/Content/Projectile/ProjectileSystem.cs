@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -5,8 +6,7 @@ using Unity.Transforms;
 
 namespace SampleGame
 {
-    [UpdateAfter(typeof(DetectHealTargetSystem))]
-    [UpdateAfter(typeof(DetectEnemyTargetSystem))] //TO DO Убрать в категории
+    [UpdateAfter(typeof(ActionSystemGroup))]
     [BurstCompile]
     public partial struct ProjectileSystem : ISystem
     {
