@@ -13,7 +13,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Move
         )
         {
             if (!math.all(direction == float3.zero)) 
-                transform.Position += direction * (speed.value * deltaTime);
+                transform.Position += direction * (speed.Value * deltaTime);
         }
     }
 }

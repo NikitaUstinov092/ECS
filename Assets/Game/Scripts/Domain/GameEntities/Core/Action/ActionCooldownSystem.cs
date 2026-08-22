@@ -1,4 +1,4 @@
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 
@@ -12,7 +12,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Action
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
             foreach (RefRW<ActionCooldown> cooldown in SystemAPI.Query<RefRW<ActionCooldown>>()) 
-                cooldown.ValueRW.time = math.max(cooldown.ValueRW.time - deltaTime, 0);
+                cooldown.ValueRW.Time = math.max(cooldown.ValueRW.Time - deltaTime, 0);
         }
     }
 }

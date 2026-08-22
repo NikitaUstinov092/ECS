@@ -4,6 +4,6 @@ namespace Game.Scripts.Domain.GameEntities.View
 {
     public struct ModelEntity : IComponentData
     {
-        public Entity value;
+        public Entity Value;
     }
 }

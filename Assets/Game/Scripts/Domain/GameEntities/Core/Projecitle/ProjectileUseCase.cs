@@ -1,4 +1,4 @@
-using Game.Scripts.Domain.GameEntities.Core.Action;
+﻿using Game.Scripts.Domain.GameEntities.Core.Action;
 using Game.Scripts.Domain.GameEntities.Core.Fire;
 using Game.Scripts.Domain.GameEntities.Core.Target;
 using Unity.Entities;
@@ -18,7 +18,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
             Entity target
         )
         {
-            Entity projectile = ecb.Instantiate(projectilePrefab.value);
+            Entity projectile = ecb.Instantiate(projectilePrefab.Value);
 
             float3 spawnPosition = ActionUseCase.GetFirePoint(transform, fireOffset);
             quaternion spawnRotation = transform.Rotation;
@@ -27,7 +27,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
             ecb.SetComponent(projectile, team.ValueRO);
             ecb.SetComponent(projectile, new TargetEntity
             {
-                value = target
+                Value = target
             });
         }
     }

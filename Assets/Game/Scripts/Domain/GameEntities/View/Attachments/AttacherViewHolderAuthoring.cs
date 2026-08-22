@@ -10,7 +10,7 @@ namespace Game.Scripts.Domain.GameEntities.View.Attachments
             public override void Bake(AttacherViewHolderAuthoring authoring)
             {
                 Entity entity = GetEntity(TransformUsageFlags.Dynamic);
-                this.AddComponent<AttacherView>(entity);
+                AddComponent<AttacherView>(entity);
             }
         }
     }

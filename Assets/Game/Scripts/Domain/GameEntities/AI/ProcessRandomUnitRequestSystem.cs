@@ -22,7 +22,7 @@ namespace Game.Scripts.Domain.GameEntities.AI
                              .WithEntityAccess())
                 {
                    
-                    if(team.ValueRO.value != team1.ValueRO.value)
+                    if(team.ValueRO.Value != team1.ValueRO.Value)
                         continue;
                     
                     state.EntityManager.SetComponentData(entity, new SpendMoneyRequest
@@ -30,7 +30,7 @@ namespace Game.Scripts.Domain.GameEntities.AI
                         Amount = request.ValueRO.Data.Price,
                         PurchaseDetails = new PurchaseDetails
                         {
-                            Team = team.ValueRO.value,
+                            Team = team.ValueRO.Value,
                             UnitName = request.ValueRO.Data.Name
                         }
                     });

@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using Unity.Collections;
 using Unity.Entities;
 
@@ -13,7 +13,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Name
             foreach ((RefRO<EntityName> name, Entity entity) in 
                      SystemAPI.Query<RefRO<EntityName>>().WithEntityAccess())
             {
-                FixedString64Bytes entityName = name.ValueRO.value;
+                FixedString64Bytes entityName = name.ValueRO.Value;
                 entityName.Append(" (");
                 entityName.Append(entity.Index);
                 entityName.Append(":");

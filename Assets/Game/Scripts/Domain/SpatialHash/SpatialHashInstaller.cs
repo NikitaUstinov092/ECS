@@ -23,8 +23,8 @@ namespace Game.Scripts.Domain.SpatialHash
             
             _spatialHash = new SpatialHashData
             {
-                map = UnsafeUseCase.AllocPointer(hash, Allocator.Persistent),
-                cellSize = _cellSize
+                Map = UnsafeUseCase.AllocPointer(hash, Allocator.Persistent),
+                CellSize = _cellSize
             };
             
             entityManager.AddComponentData(gameContext, _spatialHash);
@@ -32,10 +32,10 @@ namespace Game.Scripts.Domain.SpatialHash
 
         public void Uninstall()
         {
-            if (_spatialHash.map != null)
+            if (_spatialHash.Map != null)
             {
-                _spatialHash.map->Dispose();
-                UnsafeUseCase.FreePointer(_spatialHash.map, Allocator.Persistent);
+                _spatialHash.Map->Dispose();
+                UnsafeUseCase.FreePointer(_spatialHash.Map, Allocator.Persistent);
             }
         }
     }

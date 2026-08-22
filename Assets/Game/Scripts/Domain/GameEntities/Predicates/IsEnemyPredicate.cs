@@ -29,7 +29,7 @@ namespace Game.Scripts.Domain.GameEntities.Predicates
         public bool Invoke(Entity entity)
         {
             return entity != _self &&
-                   _teamLookup.TryGetComponent(entity, out Team team) && team.value != _team &&
+                   _teamLookup.TryGetComponent(entity, out Team team) && team.Value != _team &&
                    _healthLookup.TryGetComponent(entity, out Health health) && health.IsAlive();
         }
     }

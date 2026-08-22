@@ -50,12 +50,12 @@ namespace Game.Scripts.Domain.GameEntities.Content.Swordman
                 }
               
                 var deltaTime = SystemAPI.Time.DeltaTime;
-                postActionCooldown.ValueRW.time = math.max(postActionCooldown.ValueRW.time - deltaTime, 0);
+                postActionCooldown.ValueRW.Time = math.max(postActionCooldown.ValueRW.Time - deltaTime, 0);
                 
-                if (postActionCooldown.ValueRO.time > 0)
+                if (postActionCooldown.ValueRO.Time > 0)
                     continue;
                 
-                Entity target = requestValue.ValueRO.target;
+                Entity target = requestValue.ValueRO.Target;
                 
                 //Action
                 if (!_takeDamageRequests.TryGetBuffer(target, out DynamicBuffer<TakeDamageRequest> requests))
@@ -63,12 +63,12 @@ namespace Game.Scripts.Domain.GameEntities.Content.Swordman
                 
                 requests.Add(new TakeDamageRequest
                 {
-                    damage = damage.ValueRO.value,
-                    instigator = entity
+                    Damage = damage.ValueRO.Value,
+                    Instigator = entity
                 });
               
                 requestEnabled.ValueRW = false;
-                postActionCooldown.ValueRW.time = postActionCooldown.ValueRO.duration;
+                postActionCooldown.ValueRW.Time = postActionCooldown.ValueRO.Duration;
             }
         }
     }

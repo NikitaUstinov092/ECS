@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Unity.Entities;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Target
@@ -6,6 +6,6 @@ namespace Game.Scripts.Domain.GameEntities.Core.Target
     [Serializable]
     public struct TargetEntity : IComponentData
     {
-        public Entity value;
+        public Entity Value;
     }
 }

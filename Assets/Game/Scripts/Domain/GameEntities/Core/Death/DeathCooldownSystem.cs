@@ -25,8 +25,8 @@ namespace Game.Scripts.Domain.GameEntities.Core.Death
                          .Query<RefRW<DeadCooldown>>()
                          .WithEntityAccess())
             {
-                cooldown.ValueRW.time -= deltaTime;
-                if (cooldown.ValueRW.time <= 0f) 
+                cooldown.ValueRW.Time -= deltaTime;
+                if (cooldown.ValueRW.Time <= 0f) 
                     ecb.DestroyEntity(entity);
             }
         }

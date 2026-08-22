@@ -82,15 +82,15 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             {
                 IsHitFriendPredicate condition = new IsHitFriendPredicate(
                     entity,
-                    team.value,
+                    team.Value,
                     TeamLookup,
                     HealthLookup,
                     MaxHealthLookup
                 );
 
-                target.value = SpatialHash.FindClosest(
+                target.Value = SpatialHash.FindClosest(
                     transform.Position,
-                    detectionRadius.value,
+                    detectionRadius.Value,
                     in condition,
                     TransformLookup
                 );

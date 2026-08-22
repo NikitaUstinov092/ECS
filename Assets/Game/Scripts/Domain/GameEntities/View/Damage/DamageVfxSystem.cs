@@ -29,7 +29,7 @@ namespace Game.Scripts.Domain.GameEntities.View.Damage
                              SystemAPI.ManagedAPI.UnityEngineComponent<ParticleSystem>>()
                          .WithAll<DamageVfx>())
             {
-                Entity modelEntity = modelEntityRef.ValueRO.value;
+                Entity modelEntity = modelEntityRef.ValueRO.Value;
 
                 if (!_damageEventLookup.TryGetBuffer(
                         modelEntity,

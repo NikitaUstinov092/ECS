@@ -10,12 +10,12 @@ namespace Game.Scripts.Domain.GameEntities.Core.Move
         {
             public override void Bake(MoveRequestAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent(entity, new MoveRequest
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddComponent(entity, new MoveRequest
                 {
                     direction = float3.zero,
                 });
-                this.SetComponentEnabled<MoveRequest>(entity, false);
+                SetComponentEnabled<MoveRequest>(entity, false);
             }
         }
     }

@@ -4941,7 +4941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b939689dabd964c8a18e780e6507de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.ModelEntityAuthoring
-  Value: {fileID: 8721122632549702622}
+  _value: {fileID: 8721122632549702622}
 --- !u!1 &8721122632549702622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,7 +4971,6 @@ GameObject:
   - component: {fileID: 4721762855834470537}
   - component: {fileID: 2131895365457364985}
   - component: {fileID: 6705618277204709091}
-  - component: {fileID: 4107429911376056808}
   - component: {fileID: 2552133835254203115}
   - component: {fileID: 4441225811025431337}
   - component: {fileID: 5020622493068164525}
@@ -5067,7 +5066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.MoveSpeedAuthoring
   _value:
-    value: 8
+    Value: 8
 --- !u!114 &2751555327417888283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5192,7 +5191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ba897a89344fca9abc17d466725b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeadCooldownAuthoring
-  Duration: 1.25
+  _duration: 1.25
 --- !u!114 &7684442112505499299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5206,7 +5205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.RotationSpeedAuthoring
   _value:
-    value: 200
+    Value: 200
 --- !u!114 &612022160496974666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5232,8 +5231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.FireCooldownAuthoring
   _cooldown:
-    time: 0
-    duration: 1
+    Time: 0
+    Duration: 1.25
 --- !u!114 &2131895365457364985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5258,18 +5257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ca595abb6874c4ba25b45ed7d934f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealRequestAuthoring
---- !u!114 &4107429911376056808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8721122632549702622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fbebd4d214682342b7637346472dfde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.TakeHealEventAuthoring
 --- !u!114 &2552133835254203115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5294,7 +5281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ddec64fd4444a8b73cec0ae9e09fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Common.Color.MyMaterialPropertyColorTargetAuthoring
-  targetMaterial: {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
+  _targetMaterial: {fileID: 2100000, guid: 5aa36d692b14c5d4f902a70512599d8b, type: 2}
 --- !u!114 &5020622493068164525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5344,9 +5331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981adbace07345b6917e40e55d5a459d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.PostActionCooldownAuthoring
-  duration:
-    time: 0
-    duration: 1
+  _duration:
+    Time: 0
+    Duration: 1
 --- !u!114 &4788682961010531339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,7 +5436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b939689dabd964c8a18e780e6507de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.ModelEntityAuthoring
-  Value: {fileID: 8721122632549702622}
+  _value: {fileID: 8721122632549702622}
 --- !u!4 &957531181032123851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1877660369124164172, guid: 2ba02e82382a4444baa623d17cefaa8a,

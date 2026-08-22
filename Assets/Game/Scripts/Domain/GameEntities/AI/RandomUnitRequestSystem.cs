@@ -44,7 +44,7 @@ namespace Game.Scripts.Domain.GameEntities.AI
                              RefRO<Team>,
                              EnabledRefRO<UnitSpawnedEvent>>())
                 {
-                    if (team.ValueRO.value != requestTeam.ValueRO.value)
+                    if (team.ValueRO.Value != requestTeam.ValueRO.Value)
                         continue;
                    
                     int index = _random.NextInt(cards.Length);

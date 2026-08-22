@@ -9,8 +9,8 @@ namespace Game.Scripts.Domain.GameEntities.Core.TakeDamage
         {
             public override void Bake(TakeDamageEventAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddBuffer<TakeDamageEvent>(entity);
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddBuffer<TakeDamageEvent>(entity);
             }
         }
     }

@@ -43,13 +43,13 @@ namespace Game.Scripts.Custom.Presenters
             {
                 Team team = _entityManager.GetComponentData<Team>(entity);
 
-                if (team.value != _teamType)
+                if (team.Value != _teamType)
                     continue;
 
                 Health health = _entityManager.GetComponentData<Health>(entity);
                 MaxHealth maxHealth = _entityManager.GetComponentData<MaxHealth>(entity);
 
-                UpdateView(health.value, maxHealth.value);
+                UpdateView(health.Value, maxHealth.Value);
                 break;
             }
         }

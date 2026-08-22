@@ -23,7 +23,7 @@ namespace Game.Scripts.Domain.GameEntities.View.Death
             foreach ((RefRO<ModelEntity> modelEntityRef, DynamicBuffer<AnimatorParameterData> buffer, Entity entity) in
                      SystemAPI.Query<RefRO<ModelEntity>, DynamicBuffer<AnimatorParameterData>>().WithEntityAccess())
             {
-                Entity modelEntity = modelEntityRef.ValueRO.value;
+                Entity modelEntity = modelEntityRef.ValueRO.Value;
 
                 if (!_deathEventLookup.HasComponent(modelEntity) ||
                     !_deathEventLookup.IsComponentEnabled(modelEntity))

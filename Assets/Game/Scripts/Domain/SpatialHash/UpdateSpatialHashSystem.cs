@@ -20,10 +20,10 @@ namespace Game.Scripts.Domain.SpatialHash
         {
             SpatialHashData spatialHashData = SystemAPI.GetSingleton<SpatialHashData>();
 
-            UnsafeParallelMultiHashMap<uint, Entity>* spatialHash = spatialHashData.map;
+            UnsafeParallelMultiHashMap<uint, Entity>* spatialHash = spatialHashData.Map;
             spatialHash->Clear();
 
-            state.Dependency = new UpdateJob(*spatialHash, spatialHashData.cellSize)
+            state.Dependency = new UpdateJob(*spatialHash, spatialHashData.CellSize)
                 .ScheduleParallel(state.Dependency);
         }
 

@@ -30,14 +30,14 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 {
                     TakeDamageRequest request = requests[i];
                     
-                    int damage = (int) math.round(request.damage * (1f - armor.ValueRO.value));
+                    int damage = (int) math.round(request.Damage * (1f - armor.ValueRO.Value));
 
                     health.ValueRW.Reduce(damage);
 
                     events.Add(new TakeDamageEvent
                     {
-                        damage = damage,
-                        instigator = request.instigator
+                        Damage = damage,
+                        Instigator = request.Instigator
                     });
                 }
 

@@ -1,12 +1,15 @@
 ﻿using System;
 using Unity.Entities;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.PostAction
 {
     [Serializable]
     public struct PostActionCooldown : IComponentData
     {
-        public float time;
-        public float duration;
+        [FormerlySerializedAs("time")] 
+        public float Time;
+        [FormerlySerializedAs("duration")] 
+        public float Duration;
     }
 }

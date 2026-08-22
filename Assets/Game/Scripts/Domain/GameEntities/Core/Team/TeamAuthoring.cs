@@ -15,10 +15,10 @@ namespace Game.Scripts.Domain.GameEntities.Core.Team
         {
             public override void Bake(TeamAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent(entity, new Team
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddComponent(entity, new Team
                 {
-                    value = authoring._teamType
+                    Value = authoring._teamType
                 });
             }
         }

@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
@@ -16,7 +16,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new ProjectilePrefab
                 {
-                    value = this.GetEntity(authoring._prefab, TransformUsageFlags.Dynamic)
+                    Value = this.GetEntity(authoring._prefab, TransformUsageFlags.Dynamic)
                 });
             }
         }

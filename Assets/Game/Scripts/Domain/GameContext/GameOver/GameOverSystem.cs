@@ -18,9 +18,9 @@ namespace Game.Scripts.Domain.GameContext.GameOver
             foreach (var (_, team, health)
                      in SystemAPI.Query<RefRO<Tower>, RefRO<Team>, RefRO<Health>>())
             {
-                if (health.ValueRO.value <= 0)
+                if (health.ValueRO.Value <= 0)
                 {
-                    ShowMessage(team.ValueRO.value == TeamType.Blue
+                    ShowMessage(team.ValueRO.Value == TeamType.Blue
                         ? "Game Over"
                         : "Victory");
                     

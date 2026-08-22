@@ -7,6 +7,6 @@ namespace Game.Scripts.Domain.GameEntities.Core.PostAction
     [Serializable]
     public struct PostActionRequest : IComponentData, IEnableableComponent
     {
-        public Entity target;
+        public Entity Target;
     }
 }

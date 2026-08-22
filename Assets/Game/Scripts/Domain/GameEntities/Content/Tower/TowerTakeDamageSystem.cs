@@ -26,14 +26,14 @@ namespace Game.Scripts.Domain.GameEntities.Content.Tower
                 {
                     TakeDamageRequest request = requests[i];
                     
-                    int damage = (int) math.round(request.damage );
+                    int damage = (int) math.round(request.Damage );
 
                     health.ValueRW.Reduce(damage);
 
                     events.Add(new TakeDamageEvent
                     {
-                        damage = damage,
-                        instigator = request.instigator
+                        Damage = damage,
+                        Instigator = request.Instigator
                     });
                 }
 

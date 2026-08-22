@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Target
             public override void Bake(TargetOffsetAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
-                AddComponent(entity, new TargetOffset {value = authoring.Value});
+                AddComponent(entity, new TargetOffset {Value = authoring.Value});
             }
         }
     }

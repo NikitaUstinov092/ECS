@@ -22,7 +22,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Spawn
 
                 ecb.SetComponent(unit, new Team.Team
                 {
-                    value = team
+                    Value = team
                 });
             }
         }

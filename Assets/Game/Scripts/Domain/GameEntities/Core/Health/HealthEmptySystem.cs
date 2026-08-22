@@ -1,4 +1,4 @@
-using Game.Scripts.Domain.GameEntities.Core.Death;
+﻿using Game.Scripts.Domain.GameEntities.Core.Death;
 using Unity.Burst;
 using Unity.Entities;
 
@@ -33,7 +33,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Health
 
                 // Кулдаун после смерти
                 deadCooldownEnabled.ValueRW = true;
-                deadCooldown.ValueRW.time = deadCooldown.ValueRO.duration;
+                deadCooldown.ValueRW.Time = deadCooldown.ValueRO.Duration;
             }
         }
     }

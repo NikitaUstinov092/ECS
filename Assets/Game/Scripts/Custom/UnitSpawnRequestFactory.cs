@@ -32,7 +32,7 @@ namespace Game.Scripts.Custom
             {
                 Team entityTeam = _entityManager.GetComponentData<Team>(entity);
 
-                if (entityTeam.value == team)
+                if (entityTeam.Value == team)
                 {
                     _entityManager.SetComponentData(entity, new SpendMoneyRequest
                     {

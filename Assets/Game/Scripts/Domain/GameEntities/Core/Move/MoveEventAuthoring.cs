@@ -9,9 +9,9 @@ namespace Game.Scripts.Domain.GameEntities.Core.Move
         {
             public override void Bake(MoveEventAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent(entity, new MoveEvent());
-                this.SetComponentEnabled<MoveEvent>(entity, false);
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddComponent(entity, new MoveEvent());
+                SetComponentEnabled<MoveEvent>(entity, false);
             }
         }
     }

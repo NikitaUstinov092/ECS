@@ -37,7 +37,7 @@ namespace Game.Scripts.Custom.Presenters
 
             foreach (var entity in entities)
             {
-                if (_entityManager.GetComponentData<Team>(entity).value != _teamType)
+                if (_entityManager.GetComponentData<Team>(entity).Value != _teamType)
                     continue;
 
                 Money money = _entityManager.GetComponentData<Money>(entity);

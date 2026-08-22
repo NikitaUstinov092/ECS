@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Name
@@ -12,10 +12,10 @@ namespace Game.Scripts.Domain.GameEntities.Core.Name
         {
             public override void Bake(EntityNameAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);   
-                this.AddComponent(entity, new EntityName
+                Entity entity = GetEntity(TransformUsageFlags.None);   
+                AddComponent(entity, new EntityName
                 {
-                    value = authoring._name
+                    Value = authoring._name
                 });
             }
         }

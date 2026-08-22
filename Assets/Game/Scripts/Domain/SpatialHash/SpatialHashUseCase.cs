@@ -30,15 +30,15 @@ namespace Game.Scripts.Domain.SpatialHash
             float closestDistanceSq = float.MaxValue;
             float radiusSq = radius * radius;
 
-            int2 centerCell = GetCell(position, spatialHash.cellSize);
-            int cellRadius = (int) math.ceil(radius / spatialHash.cellSize);
+            int2 centerCell = GetCell(position, spatialHash.CellSize);
+            int cellRadius = (int) math.ceil(radius / spatialHash.CellSize);
 
             for (int x = -cellRadius; x <= cellRadius; x++)
             for (int z = -cellRadius; z <= cellRadius; z++)
             {
                 int2 cell = centerCell + new int2(x, z);
                 uint hash = Hash(cell);
-                if (!spatialHash.map->TryGetFirstValue(
+                if (!spatialHash.Map->TryGetFirstValue(
                         hash,
                         out Entity candidate,
                         out NativeParallelMultiHashMapIterator<uint> iterator
@@ -60,7 +60,7 @@ namespace Game.Scripts.Domain.SpatialHash
                         closestDistanceSq = distanceSq;
                         closest = candidate;
                     }
-                } while (spatialHash.map->TryGetNextValue(out candidate, ref iterator));
+                } while (spatialHash.Map->TryGetNextValue(out candidate, ref iterator));
             }
             return closest;
         }
@@ -79,15 +79,15 @@ namespace Game.Scripts.Domain.SpatialHash
         {
             float radiusSq = radius * radius;
 
-            int2 centerCell = GetCell(position, spatialHash.cellSize);
-            int cellRadius = (int) math.ceil(radius / spatialHash.cellSize);
+            int2 centerCell = GetCell(position, spatialHash.CellSize);
+            int cellRadius = (int) math.ceil(radius / spatialHash.CellSize);
 
             for (int x = -cellRadius; x <= cellRadius; x++)
             for (int z = -cellRadius; z <= cellRadius; z++)
             {
                 int2 cell = centerCell + new int2(x, z);
                 uint hash = Hash(cell);
-                if (!spatialHash.map->TryGetFirstValue(
+                if (!spatialHash.Map->TryGetFirstValue(
                         hash,
                         out Entity candidate,
                         out NativeParallelMultiHashMapIterator<uint> iterator
@@ -105,7 +105,7 @@ namespace Game.Scripts.Domain.SpatialHash
                         continue;
 
                     results.Add(candidate);
-                } while (spatialHash.map->TryGetNextValue(out candidate, ref iterator));
+                } while (spatialHash.Map->TryGetNextValue(out candidate, ref iterator));
             }
         }
     }

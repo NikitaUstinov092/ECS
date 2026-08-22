@@ -25,7 +25,7 @@ namespace Game.Scripts.Domain.GameEntities.View
             foreach ((RefRO<ModelEntity> modelEntityRef, DynamicBuffer<AnimatorParameterData> parameterBuffer) in SystemAPI
                          .Query<RefRO<ModelEntity>, DynamicBuffer<AnimatorParameterData>>())
             {
-                Entity modelEntity = modelEntityRef.ValueRO.value;
+                Entity modelEntity = modelEntityRef.ValueRO.Value;
                 int isMoving = _moveEventLookup.IsComponentEnabled(modelEntity) ? 1 : 0;
                 
                 AnimatorParams.Shooter.IsMoving.Value(isMoving).Apply(parameterBuffer);

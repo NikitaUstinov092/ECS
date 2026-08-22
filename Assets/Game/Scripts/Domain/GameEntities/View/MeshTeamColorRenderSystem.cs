@@ -45,7 +45,7 @@ namespace Game.Scripts.Domain.GameEntities.View
                         Team team = _teamLookup[current];
 
                         TeamViewConfig.TeamInfo info =
-                            _catalog.GetTeam(team.value);
+                            _catalog.GetTeam(team.Value);
 
                         Color color = info.Material.color;
 
@@ -67,36 +67,3 @@ namespace Game.Scripts.Domain.GameEntities.View
         }
     }
 }
-    
-    // using Unity.Rendering;
-    // using UnityEngine;
-    // using Unity.Entities;
-    //
-    // namespace QDTSDemo
-    // {
-    //     [UpdateInGroup(typeof(PresentationSystemGroup))]
-    //     public partial struct MeshTeamColorRenderSystem : ISystem
-    //     {
-    //         public void OnCreate(ref SystemState state)
-    //         {
-    //             state.RequireForUpdate<ModelEntity>();
-    //         }
-    //
-    //         public void OnUpdate(ref SystemState state)
-    //         {
-    //             foreach (var (model, color) in 
-    //                      SystemAPI.Query<RefRO<ModelEntity>, RefRW<UrpMaterialPropertyBaseColor>>())
-    //             {
-    //                 color.ValueRW.Value = GetTeamColor();
-    //             }
-    //         }
-    //
-    //         private float4 GetTeamColor()
-    //         {
-    //             Color color = Color.red;
-    //                 
-    //
-    //             return new float4(color.r, color.g, color.b, color.a);
-    //         }
-    //     }
-    // }

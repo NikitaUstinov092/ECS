@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Fire
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new FireOffset
                 {
-                    value = authoring._firePoint.position - authoring.transform.position
+                    Value = authoring._firePoint.position - authoring.transform.position
                 });
             }
         }

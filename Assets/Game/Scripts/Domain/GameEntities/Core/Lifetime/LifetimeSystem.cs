@@ -21,7 +21,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Lifetime
             
             foreach ((RefRW<Lifetime> lifetime, Entity entity) in SystemAPI.Query<RefRW<Lifetime>>().WithEntityAccess())
             {
-                ref float time = ref lifetime.ValueRW.value;
+                ref float time = ref lifetime.ValueRW.Value;
                 time -= deltaTime;
                 if (time <= 0) 
                     ecb.DestroyEntity(entity);

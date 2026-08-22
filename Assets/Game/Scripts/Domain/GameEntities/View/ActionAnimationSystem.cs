@@ -1,10 +1,8 @@
-using System.Reflection;
 using Game.Scripts.Domain.GameEntities.Core.Action;
 using SnivelerCode.GpuAnimation.Generated;
 using SnivelerCode.GpuAnimation.Runtime.Components;
 using SnivelerCode.GpuAnimation.Runtime.Utils;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.View
 {
@@ -29,7 +27,7 @@ namespace Game.Scripts.Domain.GameEntities.View
                          RefRO<ModelEntity>,
                          DynamicBuffer<AnimatorParameterData>>())
             {
-                Entity modelEntity = modelEntityRef.ValueRO.value;
+                Entity modelEntity = modelEntityRef.ValueRO.Value;
 
                 int isFire =
                     _fireEventLookup.IsComponentEnabled(modelEntity) ? 1 : 0;
@@ -38,16 +36,6 @@ namespace Game.Scripts.Domain.GameEntities.View
                 AnimatorParams.Shooter.Fire
                     .Value(isFire)
                     .Apply(parameterBuffer);
-               
-                // if (isFire == 1)
-                // {
-                //     for (int i = 0; i < parameterBuffer.Length; i++)
-                //     {
-                //         AnimatorParameterData parameter = parameterBuffer[i];
-                //
-                //         Debug.Log($"Buffer[{i}]: {parameter.Value}");
-                //     }
-                // }
             }
         }
     }

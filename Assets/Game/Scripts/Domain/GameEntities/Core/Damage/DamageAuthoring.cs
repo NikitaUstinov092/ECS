@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Damage
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new Damage
                 {
-                    value = authoring._damage
+                    Value = authoring._damage
                 });
             }
         }

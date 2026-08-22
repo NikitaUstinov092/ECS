@@ -12,7 +12,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Armor
             public override void Bake(ArmorMultiplierAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
-                AddComponent(entity, new ArmorMultiplier {value = authoring.Value});
+                AddComponent(entity, new ArmorMultiplier {Value = authoring.Value});
             }
         }
     }

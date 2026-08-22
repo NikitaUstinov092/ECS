@@ -55,9 +55,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 
               
                 var deltaTime = SystemAPI.Time.DeltaTime;
-                projectileCooldown.ValueRW.time = math.max(projectileCooldown.ValueRW.time - deltaTime, 0);
+                projectileCooldown.ValueRW.Time = math.max(projectileCooldown.ValueRW.Time - deltaTime, 0);
                 
-                if (projectileCooldown.ValueRO.time > 0)
+                if (projectileCooldown.ValueRO.Time > 0)
                     continue;
                 
                 if (_healthLookup.TryGetComponent(entity, out Health health))
@@ -66,7 +66,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                         continue;
                 }
                 
-                Entity target = requestValue.ValueRO.target;
+                Entity target = requestValue.ValueRO.Target;
                 
                 ProjectileUseCase.SpawnProjectile(
                     ref ecb,
@@ -81,7 +81,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
                 ammoRW.ValueRW.Value--;
               
                 requestEnabled.ValueRW = false;
-                projectileCooldown.ValueRW.time = projectileCooldown.ValueRO.duration;
+                projectileCooldown.ValueRW.Time = projectileCooldown.ValueRO.Duration;
             }
         }
     }

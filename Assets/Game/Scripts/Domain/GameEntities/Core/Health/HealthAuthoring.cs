@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Health
@@ -18,11 +18,11 @@ namespace Game.Scripts.Domain.GameEntities.Core.Health
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new Health
                 {
-                    value = authoring._current
+                    Value = authoring._current
                 });
                 this.AddComponent(entity, new MaxHealth
                 {
-                    value = authoring._max
+                    Value = authoring._max
                 });
             }
         }

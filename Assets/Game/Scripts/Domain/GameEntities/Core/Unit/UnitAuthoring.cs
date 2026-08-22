@@ -9,8 +9,8 @@ namespace Game.Scripts.Domain.GameEntities.Core.Unit
         {
             public override void Bake(UnitAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.Dynamic);
-                this.AddComponent<Unit>(entity);
+                Entity entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent<Unit>(entity);
             }
         }
     }

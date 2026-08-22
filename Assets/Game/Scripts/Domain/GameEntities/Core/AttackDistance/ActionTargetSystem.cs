@@ -52,7 +52,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
                     continue;
              
                     // Target
-                    Entity target = targetRef.ValueRO.value;
+                    Entity target = targetRef.ValueRO.Value;
                 if (target == Entity.Null ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform) ||
                     !_healthLookup.TryGetComponent(target, out Health.Health targetHealth) ||
@@ -62,7 +62,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
                 float3 currentPosition = _transformLookup.GetRefRO(entity).ValueRO.Position;
                 float3 delta = targetTransform.Position - currentPosition;
 
-                float attackRange = attackDistance.ValueRO.value;
+                float attackRange = attackDistance.ValueRO.Value;
                 if (math.lengthsq(delta) > attackRange * attackRange)
                 {
                     moveRequestValue.ValueRW.direction = math.normalizesafe(delta);
@@ -70,7 +70,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
                 }
                 else
                 {
-                    actionRequest.ValueRW.target = target;
+                    actionRequest.ValueRW.Target = target;
                     actionRequestEnabled.ValueRW = true;
                 }
             }

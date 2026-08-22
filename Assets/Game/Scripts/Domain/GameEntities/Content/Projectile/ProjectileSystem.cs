@@ -61,7 +61,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Projectile
                          .WithPresent<Projectile>()
                          .WithEntityAccess())
             {
-                Entity target = targetRef.ValueRO.value;
+                Entity target = targetRef.ValueRO.Value;
 
                 // Если цели нет
                 if (target == Entity.Null ||
@@ -73,9 +73,9 @@ namespace Game.Scripts.Domain.GameEntities.Content.Projectile
                 }
 
                 float3 targetPosition = targetTransform.Position + 
-                                        math.rotate(targetTransform.Rotation, offset.ValueRO.value);
+                                        math.rotate(targetTransform.Rotation, offset.ValueRO.Value);
                 float3 delta = targetPosition - transform.ValueRO.Position;
-                float stoppingDistance = stoppingDistanceRef.ValueRO.value;
+                float stoppingDistance = stoppingDistanceRef.ValueRO.Value;
 
                 if (math.lengthsq(delta) > stoppingDistance * stoppingDistance)
                 {
@@ -89,8 +89,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Projectile
                 {
                     damageRequests.Add(new TakeDamageRequest
                     {
-                        damage = damage.ValueRO.value,
-                        instigator = entity
+                        Damage = damage.ValueRO.Value,
+                        Instigator = entity
                     });
                 }
 

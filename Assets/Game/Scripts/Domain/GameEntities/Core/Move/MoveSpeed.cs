@@ -1,11 +1,13 @@
 using System;
 using Unity.Entities;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Move
 {
     [Serializable]
     public struct MoveSpeed : IComponentData
     {
-        public float value;
+        [FormerlySerializedAs("value")] 
+        public float Value;
     }
 }

@@ -39,7 +39,7 @@ namespace Game.Scripts.Domain.Players.Money
                 foreach (var (mana, team)
                          in SystemAPI.Query<RefRW<Money>, RefRO<Team>>())
                 {
-                    if (team.ValueRO.value != purchase.Team)
+                    if (team.ValueRO.Value != purchase.Team)
                         continue;
 
                     if (mana.ValueRO.Current < request.ValueRO.Amount)

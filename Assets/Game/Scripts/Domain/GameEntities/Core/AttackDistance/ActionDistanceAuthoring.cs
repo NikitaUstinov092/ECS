@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.AttackDistance
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new ActionDistance
                 {
-                    value = authoring._value
+                    Value = authoring._value
                 });
             }
         }

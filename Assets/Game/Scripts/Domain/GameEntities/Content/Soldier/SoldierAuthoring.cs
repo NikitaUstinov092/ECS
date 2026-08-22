@@ -16,8 +16,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Soldier
         {
             public override void Bake(SoldierAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.Dynamic);
-                this.AddComponent(entity, new Soldier());
+                Entity entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(entity, new Soldier());
             }
         }
     }

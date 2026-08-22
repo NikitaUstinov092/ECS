@@ -6,7 +6,7 @@ namespace Game.Scripts.Domain.SpatialHash
     // Singleton
     public unsafe struct SpatialHashData : IComponentData 
     {
-        public UnsafeParallelMultiHashMap<uint, Entity>* map;
-        public float cellSize;
+        public UnsafeParallelMultiHashMap<uint, Entity>* Map;
+        public float CellSize;
     }
 }

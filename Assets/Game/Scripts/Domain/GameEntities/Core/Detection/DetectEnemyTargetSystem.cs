@@ -9,7 +9,6 @@ using Unity.Transforms;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Detection
 {
-    
     [BurstCompile]
     [UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst =  true)]
     public partial struct DetectEnemyTargetSystem : ISystem
@@ -69,14 +68,14 @@ namespace Game.Scripts.Domain.GameEntities.Core.Detection
             {
                 IsEnemyPredicate condition = new IsEnemyPredicate(
                     entity,
-                    team.value,
+                    team.Value,
                     TeamLookup,
                     HealthLookup
                 );
                 
-                target.value = SpatialHash.FindClosest(
+                target.Value = SpatialHash.FindClosest(
                     transform.Position,
-                    detectionRadius.value,
+                    detectionRadius.Value,
                     in condition,
                     TransformLookup
                 );

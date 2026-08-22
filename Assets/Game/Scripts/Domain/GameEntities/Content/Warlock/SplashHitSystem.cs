@@ -87,7 +87,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
             {
                 var condition = new IsEnemyPredicate(
                     entity,
-                    team.value,
+                    team.Value,
                     TeamLookup,
                     HealthLookup
                 );
@@ -120,8 +120,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                         target,
                         new TakeDamageRequest
                         {
-                            damage = damage.value,
-                            instigator = entity
+                            Damage = damage.Value,
+                            Instigator = entity
                         });
                 }
 

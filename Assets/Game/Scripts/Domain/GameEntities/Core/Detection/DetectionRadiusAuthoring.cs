@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Detection
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new DetectionRadius
                 {
-                    value = authoring._value
+                    Value = authoring._value
                 });
             }
         }

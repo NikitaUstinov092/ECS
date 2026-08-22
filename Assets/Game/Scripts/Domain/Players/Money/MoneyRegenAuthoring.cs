@@ -1,12 +1,15 @@
 ﻿using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.Players.Money
 {
     public class MoneyRegenAuthoring : MonoBehaviour
     {
-        [SerializeField] private int regenCountPerRate = 1;
-        [SerializeField] private int secondsRate = 1;
+        [FormerlySerializedAs("regenCountPerRate")] 
+        [SerializeField] private int _regenCountPerRate = 1;
+        [FormerlySerializedAs("secondsRate")] 
+        [SerializeField] private int _secondsRate = 1;
 
         public class Baker : Baker<MoneyRegenAuthoring>
         {
@@ -16,8 +19,8 @@ namespace Game.Scripts.Domain.Players.Money
 
                 AddComponent(entity, new MoneyRegen
                 {
-                    RegenCountPerRate = authoring.regenCountPerRate,
-                    SecondsRate = authoring.secondsRate,
+                    RegenCountPerRate = authoring._regenCountPerRate,
+                    SecondsRate = authoring._secondsRate,
                     RegenTimer = 0f
                 });
             }

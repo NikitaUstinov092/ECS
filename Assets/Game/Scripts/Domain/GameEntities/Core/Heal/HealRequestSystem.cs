@@ -76,30 +76,30 @@ namespace Game.Scripts.Domain.GameEntities.Core.Heal
             {
                 requestEnabled.ValueRW = false;
             
-                if (cooldown.time > 0)
+                if (cooldown.Time > 0)
                     return;
                 
                 if (stamina.Value <= 0) 
                     return;
             
-                Entity target = requestValue.target;
+                Entity target = requestValue.Target;
                 
                 if (target == Entity.Null ||
                     !TransformLookup.TryGetComponent(target, out LocalTransform targetTransform))
                     return;
             
                 if (!TeamLookup.TryGetComponent(target, out Team.Team targetTeam) ||
-                    targetTeam.value != team.value)
+                    targetTeam.Value != team.Value)
                     return;
             
                 if (!TargetHealthLookup.TryGetComponent(target, out Health.Health targetHealth) ||
-                    targetHealth.value <=0)
+                    targetHealth.Value <=0)
                     return;
             
                 if (!TransformLookup.TryGetComponent(entity, out LocalTransform myTransform))
                     return;
             
-                float distance = attackDistance.value;
+                float distance = attackDistance.Value;
                 float3 delta = targetTransform.Position - myTransform.Position;
                 
                 if (math.lengthsq(delta) > distance * distance)

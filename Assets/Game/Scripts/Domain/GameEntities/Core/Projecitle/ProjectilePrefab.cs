@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Unity.Entities;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
@@ -6,6 +6,6 @@ namespace Game.Scripts.Domain.GameEntities.Core.Projecitle
     [Serializable]
     public struct ProjectilePrefab : IComponentData
     {
-        public Entity value;
+        public Entity Value;
     }
 }

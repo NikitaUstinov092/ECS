@@ -1,11 +1,13 @@
 ﻿using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Color
 {
     public class MyMaterialPropertyColorTargetAuthoring : MonoBehaviour
     {
-        public Material targetMaterial;
+        [FormerlySerializedAs("targetMaterial")] [SerializeField]
+        private Material _targetMaterial;
 
         class Baker : Baker<MyMaterialPropertyColorTargetAuthoring>
         {
@@ -15,7 +17,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Color
 
                 AddComponent(entity, new MyMaterialPropertyColorTarget
                 {
-                    Material = authoring.targetMaterial
+                    Material = authoring._targetMaterial
                 });
             }
         }

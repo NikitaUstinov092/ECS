@@ -1,12 +1,13 @@
-using System;
+﻿using System;
 using Unity.Collections;
 using Unity.Entities;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Name
 {
     [Serializable]
     public struct EntityName : IComponentData
     {
-        public FixedString64Bytes value;
+        [FormerlySerializedAs("value")] public FixedString64Bytes Value;
     }
 }

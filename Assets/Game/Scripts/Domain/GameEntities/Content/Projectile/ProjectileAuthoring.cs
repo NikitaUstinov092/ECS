@@ -9,8 +9,8 @@ namespace Game.Scripts.Domain.GameEntities.Content.Projectile
         {
             public override void Bake(ProjectileAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.Dynamic);
-                this.AddComponent(entity, new Projectile());
+                Entity entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(entity, new Projectile());
             }
         }
     }

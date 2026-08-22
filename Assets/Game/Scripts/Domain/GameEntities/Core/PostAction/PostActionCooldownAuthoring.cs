@@ -1,12 +1,13 @@
 ﻿using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.PostAction
 {
     public class PostActionCooldownAuthoring : MonoBehaviour
     {
-        [SerializeField] 
-        private PostActionCooldown duration;
+        [FormerlySerializedAs("duration")] [SerializeField] 
+        private PostActionCooldown _duration;
 
         private class Baker : Baker<PostActionCooldownAuthoring>
         {
@@ -14,8 +15,8 @@ namespace Game.Scripts.Domain.GameEntities.Core.PostAction
             {
                 Entity entity = GetEntity(TransformUsageFlags.None);
 
-                var durationC = authoring.duration;
-                durationC.time = durationC.duration;
+                var durationC = authoring._duration;
+                durationC.Time = durationC.Duration;
                 
                 this.AddComponent(entity, durationC);
             }

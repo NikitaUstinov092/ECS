@@ -10,7 +10,7 @@ namespace Game.Scripts.Domain.GameEntities.View.Damage
             public override void Bake(DamageVfxAuthoring authoring)
             {
                 Entity entity = GetEntity(TransformUsageFlags.Dynamic);
-                this.AddComponent<DamageVfx>(entity);
+                AddComponent<DamageVfx>(entity);
             }
         }
     }

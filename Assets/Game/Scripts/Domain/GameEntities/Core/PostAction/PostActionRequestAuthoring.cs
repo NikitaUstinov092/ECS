@@ -13,7 +13,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.PostAction
 
                 AddComponent(entity, new PostActionRequest
                 {
-                    target = Entity.Null
+                    Target = Entity.Null
                 });
 
                 SetComponentEnabled<PostActionRequest>(entity, false);

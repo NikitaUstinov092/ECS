@@ -23,7 +23,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Rotation
             dot = math.min(dot, 1f);
 
             float angle = 2f * math.acos(dot);
-            float maxStep = math.radians(speed.value) * deltaTime;
+            float maxStep = math.radians(speed.Value) * deltaTime;
 
             float t = angle < 1e-5f ? 1f : math.min(1f, maxStep / angle);
             transform.Rotation = math.slerp(transform.Rotation, target, t);

@@ -65,17 +65,17 @@ namespace Game.Scripts.Domain.GameEntities.Content.Warlock
                 if(mana.Value<=0)
                     continue;
 
-                Entity target = requestValue.ValueRO.target;
+                Entity target = requestValue.ValueRO.Target;
                 if (target == Entity.Null ||
                     !SystemAPI.Exists(target) ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform))
                     continue;
 
-                TeamType myTeam = team.ValueRO.value;
-                if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.value == myTeam)
+                TeamType myTeam = team.ValueRO.Value;
+                if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.Value == myTeam)
                     continue;
 
-                float distance = attackDistance.ValueRO.value;
+                float distance = attackDistance.ValueRO.Value;
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                 if (math.lengthsq(delta) > distance * distance)
                     continue;

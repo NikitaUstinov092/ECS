@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Lifetime
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new Lifetime
                 {
-                    value = authoring._value
+                    Value = authoring._value
                 });
             }
         }

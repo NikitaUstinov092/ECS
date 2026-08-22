@@ -44,7 +44,7 @@ namespace Game.Scripts.Custom.Presenters
             {
                 Team team = _entityManager.GetComponentData<Team>(entity);
 
-                if (team.value != _teamType)
+                if (team.Value != _teamType)
                     continue;
 
                 Money money = _entityManager.GetComponentData<Money>(entity);

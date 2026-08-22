@@ -6,6 +6,6 @@ namespace Game.Scripts.Domain.GameEntities.Core.Armor
     [Serializable]
     public struct ArmorMultiplier : IComponentData
     {
-        public float value;
+        public float Value;
     }
 }

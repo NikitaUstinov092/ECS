@@ -9,9 +9,9 @@ namespace Game.Scripts.Domain.GameEntities.Core.Action
         {
             public override void Bake(ActionEventAuthoring authoring)
             {
-                Entity entity = this.GetEntity(TransformUsageFlags.None);
-                this.AddComponent<ActionEvent>(entity);
-                this.SetComponentEnabled<ActionEvent>(entity, false);
+                Entity entity = GetEntity(TransformUsageFlags.None);
+                AddComponent<ActionEvent>(entity);
+                SetComponentEnabled<ActionEvent>(entity, false);
             }
         }
     }

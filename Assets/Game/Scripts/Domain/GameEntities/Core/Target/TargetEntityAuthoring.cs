@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Target
@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.Target
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new TargetEntity
                 {
-                    value = this.GetEntity(authoring._target, TransformUsageFlags.None)
+                    Value = this.GetEntity(authoring._target, TransformUsageFlags.None)
                 });
             }
         }

@@ -1,11 +1,13 @@
-using System;
+﻿using System;
 using Unity.Entities;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Domain.GameEntities.Core.StoppingDistance
 {
     [Serializable]
     public struct StoppingDistance : IComponentData
     {
-        public float value;
+        [FormerlySerializedAs("value")] 
+        public float Value;
     }
 }

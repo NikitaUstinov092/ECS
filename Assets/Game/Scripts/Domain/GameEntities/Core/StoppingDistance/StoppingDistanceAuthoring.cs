@@ -1,4 +1,4 @@
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace Game.Scripts.Domain.GameEntities.Core.StoppingDistance
@@ -15,7 +15,7 @@ namespace Game.Scripts.Domain.GameEntities.Core.StoppingDistance
                 Entity entity = this.GetEntity(TransformUsageFlags.None);
                 this.AddComponent(entity, new StoppingDistance
                 {
-                    value = authoring._value
+                    Value = authoring._value
                 });
             }
         }

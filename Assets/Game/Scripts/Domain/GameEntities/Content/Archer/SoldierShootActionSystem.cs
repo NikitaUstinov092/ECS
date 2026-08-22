@@ -73,21 +73,21 @@ namespace Game.Scripts.Domain.GameEntities.Content.Archer
                 if (ammo.ValueRO.Value <= 0)
                     continue;
 
-                Entity target = requestValue.ValueRO.target;
+                Entity target = requestValue.ValueRO.Target;
                 
                 if (target == Entity.Null ||
                     !SystemAPI.Exists(target) ||
                     !_transformLookup.TryGetComponent(target, out LocalTransform targetTransform))
                     continue;
                 
-                TeamType myTeam = team.ValueRO.value;
+                TeamType myTeam = team.ValueRO.Value;
                 
-                if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.value == myTeam)
+                if (!_teamLookup.TryGetComponent(target, out Team targetTeam) || targetTeam.Value == myTeam)
                     continue;
 
                 RefRW<LocalTransform> transform = _transformLookup.GetRefRW(entity);
                 
-                float distance = attackDistance.ValueRO.value;
+                float distance = attackDistance.ValueRO.Value;
                
                 float3 delta = targetTransform.Position - transform.ValueRO.Position;
                
@@ -105,7 +105,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Archer
                 if(!_postActionRequest.HasComponent(entity))
                     continue;
                 
-                _postActionRequest[entity] = new PostActionRequest { target = target };
+                _postActionRequest[entity] = new PostActionRequest { Target = target };
                 _postActionRequest.SetComponentEnabled(entity, true);
             }
         }
