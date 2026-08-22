@@ -1,5 +1,4 @@
-﻿using Game.Scripts.Domain.GameEntities.Core.Stamina;
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Entities;
 
 namespace Game.Scripts.Domain.GameEntities.Core.Ammo
@@ -15,26 +14,26 @@ namespace Game.Scripts.Domain.GameEntities.Core.Ammo
             foreach ((
                          RefRW<Ammo> ammo,
                          RefRW<AmmoRegen> regen,
-                         RefRO<MaxStamina> maxStamina
+                         RefRO<MaxAmmo> maxAmmo
                      ) in SystemAPI.Query<
                          RefRW<Ammo>, RefRW<AmmoRegen> ,
-                         RefRO<MaxStamina>>())
+                         RefRO<MaxAmmo>>())
                      
             {
                 ref Ammo currentAmmo = ref ammo.ValueRW;
                 
-                ref AmmoRegen staminaRegenData = ref regen.ValueRW;
+                ref AmmoRegen ammoRegen = ref regen.ValueRW;
                 
-                if(currentAmmo.Value >= maxStamina.ValueRO.Value)
+                if(currentAmmo.Value >= maxAmmo.ValueRO.Value)
                     continue;
                 
-                staminaRegenData.RegenTimer += deltaTime;
+                ammoRegen.RegenTimer += deltaTime;
 
-                while (staminaRegenData.RegenTimer >= staminaRegenData.SecondsRate)
+                while (ammoRegen.RegenTimer >= ammoRegen.SecondsRate)
                 {
-                    staminaRegenData.RegenTimer -= staminaRegenData.SecondsRate;
+                    ammoRegen.RegenTimer -= ammoRegen.SecondsRate;
 
-                    currentAmmo.Value += staminaRegenData.RegenCountPerRate;
+                    currentAmmo.Value += ammoRegen.RegenCountPerRate;
                 }
             }
             

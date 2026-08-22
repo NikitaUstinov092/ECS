@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed9925e2b494482ba22d98f7cebe7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.GameEntities.Core.Ammo.AmmoRegenAuthoring
-  _secondsRate: 2
+  _secondsRate: 5
   _maxAmmo: 30
   _regenCountPerRate: 1
 --- !u!1001 &3699895201114397584

@@ -5,6 +5,7 @@ namespace Game.Scripts.Domain.Players.Money
 {
     public class MoneyAuthoring : MonoBehaviour
     {
+        [SerializeField] 
         private int _startMoney = 0;
         
         public class ManaBaker : Baker<MoneyAuthoring>

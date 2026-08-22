@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2def87750e714016a13aac0bbdd2eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
+  _startMoney: 0
 --- !u!114 &763321620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2def87750e714016a13aac0bbdd2eb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.MyAuthorings.ManaAuthoring
+  _startMoney: 0
 --- !u!114 &1729509282
 MonoBehaviour:
   m_ObjectHideFlags: 0
