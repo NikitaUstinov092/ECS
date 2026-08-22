@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.ProjectileCooldownAuthoring
   _duration:
     Time: 0
-    Duration: 1
+    Duration: 1.25
 --- !u!114 &2950740336217688433
 MonoBehaviour:
   m_ObjectHideFlags: 0

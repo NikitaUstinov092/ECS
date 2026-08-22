@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ba897a89344fca9abc17d466725b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeadCooldownAuthoring
-  Duration: 0
+  _duration: 0
 --- !u!114 &544914282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,8 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911f89194c5c4b13b21cb40865e6f3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.Players.Money.MoneyRegenAuthoring
-  regenCountPerRate: 1
-  secondsRate: 1
+  _regenCountPerRate: 1
+  _secondsRate: 1
 --- !u!1 &945504108
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911f89194c5c4b13b21cb40865e6f3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Domain.Players.Money.MoneyRegenAuthoring
-  regenCountPerRate: 1
-  secondsRate: 1
+  _regenCountPerRate: 1
+  _secondsRate: 1
 --- !u!1 &1953945048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ba897a89344fca9abc17d466725b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleGame.DeadCooldownAuthoring
-  Duration: 0
+  _duration: 0
 --- !u!114 &7657002863243684356
 MonoBehaviour:
   m_ObjectHideFlags: 0
