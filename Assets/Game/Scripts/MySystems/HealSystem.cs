@@ -15,14 +15,12 @@ namespace Game.Scripts.MySystems
             foreach ((
                          RefRW<Health> health,
                          RefRO<MaxHealth> maxHealth,
-                         DynamicBuffer<TakeHealRequest> requests,
-                         DynamicBuffer<TakeHealEvent> events
+                         DynamicBuffer<TakeHealRequest> requests
                      ) in SystemAPI
                          .Query<
                              RefRW<Health>, 
                              RefRO<MaxHealth>,
-                             DynamicBuffer<TakeHealRequest>,
-                             DynamicBuffer<TakeHealEvent>>())
+                             DynamicBuffer<TakeHealRequest>>())
             {
               
                 for (var i = 0; i < requests.Length && health.ValueRW.IsAlive(); i++)
@@ -30,12 +28,6 @@ namespace Game.Scripts.MySystems
                     TakeHealRequest request = requests[i];
                     
                    health.ValueRW.Increase(maxHealth.ValueRO, request.HealAmount);
-                  
-                    events.Add(new TakeHealEvent()
-                    {
-                        HealAmount = request.HealAmount,
-                        Instigator = request.Instigator
-                    });
                 }
 
                 requests.Clear();

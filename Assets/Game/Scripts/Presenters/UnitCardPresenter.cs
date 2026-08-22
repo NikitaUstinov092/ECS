@@ -18,16 +18,13 @@ namespace Game.Scripts.Presenters
         
         private EntityManager _entityManager;
         private EntityQuery _manaQuery;
-
-        private ButtonChainActivator _buttonChainActivator;
+        
 
         private void Awake()
         {
             _view = GetComponent<UnitCardView>();
             _unitCardData = GetComponent<UnitCardData>();
             
-            _buttonChainActivator = new ButtonChainActivator(gameObject);
-
             _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             _manaQuery = _entityManager.CreateEntityQuery(
@@ -64,11 +61,11 @@ namespace Game.Scripts.Presenters
                 if (currentMana == price)
                     UpdateProgressView(currentMana, price);
                 
-                _buttonChainActivator.SetActive(true);
+                _view.SetEnabled(true);
                 return;
             }
-
-            _buttonChainActivator.SetActive(false);
+            
+            _view.SetEnabled(false);
             
             UpdateProgressView(currentMana, price);
         }

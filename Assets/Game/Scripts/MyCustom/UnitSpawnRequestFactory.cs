@@ -18,7 +18,7 @@ namespace Game.Scripts.MyCustom
         
         public void CreateUnitRequest(TeamType team, string unitName, int price)
         {
-            // Ищем Entity с SpendManaRequest для конкретной команды
+            // Ищем Entity с SpendMoneyRequest для конкретной команды
             EntityQuery query = new EntityQueryBuilder(Allocator.Temp)
                 .WithAll<SpendMoneyRequest, Team>()
                 .WithOptions(EntityQueryOptions.IgnoreComponentEnabledState)
