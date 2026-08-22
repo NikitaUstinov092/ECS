@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
@@ -7,6 +8,7 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Swordman
 {
     [BurstCompile]
+    [UpdateInGroup(typeof(ActionSystemGroup), OrderFirst =  true)]
     public partial struct SoldierMeleeActionSystem : ISystem
     {
         private ComponentLookup<Team> _teamLookup; 

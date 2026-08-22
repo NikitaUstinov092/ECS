@@ -1,4 +1,5 @@
-﻿using Game.Scripts.Domain.GameEntities.Core.Ammo;
+﻿using Game.Scripts.Common;
+using Game.Scripts.Domain.GameEntities.Core.Ammo;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
@@ -8,7 +9,7 @@ using Unity.Transforms;
 namespace Game.Scripts.Domain.GameEntities.Content.Soldier
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierShootActionSystem))] //TODO Уйти от зависимостей
+    [UpdateInGroup(typeof(ActionSystemGroup))] 
     public partial struct SoldierProjectileSpawnSystem : ISystem
     {
         private ComponentLookup<Ammo> _ammoLookup;

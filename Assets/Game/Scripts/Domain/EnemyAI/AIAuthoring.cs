@@ -5,7 +5,7 @@ using SampleGame;
 using Unity.Entities;
 using UnityEngine;
 
-namespace Game.Scripts.MyAuthorings
+namespace Game.Scripts.Domain.EnemyAI
 {
     public sealed class AIAuthoring : MonoBehaviour
     {

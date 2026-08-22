@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using SampleGame;
 using Unity.Burst;
 using Unity.Entities;
@@ -6,7 +7,7 @@ using Unity.Mathematics;
 namespace Game.Scripts.Domain.GameEntities.Content.Swordman
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TO DO Уйти от зависимостей
+    [UpdateInGroup(typeof(ActionSystemGroup))] 
     public partial struct SoldierMeleeDamageSystem : ISystem
     {
         private ComponentLookup<Health> _healthLookup;

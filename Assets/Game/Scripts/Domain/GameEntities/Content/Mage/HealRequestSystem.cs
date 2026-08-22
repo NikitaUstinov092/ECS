@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using Game.Scripts.Domain.GameEntities.Core.Stamina;
 using Game.Scripts.MyComponents.Components;
 using SampleGame;
@@ -9,6 +10,7 @@ using Unity.Transforms;
 
 namespace Game.Scripts.Domain.GameEntities.Content.Mage
 {
+    [UpdateInGroup(typeof(ActionSystemGroup))] 
     [BurstCompile]
     public partial struct HealRequestSystem : ISystem
     {
@@ -26,7 +28,7 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
             _teamLookup = SystemAPI.GetComponentLookup<Team>(isReadOnly: true);
             _fireEventLookup = SystemAPI.GetComponentLookup<ActionEvent>(isReadOnly: false);
             
-            _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: false);
+            _healthLookup = SystemAPI.GetComponentLookup<Health>(isReadOnly: true);
             _takeHealRequests = SystemAPI.GetBufferLookup<TakeHealRequest>(isReadOnly: false);
         }
 
@@ -55,12 +57,11 @@ namespace Game.Scripts.Domain.GameEntities.Content.Mage
         public partial struct HealJob : IJobEntity
         {
             [ReadOnly] public ComponentLookup<Team> TeamLookup;
+            [ReadOnly] public ComponentLookup<Health> TargetHealthLookup;
             
             public ComponentLookup<LocalTransform> TransformLookup;
             
             public BufferLookup<TakeHealRequest> TakeHealRequests;
-            
-            public ComponentLookup<Health> TargetHealthLookup;
             
             private void Execute(
                 Entity entity,

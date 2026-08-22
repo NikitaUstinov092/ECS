@@ -1,3 +1,4 @@
+using Game.Scripts.Common;
 using Game.Scripts.Domain.GameEntities.Content.Swordman;
 using Game.Scripts.Domain.GameEntities.Core.Ammo;
 using Unity.Burst;
@@ -8,7 +9,7 @@ using Unity.Transforms;
 namespace SampleGame
 {
     [BurstCompile]
-    [UpdateAfter(typeof(SoldierMeleeActionSystem))] //TODO Уйти от зависимостей
+    [UpdateInGroup(typeof(ActionSystemGroup))] 
     public partial struct SoldierShootActionSystem : ISystem
     {
         private ComponentLookup<LocalTransform> _transformLookup;
